@@ -1,0 +1,22 @@
+# ninja log v6
+9	89	7608906482489678	CMakeFiles/name_space.dir/a.cpp.obj	4076459cd713d6de
+17	103	7608906482570239	CMakeFiles/name_space.dir/b.cpp.obj	ba6488568f0859e7
+2	276	7608906482419611	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+66	336	7608907112682173	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+6	1157	7608914014448215	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+12	930	7608921492712060	CMakeFiles/name_space.dir/a.cpp.obj	4076459cd713d6de
+40	450	7608921612727454	CMakeFiles/name_space.dir/b.cpp.obj	ba6488568f0859e7
+6	339	7608922652033842	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+340	514	7608922655443620	name_space.exe	6b1352d9d9a5189c
+30	344	7608922765912193	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+346	480	7608922769130649	name_space.exe	6b1352d9d9a5189c
+6	335	7608923151464350	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+336	460	7608923154791793	name_space.exe	6b1352d9d9a5189c
+47	647	7608923578263609	CMakeFiles/name_space.dir/b.cpp.obj	ba6488568f0859e7
+649	831	7608923584389883	name_space.exe	6b1352d9d9a5189c
+15	478	7608961112136893	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+479	648	7608961116907665	name_space.exe	6b1352d9d9a5189c
+55	584	7608961220327033	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+585	711	7608961225706717	name_space.exe	6b1352d9d9a5189c
+6	375	7608961351260113	CMakeFiles/name_space.dir/main.cpp.obj	d17724195768cc7
+376	511	7608961354964563	name_space.exe	6b1352d9d9a5189c
