@@ -1,0 +1,14 @@
+# ninja log v6
+29	854	7609079028370755	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
+10	873	7609079028187771	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+2	933	7609079028139403	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+6	344	7609079161815161	CMakeFiles/Wire_Connection.dir/switch.cpp.obj	84ddf8a4c19a759c
+345	498	7609079165244113	Wire_Connection.exe	20943fe18ae2b197
+31	342	7609080717649923	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
+344	491	7609080720812985	Wire_Connection.exe	20943fe18ae2b197
+5	343	7609081761350095	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+345	496	7609081764889221	Wire_Connection.exe	20943fe18ae2b197
+46	358	7609081991380568	CMakeFiles/Wire_Connection.dir/switch.cpp.obj	84ddf8a4c19a759c
+359	485	7609081994642521	Wire_Connection.exe	20943fe18ae2b197
+60	668	7609082121157313	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+669	918	7609082127360616	Wire_Connection.exe	20943fe18ae2b197
