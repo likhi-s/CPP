@@ -1,0 +1,14 @@
+# ninja log v6
+41	505	7608829342069507	CMakeFiles/Friend.dir/main.cpp.obj	9d057040d7f23089
+55	480	7608829342261547	CMakeFiles/Friend.dir/likhitha.cpp.obj	39ed01e534f8a849
+49	502	7608829342226303	CMakeFiles/Friend.dir/person.cpp.obj	7bd2edba06438aa7
+505	608	7608829346809459	Friend.exe	47d7e31455220359
+20	30	7608820965360017	clean	8cb419a5fec24d95
+11	507	7608829891929890	CMakeFiles/Friend.dir/person.cpp.obj	7bd2edba06438aa7
+16	517	7608829891929890	CMakeFiles/Friend.dir/likhitha.cpp.obj	39ed01e534f8a849
+5	544	7608829891929890	CMakeFiles/Friend.dir/main.cpp.obj	9d057040d7f23089
+544	660	7608829897334396	Friend.exe	47d7e31455220359
+10	666	7608832227249620	CMakeFiles/Friend.dir/main.cpp.obj	9d057040d7f23089
+24	686	7608832227503884	CMakeFiles/Friend.dir/person.cpp.obj	7bd2edba06438aa7
+33	735	7608832227593873	CMakeFiles/Friend.dir/likhitha.cpp.obj	39ed01e534f8a849
+735	869	7608832234609231	Friend.exe	47d7e31455220359
