@@ -1,0 +1,13 @@
+# ninja log v6
+11	653	7605229452040392	CMakeFiles/Function_Overiding.dir/base.cpp.obj	a0534f19cbaff792
+4	728	7605229451981365	CMakeFiles/Function_Overiding.dir/main.cpp.obj	72911510e56cee6b
+19	773	7605229452125299	CMakeFiles/Function_Overiding.dir/derived.cpp.obj	e9bde0f8efcf186f
+773	978	7605229459667868	Function_Overiding.exe	2e509c74df9d8f96
+35	434	7605230084630290	CMakeFiles/Function_Overiding.dir/base.cpp.obj	a0534f19cbaff792
+28	439	7605230084630290	CMakeFiles/Function_Overiding.dir/main.cpp.obj	72911510e56cee6b
+41	560	7605230084741372	CMakeFiles/Function_Overiding.dir/derived.cpp.obj	e9bde0f8efcf186f
+560	683	7605230089950824	Function_Overiding.exe	2e509c74df9d8f96
+34	542	7605231013977738	CMakeFiles/Function_Overiding.dir/main.cpp.obj	72911510e56cee6b
+67	577	7605231014287914	CMakeFiles/Function_Overiding.dir/derived.cpp.obj	e9bde0f8efcf186f
+57	629	7605231014201979	CMakeFiles/Function_Overiding.dir/base.cpp.obj	a0534f19cbaff792
+629	752	7605231019858428	Function_Overiding.exe	2e509c74df9d8f96

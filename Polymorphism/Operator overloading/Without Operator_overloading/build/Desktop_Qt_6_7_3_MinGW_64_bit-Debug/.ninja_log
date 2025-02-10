@@ -1,0 +1,10 @@
+# ninja log v6
+3	358	7608736396424339	CMakeFiles/Operator_.dir/main.cpp.obj	4fb676bd329fd6c4
+9	362	7608736396424339	CMakeFiles/Operator_.dir/base.cpp.obj	6bd567d0743323b3
+362	558	7608736400049059	Operator_.exe	ab46a35ee8ae3e66
+25	326	7608737198122721	CMakeFiles/Operator_.dir/base.cpp.obj	6bd567d0743323b3
+327	462	7608737201197313	Operator_.exe	ab46a35ee8ae3e66
+31	344	7608737509220529	CMakeFiles/Operator_.dir/base.cpp.obj	6bd567d0743323b3
+345	471	7608737512354279	Operator_.exe	ab46a35ee8ae3e66
+5	279	7608747594662064	CMakeFiles/Operator_.dir/main.cpp.obj	4fb676bd329fd6c4
+280	374	7608747597454887	Operator_.exe	ab46a35ee8ae3e66
