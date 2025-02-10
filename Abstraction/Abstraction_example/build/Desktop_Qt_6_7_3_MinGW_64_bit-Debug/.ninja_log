@@ -1,0 +1,5 @@
+# ninja log v6
+3	572	7605206846513734	CMakeFiles/Abstraction.dir/main.cpp.obj	d4408bf31f89561c
+18	608	7605206846654276	CMakeFiles/Abstraction.dir/mobile.cpp.obj	7836cb523cd7a565
+10	634	7605206846583728	CMakeFiles/Abstraction.dir/battery.cpp.obj	932893c8051b5ab1
+634	754	7605206852819393	Abstraction.exe	4fb4419143029491
