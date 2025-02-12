@@ -1,0 +1,11 @@
+# ninja log v6
+8	440	7609595900397197	CMakeFiles/using_namespace_pthinks.dir/employee.cpp.obj	f17c30dbf4b15608
+14	451	7609595900553044	CMakeFiles/using_namespace_pthinks.dir/employee1.cpp.obj	246ce3d67526d1f1
+33	388	7609595969688381	CMakeFiles/using_namespace_pthinks.dir/main.cpp.obj	e2c9f7c298f1a639
+389	543	7609595973212409	using_namespace_pthinks.exe	290f7d8736fb8087
+6	325	7609597194025257	CMakeFiles/using_namespace_pthinks.dir/main.cpp.obj	e2c9f7c298f1a639
+325	465	7609597197325058	using_namespace_pthinks.exe	290f7d8736fb8087
+41	345	7609597313351015	CMakeFiles/using_namespace_pthinks.dir/main.cpp.obj	e2c9f7c298f1a639
+347	476	7609597316410323	using_namespace_pthinks.exe	290f7d8736fb8087
+5	319	7609597652460664	CMakeFiles/using_namespace_pthinks.dir/main.cpp.obj	e2c9f7c298f1a639
+319	463	7609597655668364	using_namespace_pthinks.exe	290f7d8736fb8087
