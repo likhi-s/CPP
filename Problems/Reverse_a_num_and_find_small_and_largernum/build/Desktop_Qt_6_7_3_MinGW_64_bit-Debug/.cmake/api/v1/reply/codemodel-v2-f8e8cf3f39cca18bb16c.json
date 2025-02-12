@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-cb278d8d1a48aa8d7739.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Reverse_a_num_and_find_small_and_largernum",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Reverse_a_num_and_find_small_and_largernum::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Reverse_a_num_and_find_small_and_largernum-Debug-69a53cdcec85c89c53ff.json",
+					"name" : "Reverse_a_num_and_find_small_and_largernum",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/likit/Desktop/Assignments/c++/TASKS/Problems/Reverse_a_num_and_find_small_and_largernum/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug",
+		"source" : "C:/Users/likit/Desktop/Assignments/c++/TASKS/Problems/Reverse_a_num_and_find_small_and_largernum"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
