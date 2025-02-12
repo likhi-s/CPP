@@ -1,0 +1,21 @@
+# ninja log v6
+2	293	7609550200454466	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+48	327	7609550472516111	CMakeFiles/Friend_Class_example.dir/b.cpp.obj	f170b10cf99e21d
+39	331	7609550472419217	CMakeFiles/Friend_Class_example.dir/a.cpp.obj	488e5b68c293e616
+331	559	7609550475344673	Friend_Class_example.exe	ac101f86f63fad7f
+30	269	7609550896377730	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+270	391	7609550898784918	Friend_Class_example.exe	ac101f86f63fad7f
+23	270	7609551347575452	CMakeFiles/Friend_Class_example.dir/b.cpp.obj	f170b10cf99e21d
+271	381	7609551350102559	Friend_Class_example.exe	ac101f86f63fad7f
+10	1076	7609571711228739	CMakeFiles/Friend_Class_example.dir/a.cpp.obj	488e5b68c293e616
+41	319	7609571796912183	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+11	383	7609580555635093	CMakeFiles/Friend_Class_example.dir/a.cpp.obj	488e5b68c293e616
+5	384	7609580555635093	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+18	405	7609580555791378	CMakeFiles/Friend_Class_example.dir/b.cpp.obj	f170b10cf99e21d
+405	562	7609580559678514	Friend_Class_example.exe	ac101f86f63fad7f
+50	601	7609584187065430	CMakeFiles/Friend_Class_example.dir/a.cpp.obj	488e5b68c293e616
+44	647	7609584187065430	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+35	484	7609584258500526	CMakeFiles/Friend_Class_example.dir/main.cpp.obj	841167a660ec6611
+43	507	7609584258697981	CMakeFiles/Friend_Class_example.dir/a.cpp.obj	488e5b68c293e616
+51	563	7609584258772931	CMakeFiles/Friend_Class_example.dir/b.cpp.obj	f170b10cf99e21d
+563	719	7609584263889668	Friend_Class_example.exe	ac101f86f63fad7f
