@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-6955fc68ee90377d7413.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "In_Array_to_check_even",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "In_Array_to_check_even::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-In_Array_to_check_even-Debug-4cc39c4d50335586d4d7.json",
+					"name" : "In_Array_to_check_even",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/likit/Desktop/Assignments/c++/TASKS/Problems/In_Array_to_check_even/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug",
+		"source" : "C:/Users/likit/Desktop/Assignments/c++/TASKS/Problems/In_Array_to_check_even"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
