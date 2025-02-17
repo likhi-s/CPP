@@ -12,3 +12,8 @@
 359	485	7609081994642521	Wire_Connection.exe	20943fe18ae2b197
 60	668	7609082121157313	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
 669	918	7609082127360616	Wire_Connection.exe	20943fe18ae2b197
+41	1404	7615072182284852	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+56	1406	7615072182434520	CMakeFiles/Wire_Connection.dir/switch.cpp.obj	84ddf8a4c19a759c
+61	1406	7615072182434520	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
+49	1409	7615072182434520	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+1409	1573	7615072196034406	Wire_Connection.exe	20943fe18ae2b197
