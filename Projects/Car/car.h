@@ -20,6 +20,7 @@ public:
     Car();
     ~Car();
     void startCar();
+    void accelerateCar();
     void stopCar();
 };
 

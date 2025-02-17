@@ -43,3 +43,12 @@
 268	367	7609920643930263	Car.exe	9c9ab4ef5487dbd1
 5	255	7609921079647725	CMakeFiles/Car.dir/brake.cpp.obj	b56e1f00088011b9
 256	349	7609921082236323	Car.exe	9c9ab4ef5487dbd1
+60	601	7615072255624468	CMakeFiles/Car.dir/wheel.cpp.obj	7f110b163ef06299
+41	602	7615072255434492	CMakeFiles/Car.dir/engine.cpp.obj	c19ca0ff6a0049ff
+70	612	7615072255724494	CMakeFiles/Car.dir/brake.cpp.obj	b56e1f00088011b9
+49	612	7615072255514532	CMakeFiles/Car.dir/accelerator.cpp.obj	ed95e3b78458005
+4	1473	7615074728280386	CMakeFiles/Car.dir/main.cpp.obj	6e6cf64ce046a634
+17	389	7615077856679871	CMakeFiles/Car.dir/accelerator.cpp.obj	ed95e3b78458005
+4	422	7615077856436366	CMakeFiles/Car.dir/main.cpp.obj	6e6cf64ce046a634
+4	245	7615078088848498	CMakeFiles/Car.dir/car.cpp.obj	56c403cb6a886298
+245	659	7615078091286520	Car.exe	9c9ab4ef5487dbd1
