@@ -2,12 +2,12 @@
 
 Car::Car()
 {
-    cout<<"Car Constructor called"<<endl;
-
     m_engine = new Engine;
     m_accelerator = new Accelerator;
     m_wheel = new Wheel;
     m_brake = new Brake;
+    cout<<"Car Constructor called"<<endl;
+
 }
 Car::~Car()
 {
@@ -17,8 +17,11 @@ void Car::startCar()
 {
     cout<<"Starting the Car"<<endl;
     m_engine->startEngine();
-    m_accelerator->speedUp();
-    m_wheel->rotateWheel();
+}
+void Car::accelerateCar()
+{
+    m_accelerator->speedUp(m_wheel);
+
 }
 
 void Car::stopCar()
