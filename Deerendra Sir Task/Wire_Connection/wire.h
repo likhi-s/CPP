@@ -12,14 +12,13 @@ class Wire {
     string m_colour;
     string m_brand;
     float m_price;
-    AC* acptr;
 
 public:
     Wire();
     Wire(float thickness, float length, string colour, string brand, float price);
     ~Wire();
-    void setMe(AC* ac);
-    void wireOn();
+    virtual void setMe(AC* ac)=0;
+    virtual void wireOn()=0;
 
 };
 

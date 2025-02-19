@@ -3,14 +3,20 @@
 #include <iostream>
 using namespace std;
 #include "wire.h"
+#include "ac.h"
 
 
 class Havells:public Wire
 {
+    AC* acptr;
 
 public:
     Havells();
     ~Havells();
+    void setMe(AC *ac)  ;
+    void wireOn();
+
+
 };
 
 #endif // HAVELLS_H

@@ -11,3 +11,14 @@ Polycab::~Polycab()
     cout<<"Polycab Destructor Called"<<endl;
 
 }
+void Polycab::setMe(AC *ac)
+{
+    acptr = ac;
+}
+
+
+void Polycab::wireOn()
+{
+    cout<<"Polycab Wire on"<<endl;
+    acptr->acOn();
+}

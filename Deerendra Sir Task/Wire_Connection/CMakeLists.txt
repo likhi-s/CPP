@@ -8,7 +8,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(Wire_Connection main.cpp
     ac.h ac.cpp
     switch.h switch.cpp
-    wire.h wire.cpp)
+    wire.h wire.cpp
+    finolex.h
+    havells.h
+    polycab.h
+    finolex.cpp
+    havells.cpp polycab.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS Wire_Connection

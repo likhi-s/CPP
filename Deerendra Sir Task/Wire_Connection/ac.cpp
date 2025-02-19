@@ -13,6 +13,7 @@ AC::AC(string brand, string colour, float price, Wire* wire)
     m_price  = price;
     m_wire = NULL;
 }
+
 AC::~AC()
 {
     cout<<"AC Destructor called"<<endl;

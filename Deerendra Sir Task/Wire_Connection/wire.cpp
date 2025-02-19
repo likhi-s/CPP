@@ -14,14 +14,14 @@ Wire::~Wire()
 {
     cout<<"Wire Destructor Called"<<endl;
 }
-void Wire::setMe(AC *ac)
-{
-    acptr = ac;
-}
+// void Wire::setMe(AC *ac)
+// {
+//     acptr = ac;
+// }
 
 
-void Wire::wireOn()
-{
-    acptr->acOn();
-}
+// void Wire::wireOn()
+// {
+//     acptr->acOn();
+// }
 
