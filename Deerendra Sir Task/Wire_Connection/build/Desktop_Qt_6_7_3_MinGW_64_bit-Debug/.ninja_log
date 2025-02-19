@@ -1,4 +1,5 @@
 # ninja log v6
+<<<<<<< Updated upstream
 59	451	7616495179874509	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
 45	469	7616495179782032	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
 1409	1573	7615072196034406	Wire_Connection.exe	20943fe18ae2b197
@@ -41,3 +42,53 @@
 281	382	7616515341312857	Wire_Connection.exe	92e85a89deacb015
 41	485	7616516538265339	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
 486	625	7616516542710671	Wire_Connection.exe	92e85a89deacb015
+=======
+61	1406	7615072182434520	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
+49	1409	7615072182434520	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+1409	1573	7615072196034406	Wire_Connection.exe	20943fe18ae2b197
+41	1404	7615072182284852	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+56	1406	7615072182434520	CMakeFiles/Wire_Connection.dir/switch.cpp.obj	84ddf8a4c19a759c
+36	1284	7615129229621306	CMakeFiles/Wire_Connection.dir/polycab.cpp.obj	710af936f0ed28ff
+48	1297	7615129229749464	CMakeFiles/Wire_Connection.dir/havells.cpp.obj	580a169d34ce3909
+43	1300	7615129229694600	CMakeFiles/Wire_Connection.dir/finolex.cpp.obj	7fa8debe90e6921d
+52	473	7615129474999697	CMakeFiles/Wire_Connection.dir/havells.cpp.obj	580a169d34ce3909
+41	484	7615129474999697	CMakeFiles/Wire_Connection.dir/polycab.cpp.obj	710af936f0ed28ff
+46	491	7615129474999697	CMakeFiles/Wire_Connection.dir/finolex.cpp.obj	7fa8debe90e6921d
+43	567	7615131328849369	CMakeFiles/Wire_Connection.dir/polycab.cpp.obj	710af936f0ed28ff
+50	572	7615131328909387	CMakeFiles/Wire_Connection.dir/finolex.cpp.obj	7fa8debe90e6921d
+57	574	7615131328989404	CMakeFiles/Wire_Connection.dir/havells.cpp.obj	580a169d34ce3909
+24	1246	7615132678067646	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+1247	1420	7615132690432676	Wire_Connection.exe	8dca27fb3ed80a8
+7	341	7615133034646144	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+341	462	7615133038127940	Wire_Connection.exe	8dca27fb3ed80a8
+49	1891	7615138708063965	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+83	1893	7615138708376876	CMakeFiles/Wire_Connection.dir/polycab.cpp.obj	710af936f0ed28ff
+96	1894	7615138708532457	CMakeFiles/Wire_Connection.dir/havells.cpp.obj	580a169d34ce3909
+58	1895	7615138708220000	CMakeFiles/Wire_Connection.dir/switch.cpp.obj	84ddf8a4c19a759c
+90	1895	7615138708532457	CMakeFiles/Wire_Connection.dir/finolex.cpp.obj	7fa8debe90e6921d
+41	1896	7615138707907465	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+67	1897	7615138708220000	CMakeFiles/Wire_Connection.dir/wire.cpp.obj	b5dec5b5f6a35c81
+1897	2064	7615138726598090	Wire_Connection.exe	8dca27fb3ed80a8
+5	275	7615139695507413	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+275	385	7615139698307724	Wire_Connection.exe	8dca27fb3ed80a8
+35	297	7615140586527629	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+298	397	7615140589183482	Wire_Connection.exe	8dca27fb3ed80a8
+5	253	7615141230195394	CMakeFiles/Wire_Connection.dir/finolex.cpp.obj	7fa8debe90e6921d
+253	358	7615141232825973	Wire_Connection.exe	8dca27fb3ed80a8
+46	288	7615141801191686	CMakeFiles/Wire_Connection.dir/havells.cpp.obj	580a169d34ce3909
+289	388	7615141803624862	Wire_Connection.exe	8dca27fb3ed80a8
+18	250	7615142095145189	CMakeFiles/Wire_Connection.dir/polycab.cpp.obj	710af936f0ed28ff
+250	354	7615142097560065	Wire_Connection.exe	8dca27fb3ed80a8
+7	425	7615568807606542	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+426	596	7615568811873872	Wire_Connection.exe	8dca27fb3ed80a8
+5	327	7615569213811418	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+328	513	7615569217192926	Wire_Connection.exe	8dca27fb3ed80a8
+29	308	7615569258055903	CMakeFiles/Wire_Connection.dir/ac.cpp.obj	ab2ca02a32999efa
+309	411	7615569260986024	Wire_Connection.exe	8dca27fb3ed80a8
+30	332	7615571510242104	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+333	451	7615571513331422	Wire_Connection.exe	8dca27fb3ed80a8
+5	253	7615656294989221	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+254	403	7615656297627106	Wire_Connection.exe	8dca27fb3ed80a8
+27	306	7615665938474038	CMakeFiles/Wire_Connection.dir/main.cpp.obj	54b9d7dd035f6d81
+307	408	7615665941379842	Wire_Connection.exe	8dca27fb3ed80a8
+>>>>>>> Stashed changes

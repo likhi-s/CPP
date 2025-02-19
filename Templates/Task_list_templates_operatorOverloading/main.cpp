@@ -1,7 +1,6 @@
 #include <iostream>
 #include "student.h"
 #include <list>
-#include <map>
 #include <unordered_map>
 using namespace std;
 
@@ -9,26 +8,40 @@ int main()
 {
 
     Student student(1,"likhitha",23);
-    cout<<student;
+    cout << student << endl;
 
 
-    cout<<" ************************"<<endl;
-    unordered_map<string, string> unorderedMap =
+    cout<<" *****Unordered Map****"<<endl;
+    unordered_map<int, Student> unorderedMap =
         {
-        {"ID", "2"},
-        {"Name", "Pallavi"},
-        {"Age", "23"}
-    };
+            {1, Student(1, "Likhitha", 23)},
+            {2, Student(2, "Pallavi", 22)}
+
+        };
+
     cout<<unorderedMap;
 
-    set<string> set = {"3","Dharshini","23"};
-    cout << "Set: " << set << endl;
+    cout<<"****Set****"<<endl;
 
-    unordered_set<string> unorderedSet = {"4","varshini","23"};
-    cout << "Unordered Set: " << unorderedSet << endl;
+    set<Student> studentSet =
+        {
+            Student(1, "Dharshini", 23),
+            Student(2, "Likhitha", 22),
+            Student(3, "Pallavi", 24)
+        };
+    cout << studentSet;
 
+    cout<<"****Unordered Set****"<<endl;
 
+    unordered_set<Student*> studentUnorderedSet;
+
+    studentUnorderedSet.insert(new Student(1, "Dharshini", 23));
+    studentUnorderedSet.insert(new Student(2, "Likhitha", 22));
+    studentUnorderedSet.insert(new Student(3, "Pallavi", 24));
+
+    cout << studentUnorderedSet;
     cout << "Hello World!" << endl;
     return 0;
 }
+
 

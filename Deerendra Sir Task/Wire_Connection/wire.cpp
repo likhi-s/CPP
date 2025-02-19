@@ -1,5 +1,6 @@
 #include "wire.h"
 #include "ac.h"
+
 Wire::Wire()
 {
     cout<<"Wire Default Constructor Called"<<endl;

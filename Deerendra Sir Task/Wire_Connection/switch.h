@@ -6,7 +6,8 @@
 #include <iostream>
 using namespace std;
 
-class Switch {
+class Switch
+{
     string m_colour;
     string m_state;
     string m_brand;

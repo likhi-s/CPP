@@ -10,7 +10,9 @@ class Brake
 public:
     Brake();
     ~Brake();
-    void applyBreak(Wheel *w);
+    void applyBreak();
+    void setWheel(Wheel *w);
+
 };
 
 #endif // BRAKE_H

@@ -1,9 +1,14 @@
 #include "engine.h"
 
-Engine::Engine() {}
+Engine::Engine()
+{
+    cout<<"Engine constructor called"<<endl;
+
+}
 
 Engine::~Engine()
 {
+    cout<<"Engine destructor called"<<endl;
 
 }
 

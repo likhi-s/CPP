@@ -13,13 +13,22 @@ Accelerator::~Accelerator()
 
 }
 
-void Accelerator::speedUp(Wheel *w)
+void Accelerator::setSpeedUp(Wheel *w)
 {
-    cout << "Accelerator  speed increased"<<endl;
-    w->rotateWheel();
+    m_wheel = w;
 }
 
+
+void Accelerator::speedUp()
+{
+
+    cout << "Accelerator  speed increased"<<endl;
+    m_wheel ->rotateWheel();
+}
+
+
 void Accelerator::speedDown()
+
 {
     cout << "Accelerator  speed decreased "<<endl;
 

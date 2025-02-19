@@ -8,11 +8,16 @@ Student::Student()
 
 Student::Student(int id,string name,int age)
 {
+    cout<<"Student Constructor Called"<<endl;
     m_id = id;
     m_name = name;
     m_age = age;
 }
-Student::~Student() {}
+Student::~Student()
+{
+    cout<<"Student Destructor Called"<<endl;
+
+}
 
 
 int Student::getId() const

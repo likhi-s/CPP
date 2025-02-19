@@ -2,7 +2,6 @@
 #define STUDENT_H
 #include <iostream>
 #include <unordered_map>
-#include <map>
 #include <set>
 #include <unordered_set>
 
@@ -19,9 +18,15 @@ public:
     Student(int id,string name,int age);
     ~Student();
     friend ostream &operator << (ostream &out, const Student &student);
+
     int getId() const;
     string getName()const;
     int getAge()const;
+
+    bool operator<(const Student &other) const
+    {
+        return m_id < other.m_id;
+    }
 
 };
 
@@ -31,30 +36,37 @@ ostream &operator<<(ostream &out, const unordered_map<K, V> &unorderedmap)
 {
     for (const auto &pair : unorderedmap)
     {
-        out << pair.first << ": " << pair.second << endl;
+        out << pair.first << " -> Id: " << pair.second.getId()
+        << ", Name: " << pair.second.getName()
+        << ", Age: " << pair.second.getAge() << endl;
     }
 
     return out;
 }
 
-
-template <typename T>
-ostream &operator<<(ostream &out, const set<T> &set) {
-    out << "{ ";
-    for (const auto &elem : set) {
-        out << elem << ", ";
+template <typename V>
+ostream &operator<<(ostream &out, const set<V> &dataset)
+{
+    for (const auto &element : dataset)
+    {
+        out << "Id: " << element.getId()
+        << ", Name: " << element.getName()
+        << ", Age: " << element.getAge() << endl;
     }
-    out << "}";
+
     return out;
 }
 
-template <typename T>
-ostream &operator<<(ostream &out, const unordered_set<T> &unorderedSet) {
-    out << "{ ";
-    for (const auto &elem : unorderedSet) {
-        out << elem << ", ";
+template <typename V>
+ostream &operator<<(ostream &out, const unordered_set<V*> &dataset)
+{
+    for (const auto &element : dataset)
+    {
+        out << "Id: " << element->getId()
+        << ", Name: " << element->getName()
+        << ", Age: " << element->getAge() << endl;
     }
-    out << "}";
     return out;
 }
+
 #endif // STUDENT_H

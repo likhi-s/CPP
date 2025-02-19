@@ -1,9 +1,14 @@
 #include "wheel.h"
 
-Wheel::Wheel() {}
+Wheel::Wheel()
+{
+    cout<<"Wheel constructor called"<<endl;
+
+}
 
 Wheel::~Wheel()
 {
+    cout<<"Wheel destructor called"<<endl;
 
 }
 

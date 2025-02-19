@@ -11,7 +11,8 @@ class Accelerator
 public:
     Accelerator() ;
     ~Accelerator();
-    void speedUp(Wheel *w);
+    void setSpeedUp(Wheel *w);
+    void speedUp();
     void speedDown();
 };
 

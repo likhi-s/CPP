@@ -6,7 +6,8 @@ using namespace std;
 
 class AC;
 
-class Wire {
+class Wire
+{
     float m_thickness;
     float m_length;
     string m_colour;

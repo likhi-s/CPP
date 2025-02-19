@@ -9,11 +9,17 @@ add_executable(Wire_Connection main.cpp
     ac.h ac.cpp
     switch.h switch.cpp
     wire.h wire.cpp
+<<<<<<< Updated upstream
     finolex.h
     havells.h
     polycab.h
     finolex.cpp
     havells.cpp polycab.cpp)
+=======
+    polycab.h polycab.cpp
+    finolex.h finolex.cpp
+    havells.h havells.cpp)
+>>>>>>> Stashed changes
 
 include(GNUInstallDirs)
 install(TARGETS Wire_Connection

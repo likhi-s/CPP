@@ -1,0 +1,113 @@
+[1mdiff --git a/Deerendra Sir Task/Wire_Connection/CMakeLists.txt b/Deerendra Sir Task/Wire_Connection/CMakeLists.txt[m
+[1mindex a6ff6cc..ebddac5 100644[m
+[1m--- a/Deerendra Sir Task/Wire_Connection/CMakeLists.txt[m	
+[1m+++ b/Deerendra Sir Task/Wire_Connection/CMakeLists.txt[m	
+[36m@@ -8,7 +8,10 @@[m [mset(CMAKE_CXX_STANDARD_REQUIRED ON)[m
+ add_executable(Wire_Connection main.cpp[m
+     ac.h ac.cpp[m
+     switch.h switch.cpp[m
+[31m-    wire.h wire.cpp)[m
+[32m+[m[32m    wire.h wire.cpp[m
+[32m+[m[32m    polycab.h polycab.cpp[m
+[32m+[m[32m    finolex.h finolex.cpp[m
+[32m+[m[32m    havells.h havells.cpp)[m
+ [m
+ include(GNUInstallDirs)[m
+ install(TARGETS Wire_Connection[m
+[1mdiff --git a/Deerendra Sir Task/Wire_Connection/CMakeLists.txt.user b/Deerendra Sir Task/Wire_Connection/CMakeLists.txt.user[m
+[1mindex f06977c..d6474b7 100644[m
+[1m--- a/Deerendra Sir Task/Wire_Connection/CMakeLists.txt.user[m	
+[1m+++ b/Deerendra Sir Task/Wire_Connection/CMakeLists.txt.user[m	
+[36m@@ -1,6 +1,6 @@[m
+ <?xml version="1.0" encoding="UTF-8"?>[m
+ <!DOCTYPE QtCreatorProject>[m
+[31m-<!-- Written by QtCreator 14.0.2, 2025-02-17T20:34:46. -->[m
+[32m+[m[32m<!-- Written by QtCreator 14.0.2, 2025-02-19T09:56:32. -->[m
+ <qtcreator>[m
+  <data>[m
+   <variable>EnvironmentId</variable>[m
+[36m@@ -102,14 +102,14 @@[m
+     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>[m
+     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>[m
+     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>[m
+[31m-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}[m
+[31m--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+[32m+[m[32m    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+ -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}[m
+[32m+[m[32m-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+ -DCMAKE_BUILD_TYPE:STRING=Debug[m
+[31m--DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+[31m--DCMAKE_GENERATOR:STRING=Ninja[m
+ -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake[m
+[31m--DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>[m
+[32m+[m[32m-DCMAKE_GENERATOR:STRING=Ninja[m
+[32m+[m[32m-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}[m
+[32m+[m[32m-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>[m
+     <value type="int" key="EnableQmlDebugging">0</value>[m
+     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\likit\Desktop\Assignments\c++\TASKS\Deerendra Sir Task\Wire_Connection\build\Desktop_Qt_6_7_3_MinGW_64_bit-Debug</value>[m
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">[m
+[36m@@ -159,14 +159,14 @@[m
+     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>[m
+     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>[m
+     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>[m
+[31m-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}[m
+[31m--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+[32m+[m[32m    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+ -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}[m
+[32m+[m[32m-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+ -DCMAKE_BUILD_TYPE:STRING=Release[m
+[31m--DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+[31m--DCMAKE_GENERATOR:STRING=Ninja[m
+ -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake[m
+[31m--DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>[m
+[32m+[m[32m-DCMAKE_GENERATOR:STRING=Ninja[m
+[32m+[m[32m-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}[m
+[32m+[m[32m-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>[m
+     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\likit\Desktop\Assignments\c++\TASKS\Deerendra Sir Task\Wire_Connection\build\Desktop_Qt_6_7_3_MinGW_64_bit-Release</value>[m
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">[m
+      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">[m
+[36m@@ -213,14 +213,14 @@[m
+     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>[m
+     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>[m
+     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>[m
+[31m-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}[m
+[31m--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+[32m+[m[32m    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+ -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}[m
+[32m+[m[32m-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+ -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo[m
+[31m--DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+[31m--DCMAKE_GENERATOR:STRING=Ninja[m
+ -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake[m
+[31m--DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>[m
+[32m+[m[32m-DCMAKE_GENERATOR:STRING=Ninja[m
+[32m+[m[32m-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}[m
+[32m+[m[32m-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>[m
+     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\likit\Desktop\Assignments\c++\TASKS\Deerendra Sir Task\Wire_Connection\build\Desktop_Qt_6_7_3_MinGW_64_bit-RelWithDebInfo</value>[m
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">[m
+      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">[m
+[36m@@ -267,14 +267,14 @@[m
+     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>[m
+     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>[m
+     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>[m
+[31m-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}[m
+[31m--DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+[32m+[m[32m    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+ -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}[m
+[32m+[m[32m-DCMAKE_PREFIX_PATH:PATH=%{Qt:QT_INSTALL_PREFIX}[m
+ -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo[m
+[31m--DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}[m
+[31m--DCMAKE_GENERATOR:STRING=Ninja[m
+ -DCMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=%{BuildConfig:BuildDirectory:NativeFilePath}/.qtc/package-manager/auto-setup.cmake[m
+[31m--DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}</value>[m
+[32m+[m[32m-DCMAKE_GENERATOR:STRING=Ninja[m
+[32m+[m[32m-DQT_QMAKE_EXECUTABLE:FILEPATH=%{Qt:qmakeExecutable}[m
+[32m+[m[32m-DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>[m
+     <value type="int" key="EnableQmlDebugging">0</value>[m
+     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\likit\Desktop\Assignments\c++\TASKS\Deerendra Sir Task\Wire_Connection\build\Desktop_Qt_6_7_3_MinGW_64_bit-Profile</value>[m
+     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">[m
+[36m@@ -322,14 +322,14 @@[m
+     <value type="int" key="CMake.Configure.BaseEnvironment">2</value>[m
+     <value type="bool" key="CMake.Configure.ClearSystemEnvironment">false</value>[m
+     <valuelist type="QVariantList" key="CMake.Configure.UserEnvironmentChanges"/>[m
+[31m-    <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_CXX_FLAGS_INIT:
