@@ -73,15 +73,6 @@ build CMakeFiles/Wire_Connection.dir/wire.cpp.obj: CXX_COMPILER__Wire_Connection
   OBJECT_DIR = CMakeFiles\Wire_Connection.dir
   OBJECT_FILE_DIR = CMakeFiles\Wire_Connection.dir
 
-<<<<<<< Updated upstream
-=======
-build CMakeFiles/Wire_Connection.dir/polycab.cpp.obj: CXX_COMPILER__Wire_Connection_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Deerendra$ Sir$ Task/Wire_Connection/polycab.cpp || cmake_object_order_depends_target_Wire_Connection
-  DEP_FILE = CMakeFiles\Wire_Connection.dir\polycab.cpp.obj.d
-  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Wire_Connection.dir
-  OBJECT_FILE_DIR = CMakeFiles\Wire_Connection.dir
-
->>>>>>> Stashed changes
 build CMakeFiles/Wire_Connection.dir/finolex.cpp.obj: CXX_COMPILER__Wire_Connection_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Deerendra$ Sir$ Task/Wire_Connection/finolex.cpp || cmake_object_order_depends_target_Wire_Connection
   DEP_FILE = CMakeFiles\Wire_Connection.dir\finolex.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
@@ -94,15 +85,12 @@ build CMakeFiles/Wire_Connection.dir/havells.cpp.obj: CXX_COMPILER__Wire_Connect
   OBJECT_DIR = CMakeFiles\Wire_Connection.dir
   OBJECT_FILE_DIR = CMakeFiles\Wire_Connection.dir
 
-<<<<<<< Updated upstream
 build CMakeFiles/Wire_Connection.dir/polycab.cpp.obj: CXX_COMPILER__Wire_Connection_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Deerendra$ Sir$ Task/Wire_Connection/polycab.cpp || cmake_object_order_depends_target_Wire_Connection
   DEP_FILE = CMakeFiles\Wire_Connection.dir\polycab.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\Wire_Connection.dir
   OBJECT_FILE_DIR = CMakeFiles\Wire_Connection.dir
 
-=======
->>>>>>> Stashed changes
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Wire_Connection
@@ -111,11 +99,7 @@ build CMakeFiles/Wire_Connection.dir/polycab.cpp.obj: CXX_COMPILER__Wire_Connect
 #############################################
 # Link the executable Wire_Connection.exe
 
-<<<<<<< Updated upstream
 build Wire_Connection.exe: CXX_EXECUTABLE_LINKER__Wire_Connection_Debug CMakeFiles/Wire_Connection.dir/main.cpp.obj CMakeFiles/Wire_Connection.dir/ac.cpp.obj CMakeFiles/Wire_Connection.dir/switch.cpp.obj CMakeFiles/Wire_Connection.dir/wire.cpp.obj CMakeFiles/Wire_Connection.dir/finolex.cpp.obj CMakeFiles/Wire_Connection.dir/havells.cpp.obj CMakeFiles/Wire_Connection.dir/polycab.cpp.obj
-=======
-build Wire_Connection.exe: CXX_EXECUTABLE_LINKER__Wire_Connection_Debug CMakeFiles/Wire_Connection.dir/main.cpp.obj CMakeFiles/Wire_Connection.dir/ac.cpp.obj CMakeFiles/Wire_Connection.dir/switch.cpp.obj CMakeFiles/Wire_Connection.dir/wire.cpp.obj CMakeFiles/Wire_Connection.dir/polycab.cpp.obj CMakeFiles/Wire_Connection.dir/finolex.cpp.obj CMakeFiles/Wire_Connection.dir/havells.cpp.obj
->>>>>>> Stashed changes
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Wire_Connection.dir
