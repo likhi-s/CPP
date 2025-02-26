@@ -20,6 +20,10 @@ void Switch::finit(Finolex* finolex)
 {
     m_finolexwire= finolex;
 }
+void Switch::hinit( Havells* havellswire)
+{
+    m_havellswire = havellswire;
+}
 
 void Switch::switchOn()
 {
