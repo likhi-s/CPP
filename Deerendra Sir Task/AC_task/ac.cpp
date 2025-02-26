@@ -14,6 +14,7 @@ AC::AC(string brand, string colour, float price)
     m_price  = price;
    m_polycabwire = NULL;
     m_finolexwire =NULL;
+   m_havellswire = NULL;
 }
 
 AC::~AC()
@@ -32,6 +33,12 @@ void AC::setFinolexWire(Finolex* finolexwire)
     m_finolexwire = finolexwire;
     m_finolexwire->setMe(this);
 }
+void AC::setHavellsWire(Havells* havellswire)
+{
+    m_havellswire =havellswire;
+    m_havellswire->setMe(this);
+}
+
 
 void AC::acOn()
 {
