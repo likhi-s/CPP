@@ -1,0 +1,25 @@
+# ninja log v6
+60	1688	7622483719843926	CMakeFiles/Wire_finolex_polycab_Havells.dir/polycab.cpp.obj	7c622df54458f74
+32	1692	7622483719520616	CMakeFiles/Wire_finolex_polycab_Havells.dir/main.cpp.obj	172f519b1b716466
+40	1692	7622483719632947	CMakeFiles/Wire_finolex_polycab_Havells.dir/wire.cpp.obj	e19a22ade85484db
+53	1705	7622483719723723	CMakeFiles/Wire_finolex_polycab_Havells.dir/havells.cpp.obj	cd654b70bda3a252
+47	1710	7622483719711281	CMakeFiles/Wire_finolex_polycab_Havells.dir/finolex.cpp.obj	478f9d9ddece685d
+1711	2069	7622483736351537	Wire_finolex_polycab_Havells.exe	ea5b3494fc28d00a
+58	455	7622484794682519	CMakeFiles/Wire_finolex_polycab_Havells.dir/havells.cpp.obj	cd654b70bda3a252
+54	558	7622484794682519	CMakeFiles/Wire_finolex_polycab_Havells.dir/finolex.cpp.obj	478f9d9ddece685d
+64	591	7622484794840482	CMakeFiles/Wire_finolex_polycab_Havells.dir/polycab.cpp.obj	7c622df54458f74
+47	599	7622484794526222	CMakeFiles/Wire_finolex_polycab_Havells.dir/wire.cpp.obj	e19a22ade85484db
+599	730	7622484800185850	Wire_finolex_polycab_Havells.exe	ea5b3494fc28d00a
+21	676	7622487847225406	CMakeFiles/Wire_finolex_polycab_Havells.dir/havells.cpp.obj	cd654b70bda3a252
+16	679	7622487847175409	CMakeFiles/Wire_finolex_polycab_Havells.dir/finolex.cpp.obj	478f9d9ddece685d
+27	703	7622487847275437	CMakeFiles/Wire_finolex_polycab_Havells.dir/polycab.cpp.obj	7c622df54458f74
+7	748	7622487847085421	CMakeFiles/Wire_finolex_polycab_Havells.dir/wire.cpp.obj	e19a22ade85484db
+748	915	7622487854491589	Wire_finolex_polycab_Havells.exe	ea5b3494fc28d00a
+39	362	7622488101531328	CMakeFiles/Wire_finolex_polycab_Havells.dir/finolex.cpp.obj	478f9d9ddece685d
+363	505	7622488104774409	Wire_finolex_polycab_Havells.exe	ea5b3494fc28d00a
+51	653	7622488571935752	CMakeFiles/Wire_finolex_polycab_Havells.dir/wire.cpp.obj	e19a22ade85484db
+60	662	7622488572062933	CMakeFiles/Wire_finolex_polycab_Havells.dir/finolex.cpp.obj	478f9d9ddece685d
+72	682	7622488572196314	CMakeFiles/Wire_finolex_polycab_Havells.dir/polycab.cpp.obj	7c622df54458f74
+44	731	7622488571907977	CMakeFiles/Wire_finolex_polycab_Havells.dir/main.cpp.obj	172f519b1b716466
+65	764	7622488572112725	CMakeFiles/Wire_finolex_polycab_Havells.dir/havells.cpp.obj	cd654b70bda3a252
+764	896	7622488579117614	Wire_finolex_polycab_Havells.exe	ea5b3494fc28d00a
