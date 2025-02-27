@@ -7,6 +7,7 @@ class AC;
 
 class Finolex
 {
+    private:
     AC* acptr;
 public:
     Finolex();
