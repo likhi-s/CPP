@@ -1,0 +1,19 @@
+# ninja log v6
+2	227	7622672346412238	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+230	318	7622672348766116	inline_functions.exe	16548dddedce78cd
+34	274	7622672409270007	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+275	365	7622672411822184	inline_functions.exe	16548dddedce78cd
+39	286	7622674452625571	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+287	380	7622674455193959	inline_functions.exe	16548dddedce78cd
+54	293	7622675298183324	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+294	381	7622675300582466	inline_functions.exe	16548dddedce78cd
+43	266	7622675422861306	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+268	356	7622675425194195	inline_functions.exe	16548dddedce78cd
+21	260	7622675677699766	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+261	355	7622675680114337	inline_functions.exe	16548dddedce78cd
+21	244	7622675759767201	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+245	336	7622675762050333	inline_functions.exe	16548dddedce78cd
+5	245	7622677324784040	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+246	356	7622677327297974	inline_functions.exe	16548dddedce78cd
+55	320	7622678164235581	CMakeFiles/inline_functions.dir/main.cpp.obj	4cd3e2ca5d976779
+321	443	7622678166992475	inline_functions.exe	16548dddedce78cd
