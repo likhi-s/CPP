@@ -7,7 +7,9 @@ using namespace std;
 
 
 class Polycab:public Wire
-{    AC* acptr;
+{
+    private:
+    AC* acptr;
 
 
 public:

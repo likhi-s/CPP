@@ -8,6 +8,7 @@ using namespace std;
 
 class Havells:public Wire
 {
+    private:
     AC* acptr;
 
 public:

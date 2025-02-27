@@ -7,6 +7,7 @@ using namespace std;
 
 class AC
 {
+private:
     string m_brand;
     string m_colour;
     float m_price;

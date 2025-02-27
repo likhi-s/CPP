@@ -8,6 +8,7 @@ class AC;
 
 class Wire
 {
+    private:
     float m_thickness;
     float m_length;
     string m_colour;

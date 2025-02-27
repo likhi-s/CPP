@@ -8,6 +8,7 @@ using namespace std;
 
 class Finolex:public Wire
 {
+private:
     AC* acptr;
 
 

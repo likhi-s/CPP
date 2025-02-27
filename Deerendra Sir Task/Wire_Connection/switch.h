@@ -8,6 +8,7 @@ using namespace std;
 
 class Switch
 {
+    private:
     string m_colour;
     string m_state;
     string m_brand;
