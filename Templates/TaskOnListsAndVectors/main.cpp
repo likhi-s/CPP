@@ -11,6 +11,10 @@ enum choice
     ADD=1,DELETE,UPDATE,FIND,DISPLAY
 };
 
+enum soption{
+    UpdateName=1,UpdateAfe,UpdateSalary,UpdateContactNumber,UpdateExperience
+};
+
 int main()
 {
     College college;
@@ -37,11 +41,21 @@ int main()
             {
             case ADD:
             {
-                int id;
+                int id,age;
                 string name;
-                cout<<"enter Student Id and Name"<<endl;
-                cin>>id>>name;
-                college.addStudent(id,name);
+                float fee;
+                cout<<"enter Student Id : ";
+                cin>>id;
+                cout<<"enter Student Name :";
+                cin>>name;
+                cout<<"enter Student Age :";
+                cin>>age;
+                cout<<"enter Student Fee :";
+                cin>>fee;
+
+
+
+                college.addStudent(id,name,age,fee);
                 break;
             }
             case DELETE:
@@ -99,11 +113,23 @@ int main()
             {
             case ADD:
             {
-                int id;
+                int id,age,contactNumber,experience;
+                float salary;
                 string name;
-                cout<<"enter Staff Id and Name"<<endl;
-                cin>>id>>name;
-                college.addStaff(id,name);
+                cout<<"enter Staff Id: ";
+                cin>>id;
+                cout<<"enter Staff Name: ";
+                cin>>name;
+                cout<<"enter Staff Age: ";
+                cin>>age;
+                cout<<"enter Staff Salary: ";
+                cin>>salary;
+                cout<<"enter Staff Contact Number: ";
+                cin>>contactNumber;
+                cout<<"enter Staff Experience: ";
+                cin>>experience;
+
+                college.addStaff(id,name,age,salary,contactNumber,experience);
                 break;
             }
             case DELETE:

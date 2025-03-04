@@ -4,13 +4,17 @@ Staff::Staff()
 {
     cout<<"Default Constructor of Staff Called"<<endl;
 }
-Staff::Staff(int id, string name)
-{
-    cout<<"Parameterized Constructor of staff Called"<<endl;
 
-    m_staffId = id;
-    m_staffName = name;
+Staff::Staff(int id, string name, int age, float salary, int number, int experience)
+{
+    m_id = id;
+    m_name = name;
+    m_age = age;
+    m_salary = salary;
+    m_contactNumber = number;
+    m_experience = experience;
 }
+
 
 Staff::~Staff()
 {
@@ -20,44 +24,58 @@ Staff::~Staff()
 
 int Staff::getStaffId()
 {
-    return m_staffId;
+    return m_id;
 }
 string Staff::getStaffName()
 {
-    return m_staffName;
+    return m_name;
+}
+int Staff::getStaffAge()
+{
+    return m_age;
+}
+float Staff::getStaffSalary()
+{
+    return m_salary;
+}
+
+int Staff::getStaffContactNumber()
+{
+    return m_contactNumber;
+}
+int Staff::getStaffExperience()
+{
+    return m_experience;
+}
+void Staff::setStaffId(int Id)
+{
+    m_id = Id;
 }
 void Staff:: setStaffName(string name)
 {
-   m_staffName= name;
+   m_name= name;
 }
 
 
+void Staff::setStaffAge(int age)
+{
+    m_age = age;
+}
 
-// #include "staff.h"
+void Staff::setStaffSalary(float salary)
+{
+    m_salary = salary;
+}
 
-// Staff::Staff() {
-//     cout << "Default Constructor of Staff Called" << endl;
-// }
+void Staff::setStaffContactNumber(int number)
+{
+    m_contactNumber = number;
+}
 
-// Staff::Staff(int id, string name) {
-//     cout << "Parameterized Constructor of Staff Called" << endl;
-//     m_staffId = id;
-//     m_staffName = name;
-// }
+void Staff::setStaffExperience(int experience)
+{
+    m_experience = experience;
+}
 
-// Staff::~Staff() {
-//     cout << "Destructor of Staff Called" << endl;
-// }
 
-// int Staff::getStaffId() const {
-//     return m_staffId;
-// }
-
-// string Staff::getStaffName() const {
-//     return m_staffName;
-// }
-
-// void Staff::setStaffName(string name) {
-//     m_staffName = name;
-// }
 

@@ -8,7 +8,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(TaskOnListsAndVectors main.cpp
     college.h college.cpp
     student.h student.cpp
-    staff.h staff.cpp)
+    staff.h staff.cpp
+    personaldetails.h personaldetails.cpp
+    collegemanagement.h collegemanagement.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS TaskOnListsAndVectors

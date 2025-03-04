@@ -73,6 +73,18 @@ build CMakeFiles/TaskOnListsAndVectors.dir/staff.cpp.obj: CXX_COMPILER__TaskOnLi
   OBJECT_DIR = CMakeFiles\TaskOnListsAndVectors.dir
   OBJECT_FILE_DIR = CMakeFiles\TaskOnListsAndVectors.dir
 
+build CMakeFiles/TaskOnListsAndVectors.dir/personaldetails.cpp.obj: CXX_COMPILER__TaskOnListsAndVectors_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Templates/TaskOnListsAndVectors/personaldetails.cpp || cmake_object_order_depends_target_TaskOnListsAndVectors
+  DEP_FILE = CMakeFiles\TaskOnListsAndVectors.dir\personaldetails.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TaskOnListsAndVectors.dir
+  OBJECT_FILE_DIR = CMakeFiles\TaskOnListsAndVectors.dir
+
+build CMakeFiles/TaskOnListsAndVectors.dir/collegemanagement.cpp.obj: CXX_COMPILER__TaskOnListsAndVectors_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Templates/TaskOnListsAndVectors/collegemanagement.cpp || cmake_object_order_depends_target_TaskOnListsAndVectors
+  DEP_FILE = CMakeFiles\TaskOnListsAndVectors.dir\collegemanagement.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\TaskOnListsAndVectors.dir
+  OBJECT_FILE_DIR = CMakeFiles\TaskOnListsAndVectors.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target TaskOnListsAndVectors
@@ -81,7 +93,7 @@ build CMakeFiles/TaskOnListsAndVectors.dir/staff.cpp.obj: CXX_COMPILER__TaskOnLi
 #############################################
 # Link the executable TaskOnListsAndVectors.exe
 
-build TaskOnListsAndVectors.exe: CXX_EXECUTABLE_LINKER__TaskOnListsAndVectors_Debug CMakeFiles/TaskOnListsAndVectors.dir/main.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/college.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/student.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/staff.cpp.obj
+build TaskOnListsAndVectors.exe: CXX_EXECUTABLE_LINKER__TaskOnListsAndVectors_Debug CMakeFiles/TaskOnListsAndVectors.dir/main.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/college.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/student.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/staff.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/personaldetails.cpp.obj CMakeFiles/TaskOnListsAndVectors.dir/collegemanagement.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\TaskOnListsAndVectors.dir
