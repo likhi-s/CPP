@@ -85,6 +85,12 @@ build CMakeFiles/Plugin.dir/xml.cpp.obj: CXX_COMPILER__Plugin_unscanned_Debug C$
   OBJECT_DIR = CMakeFiles\Plugin.dir
   OBJECT_FILE_DIR = CMakeFiles\Plugin.dir
 
+build CMakeFiles/Plugin.dir/student.cpp.obj: CXX_COMPILER__Plugin_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Deerendra$ Sir$ Task/Plugin/student.cpp || cmake_object_order_depends_target_Plugin
+  DEP_FILE = CMakeFiles\Plugin.dir\student.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Plugin.dir
+  OBJECT_FILE_DIR = CMakeFiles\Plugin.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Plugin
@@ -93,7 +99,7 @@ build CMakeFiles/Plugin.dir/xml.cpp.obj: CXX_COMPILER__Plugin_unscanned_Debug C$
 #############################################
 # Link the executable Plugin.exe
 
-build Plugin.exe: CXX_EXECUTABLE_LINKER__Plugin_Debug CMakeFiles/Plugin.dir/main.cpp.obj CMakeFiles/Plugin.dir/studentmanagement.cpp.obj CMakeFiles/Plugin.dir/fileoperations.cpp.obj CMakeFiles/Plugin.dir/csv.cpp.obj CMakeFiles/Plugin.dir/json.cpp.obj CMakeFiles/Plugin.dir/xml.cpp.obj
+build Plugin.exe: CXX_EXECUTABLE_LINKER__Plugin_Debug CMakeFiles/Plugin.dir/main.cpp.obj CMakeFiles/Plugin.dir/studentmanagement.cpp.obj CMakeFiles/Plugin.dir/fileoperations.cpp.obj CMakeFiles/Plugin.dir/csv.cpp.obj CMakeFiles/Plugin.dir/json.cpp.obj CMakeFiles/Plugin.dir/xml.cpp.obj CMakeFiles/Plugin.dir/student.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Plugin.dir

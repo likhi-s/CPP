@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-5ba6210a6c88410b8c95.json",
+					"jsonFile" : "directory-.-Debug-25d182536de4ad55c356.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -40,7 +40,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Plugin::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Plugin-Debug-c39b08c1dc9dad95863c.json",
+					"jsonFile" : "target-Plugin-Debug-8f392394e9fdeaca2777.json",
 					"name" : "Plugin",
 					"projectIndex" : 0
 				}

@@ -10,7 +10,8 @@ add_executable(Plugin main.cpp
     fileoperations.h fileoperations.cpp
     csv.h csv.cpp
     json.h json.cpp
-    xml.h xml.cpp)
+    xml.h xml.cpp
+    student.h student.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS Plugin

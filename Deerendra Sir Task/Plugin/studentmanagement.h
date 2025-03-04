@@ -2,21 +2,21 @@
 #define STUDENTMANAGEMENT_H
 #include <iostream>
 using namespace std;
+#include "student.h"
+#include "fileoperations.h"
+#include <list>
 
 class StudentManagement
 {
-    string m_name;
-    int m_age;
-    int m_USN;
-    string m_mobileNumber;
+private:
+    list<Student>m_list;
+    FileOperations *m_fileoperations;
 public:
+
     StudentManagement();
     ~StudentManagement();
-    void addstudent(string name, int age, int usn, string number);
-    string getname();
-    int getage();
-    int getusn();
-    string getnumber();
+
+    void display();
 
 
 

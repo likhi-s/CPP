@@ -2,12 +2,18 @@
 #define JSON_H
 #include <iostream>
 using namespace std;
+#include "fileoperations.h"
 
-class JSON
+
+class JSON:public FileOperations
 {
+private:
+    list<Student> readData()override;
 public:
     JSON();
     ~JSON();
+
+
 
 };
 

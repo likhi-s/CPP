@@ -1,27 +1,29 @@
 #include "csv.h"
-#include "studentmanagement.h"
+
 CSV::CSV()
 {
-    m_student = NULL;
-    cout<<"CSV Constructor called"<<endl;
+    cout<<"CSV constructor Called"<<endl;
 }
 CSV::~CSV()
 {
-    cout<<"CSV Destructor called"<<endl;
+    cout<<"CSV Destructor Called"<<endl;
+
 }
 
-void CSV::sint(StudentManagement *s)
-{
-    m_student = s;
-}
-
-void CSV::readData()
+list<Student> CSV::readData()
 {
 
-    string m_name = m_student->getname();
-    int m_age = m_student->getage();
-    int m_USN = m_student->getusn();
-    string m_mobileNumber = m_student->getnumber();
+    cout<<"CSV read Data function Called"<<endl;
+    list<Student>studentList;
 
-    cout<<m_name<<","<<m_age<<","<<m_USN<<","<<m_mobileNumber<<endl;
+    for(int i =0;i<10;i++)
+    {
+        studentList.push_back(Student("Likhitha",23,1234,"9743076146"));
+
+    }
+
+
+    return studentList;
 }
+
+

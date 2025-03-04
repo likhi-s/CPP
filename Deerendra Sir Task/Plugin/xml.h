@@ -2,9 +2,14 @@
 #define XML_H
 #include <iostream>
 using namespace std;
+#include "fileoperations.h"
 
-class XML
+class XML:public FileOperations
 {
+private:
+
+    list<Student> readData();
+
 public:
     XML();
     ~XML();
