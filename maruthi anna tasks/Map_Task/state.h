@@ -10,6 +10,11 @@ public:
     State();
     State(string capital);
     ~State();
+    friend ostream& operator<<(ostream& cout, const State& s)
+    {
+        cout << s.m_capital;
+        return cout;
+    }
 };
 
 #endif // STATE_H

@@ -1,0 +1,10 @@
+# ninja log v6
+6	873	7629475340358338	CMakeFiles/FileOperations_Class.dir/main.cpp.obj	686110ade2783c97
+877	1021	7629475349104660	FileOperations_Class.exe	b3d22c4278b68eb5
+4	284	7629636539733866	CMakeFiles/FileOperations_Class.dir/student.cpp.obj	97e92c265f1e2b8f
+285	651	7629636542543905	FileOperations_Class.exe	13d32277ec4dcfa2
+21	291	7629637137032447	CMakeFiles/FileOperations_Class.dir/main.cpp.obj	686110ade2783c97
+292	391	7629637139738316	FileOperations_Class.exe	13d32277ec4dcfa2
+21	383	7629637946254268	CMakeFiles/FileOperations_Class.dir/main.cpp.obj	686110ade2783c97
+29	410	7629637946324250	CMakeFiles/FileOperations_Class.dir/student.cpp.obj	97e92c265f1e2b8f
+411	555	7629637950146674	FileOperations_Class.exe	13d32277ec4dcfa2

@@ -1,0 +1,5 @@
+milk,23
+Curd,25
+Sugar,45
+
+sdfghjk,9.86453e+07

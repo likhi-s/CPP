@@ -1,0 +1,17 @@
+# ninja log v6
+10	407	7628595656359925	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+15	411	7628595656412079	CMakeFiles/Both_aruguments_as_class.dir/capital.cpp.obj	ec6cf5755cd04796
+10	1278	7628597829184853	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+30	314	7628598194057841	CMakeFiles/Both_aruguments_as_class.dir/capital.cpp.obj	ec6cf5755cd04796
+24	294	7628599527074958	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+36	340	7628599967212872	CMakeFiles/Both_aruguments_as_class.dir/capital.cpp.obj	ec6cf5755cd04796
+29	450	7628599967212872	CMakeFiles/Both_aruguments_as_class.dir/main.cpp.obj	535eca9bd53f31c6
+451	626	7628599971481324	Both_aruguments_as_class.exe	a863de8cdb5b12a
+28	362	7628600543805401	CMakeFiles/Both_aruguments_as_class.dir/capital.cpp.obj	ec6cf5755cd04796
+23	373	7628600543805401	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+17	484	7628600543805401	CMakeFiles/Both_aruguments_as_class.dir/main.cpp.obj	535eca9bd53f31c6
+484	627	7628600548472062	Both_aruguments_as_class.exe	a863de8cdb5b12a
+53	315	7628600771520333	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+10	271	7628601592004251	CMakeFiles/Both_aruguments_as_class.dir/state.cpp.obj	20a532e12a04772d
+4	373	7628601591847664	CMakeFiles/Both_aruguments_as_class.dir/main.cpp.obj	535eca9bd53f31c6
+374	505	7628601595639189	Both_aruguments_as_class.exe	a863de8cdb5b12a
