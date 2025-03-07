@@ -12,8 +12,9 @@ class FileOperations
 public:
     FileOperations();
     virtual ~FileOperations();
-    // virtual list<Student> readData() = 0;
-    // virtual void writeData()=0;
+    virtual void writeData(const list<Student>& students) = 0;
+    virtual list<Student> readData() = 0;
+
 };
 
 #endif // FILEOPERATIONS_H

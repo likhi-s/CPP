@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(File_Operations main.cpp
-    csv.h csv.cpp
-    txt.h txt.cpp
+    CsvfileOperations.h CsvfileOperations.cpp
+    TxtFileOperations.h TxtFileOperations.cpp
     student.h student.cpp
     studentmanagement.h studentmanagement.cpp
     fileoperations.h fileoperations.cpp)

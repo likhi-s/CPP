@@ -16,10 +16,13 @@ public:
     Student();
     ~Student();
     Student(string name, int age, int usn, string number);
-    string getName();
-    int getAge();
-    int getUSN();
-    string getMobileNumber();
+
+    string getName()const ;
+    int getAge()const;
+    int getUSN()const;
+    string getMobileNumber()const;
+
+    void display() const;
 };
 
 #endif // STUDENT_H

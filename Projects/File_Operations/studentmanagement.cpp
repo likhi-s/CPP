@@ -1,50 +1,111 @@
 #include "studentmanagement.h"
-#include "csv.h"
-#include "txt.h"
 
-enum Choice { csv = 1, txtFile };
-
+enum format{TxtFile =1,CsvFile};
 StudentManagement::StudentManagement()
 {
-    cout << "Student Management Constructor Called" << endl;
-    m_fileoperations = nullptr;
+    m_fileoperations =  nullptr;
+
 }
 
 StudentManagement::~StudentManagement()
 {
-    cout << "Student Management Destructor Called" << endl;
     delete m_fileoperations;
 }
 
-void StudentManagement::display()
+void StudentManagement::addStudent()
 {
-    cout << endl << "Available Formats:" << endl;
-    cout << "1. CSV File" << endl;
-    cout << "2. TXT File" << endl;
+    string name, mobile;
+    int age, usn;
 
-    cout << "Enter your choice: ";
-    int choice;
-    cin >> choice;
+    cout << "Enter Name: ";
+    cin >> name;
+    cout << "Enter Age: ";
+    cin >> age;
+    cout << "Enter USN: ";
+    cin >> usn;
+    cout << "Enter Mobile Number: ";
+    cin >> mobile;
+    m_list.push_back(Student(name, age, usn, mobile));
 
-    switch (choice)
+    cout <<endl<<"Enter Required Format to save Data" <<endl;
+    cout<<"1.Txt"<<endl<<"2.CSV"<<endl;
+
+    int format;
+    cin>>format;
+
+    switch(format)
     {
-    case csv:
-        m_fileoperations = new CSV;
-        //m_list = m_fileoperations->readData();
-
+    case TxtFile:
+    {
+        m_fileoperations = new TXTFileOpeartions;
+        m_fileoperations->writeData(m_list);
         break;
-    case txtFile:
-        m_fileoperations = new TXT;
-        //m_list = m_fileoperations->readData();
-
+    }
+    case CsvFile:
+    {
+        m_fileoperations = new CSVFileOpeartions;
+        m_fileoperations->writeData(m_list);
         break;
-    default:
-        cout << "Invalid choice!" << endl;
-        return;
     }
 
-    for(auto i =m_list.begin();i!= m_list.end();i++)
-    {
-        cout<<i->getName()<<","<<i->getAge()<<","<<i->getUSN()<<","<<i->getMobileNumber()<<endl;
+    default:
+        cout<<"Invalid Format"<<endl;
+        break;
+
     }
 }
+
+
+void StudentManagement::displayStudent()
+{
+    cout <<endl<<"Enter Required Format" <<endl;
+
+    cout<<"1.Txt"<<endl<<"2.CSV"<<endl;
+    int format;
+    cin>>format;
+    switch(format)
+    {
+    case TxtFile:
+    {
+        m_fileoperations = new TXTFileOpeartions;
+        m_list = m_fileoperations->readData( );
+
+        cout<<endl <<"Data from Txt File"<<endl;
+
+       /* for(const auto& student : m_list)
+        {
+            student.display();
+        }*/
+
+        for(auto i= m_list.begin();i != m_list.end();i++)
+        {
+            cout << "Name: " <<i->getName()<< ", Age: " << i->getAge() << ", USN: " << i->getUSN()<< ", Mobile: " << i->getMobileNumber() << endl;
+
+        }
+
+        break;
+    }
+    case CsvFile:
+    {
+        m_fileoperations = new CSVFileOpeartions;
+        m_list = m_fileoperations->readData( );
+
+        cout<<endl <<"Data from CSV File"<<endl;
+
+        for(auto i= m_list.begin();i != m_list.end();i++)
+        {
+            cout << "Name: " <<i->getName()<< ", Age: " << i->getAge() << ", USN: " << i->getUSN()<< ", Mobile: " << i->getMobileNumber() << endl;
+
+        }
+
+        break;
+    }
+    default:
+        cout<<"Invalid Format"<<endl;
+        break;
+    }
+
+
+}
+
+
