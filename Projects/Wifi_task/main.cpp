@@ -18,14 +18,51 @@ int main()
     m_list.push_back(Wifi("Anurag", 50, "Available", "1234"));
     m_list.push_back(Wifi("Likhitha", 82, "connected", "1234"));
 
+    enum choice{ Display =1,Connection,Exit};
 
 
     FileOperations operations;
-    operations.writeData(m_list);
-    m_list = operations.readData();
-    operations.display(m_list);
+
+    while(true)
+    {
+        int option;
+        cout<<endl<<"1.Display"<<endl<<"2.Connection"<<endl<<"3.Exit "<<endl;
+        cout<<endl<<"Enter your option"<<endl;
+
+        cin>>option;
+        switch(option)
+        {
+        case Display:
+        {
+            operations.writeData(m_list);
+            m_list = operations.readData();
+            operations.display(m_list);
+            break;
+        }
+        case Connection:
+        {
+            m_list = operations.readData();
+            operations.display(m_list);
+            operations.wifiConnection(m_list);
+            break;
+
+        }
+        case Exit:
+            cout<<"Exiting "<<endl;
+            return 0;
+        default:
+            cout<<"Invalid option"<<endl;
+            break;
+
+
+        }
+
+
+    }
+
 
 
     cout << "Hello World!" << endl;
     return 0;
 }
+

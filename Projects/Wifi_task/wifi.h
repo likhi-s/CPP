@@ -14,6 +14,7 @@ public:
     int getStrength();
     string getStatus();
     string getPassword();
+    void setStatus(string status);
 
 
 private:

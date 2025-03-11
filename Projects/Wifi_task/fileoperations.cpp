@@ -20,7 +20,7 @@ list<Wifi> FileOperations::readData()
     ifstream file("WifiData.csv");
     if (!file)
     {
-        cout << "Unable to open file for reading" << endl;
+        cout << "unable to open file for reading" << endl;
         return data;
     }
 
@@ -41,7 +41,7 @@ void FileOperations::writeData(list<Wifi>& data)
     ofstream file("WifiData.csv");
     if (!file)
     {
-        cout << "Unable to open CSV file for writing" << endl;
+        cout << "unable to open CSV file for writing" << endl;
         return;
     }
     for (auto i = data.begin(); i != data.end(); i++)
@@ -61,6 +61,7 @@ void FileOperations::sortWiFiList(list<Wifi>& wifiList)
             if (i->getStatus() != "connected" && j->getStatus() == "connected")
             {
                 iter_swap(i, j);
+
             }
             if (i->getStatus() == "Available" && j->getStatus() == "Saved")
             {
@@ -74,16 +75,70 @@ void FileOperations::sortWiFiList(list<Wifi>& wifiList)
     }
 }
 
+void FileOperations::wifiConnection(list<Wifi>& wifiList)
+{
+    string wifiName, password;
+    cout <<endl<< "Enter WiFi Name to Connect: ";
+    cin >> wifiName;
+
+    for (auto i = wifiList.begin(); i != wifiList.end(); i++)
+    {
+        if(i->getStatus() == "connected" && i->getName() == wifiName)
+        {
+            cout<<endl<<wifiName<<" is already connected"<<endl;
+            return;
+        }
+        if (i->getStatus() == "connected")
+        {
+            cout <<endl<< "Disconnecting from " << i->getName() << " and saving it" << endl;
+            i->setStatus("Saved");
+        }
+        if (i->getName() == wifiName)
+        {
+            if (i->getStatus() == "Saved")
+            {
+                cout<<endl << "Connecting to " << wifiName << endl;
+                i->setStatus("connected");
+                writeData(wifiList);
+                display(wifiList);
+
+                return;
+            }
+            else if (i->getStatus() == "Available")
+            {
+                cout <<endl<< "Enter password for " << wifiName << ": ";
+                cin >> password;
+
+                if (password == i->getPassword())
+                {
+                    cout<<endl << " Entered password is Correct and Connecting to " << wifiName << endl;
+                    i->setStatus("connected");
+                    writeData(wifiList);
+                    display(wifiList);
+                }
+                else
+                {
+                    cout <<endl<< "Incorrect password" << endl;
+                }
+                return;
+
+            }
+        }
+    }
+
+    cout << "WiFi " << wifiName << " not found." << endl;
+}
+
 
 
 void FileOperations::display(list<Wifi>& wifiList)
 {
+
     sortWiFiList(wifiList);
 
-    cout << "\nSorted WiFi Networks:\n";
+    cout << endl<<"Sorted Wifi List"<<endl;
     for (auto i = wifiList.begin(); i != wifiList.end(); i++)
     {
-        cout << "Name: " << i->getName() << ", Signal Strength: " << i->getStrength()
-        << ", Status: " << i->getStatus() << ", Password: " << i->getPassword() << endl;
+        cout << "Name: " << i->getName() << ", Signal Strength: " << i->getStrength() << ", Status: " << i->getStatus() << ", Password: " << i->getPassword() << endl;
     }
 }

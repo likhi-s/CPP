@@ -41,5 +41,11 @@ string Wifi::getPassword()
     return m_password;
 }
 
+void Wifi::setStatus(string status)
+{
+    m_status = status;
+
+}
+
 
 
