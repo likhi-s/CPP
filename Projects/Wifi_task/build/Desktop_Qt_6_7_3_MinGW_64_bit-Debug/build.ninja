@@ -65,6 +65,14 @@ build CMakeFiles/Wifi_task.dir/wifi.cpp.obj: CXX_COMPILER__Wifi_task_unscanned_D
   TARGET_COMPILE_PDB = CMakeFiles\Wifi_task.dir\
   TARGET_PDB = Wifi_task.pdb
 
+build CMakeFiles/Wifi_task.dir/wifiOperations.cpp.obj: CXX_COMPILER__Wifi_task_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Projects/Wifi_task/wifiOperations.cpp || cmake_object_order_depends_target_Wifi_task
+  DEP_FILE = CMakeFiles\Wifi_task.dir\wifiOperations.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Wifi_task.dir
+  OBJECT_FILE_DIR = CMakeFiles\Wifi_task.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Wifi_task.dir\
+  TARGET_PDB = Wifi_task.pdb
+
 build CMakeFiles/Wifi_task.dir/fileoperations.cpp.obj: CXX_COMPILER__Wifi_task_unscanned_Debug C$:/Users/likit/Desktop/Assignments/c++/TASKS/Projects/Wifi_task/fileoperations.cpp || cmake_object_order_depends_target_Wifi_task
   DEP_FILE = CMakeFiles\Wifi_task.dir\fileoperations.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
@@ -81,7 +89,7 @@ build CMakeFiles/Wifi_task.dir/fileoperations.cpp.obj: CXX_COMPILER__Wifi_task_u
 #############################################
 # Link the executable Wifi_task.exe
 
-build Wifi_task.exe: CXX_EXECUTABLE_LINKER__Wifi_task_Debug CMakeFiles/Wifi_task.dir/main.cpp.obj CMakeFiles/Wifi_task.dir/wifi.cpp.obj CMakeFiles/Wifi_task.dir/fileoperations.cpp.obj
+build Wifi_task.exe: CXX_EXECUTABLE_LINKER__Wifi_task_Debug CMakeFiles/Wifi_task.dir/main.cpp.obj CMakeFiles/Wifi_task.dir/wifi.cpp.obj CMakeFiles/Wifi_task.dir/wifiOperations.cpp.obj CMakeFiles/Wifi_task.dir/fileoperations.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Wifi_task.dir

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-d0a21793c1d24bfc6ff5.json",
+					"jsonFile" : "directory-.-Debug-1ee9eb212d4ba6f3736e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -40,7 +40,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Wifi_task::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Wifi_task-Debug-ee2f109da8abf460a711.json",
+					"jsonFile" : "target-Wifi_task-Debug-ee5186821e8db40de172.json",
 					"name" : "Wifi_task",
 					"projectIndex" : 0
 				}

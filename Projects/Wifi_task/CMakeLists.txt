@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(Wifi_task main.cpp
     wifi.h wifi.cpp
+    wifiOperations.h wifiOperations.cpp
     fileoperations.h fileoperations.cpp)
 
 include(GNUInstallDirs)

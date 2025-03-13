@@ -1,27 +1,17 @@
 #include <iostream>
 #include "wifi.h"
-#include "fileoperations.h"
+#include "wifiOperations.h"
 using namespace std;
+
+enum choice{ Display =1,Connection,Exit};
+
 
 int main()
 {
-    list<Wifi>m_list;
-
-    m_list.push_back(Wifi("Dharshini", 98, "Available", "1234"));
-    m_list.push_back(Wifi("Pallavi", 83, "Saved", "1234"));
-    m_list.push_back(Wifi("Darshan", 62, "Saved", "1234"));
-    m_list.push_back(Wifi("Dimanth", 49, "Available", "1234"));
-    m_list.push_back(Wifi("Pthinks", 78, "Available", "1234"));
-    m_list.push_back(Wifi("Varshini", 51, "Available", "1234"));
-    m_list.push_back(Wifi("Girish", 48, "Saved", "1234"));
-    m_list.push_back(Wifi("Prathik", 52, "Available", "1234"));
-    m_list.push_back(Wifi("Anurag", 50, "Available", "1234"));
-    m_list.push_back(Wifi("Likhitha", 82, "connected", "1234"));
-
-    enum choice{ Display =1,Connection,Exit};
 
 
-    FileOperations operations;
+    WifiOperations operations ;
+
 
     while(true)
     {
@@ -34,16 +24,13 @@ int main()
         {
         case Display:
         {
-            operations.writeData(m_list);
-            m_list = operations.readData();
-            operations.display(m_list);
+            operations.display();
             break;
         }
         case Connection:
         {
-            m_list = operations.readData();
-            operations.display(m_list);
-            operations.wifiConnection(m_list);
+            operations.wifiConnection();
+
             break;
 
         }
@@ -57,12 +44,27 @@ int main()
 
         }
 
-
     }
-
 
 
     cout << "Hello World!" << endl;
     return 0;
 }
+
+
+
+ // Pthinks	44	connected	1234
+ //    Dharshini	45	Saved	1234
+ //    Girish	29	Saved	1234
+ //    Prathik	28	Saved	1234
+ //    Pallavi	25	Saved	1234
+ //    Anurag	79	Available	1234
+ //    Darshan	72	Available	1234
+ //    Likhitha 28	Available	1234
+ //    Dimanth	23	Available	1234
+ //    Varshini	10	Available	1234
+
+
+
+
 
