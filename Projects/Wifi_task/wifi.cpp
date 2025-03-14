@@ -30,13 +30,11 @@ string Wifi::getName()
 
 int Wifi::getStrength()
 {
-    //cout<<"get Signal Strength function called"<<endl;
     return m_signalStrength;
 }
 
 string Wifi::getStatus()
 {
-    //cout<<"get status  function called"<<endl;
     return m_status;
 }
 
@@ -48,7 +46,6 @@ string Wifi::getPassword()
 void Wifi::setStatus(string status)
 {
     m_status = status;
-   // cout<<"Set Status Function Called"<<endl;
 
 }
 

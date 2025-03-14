@@ -1,23 +1,23 @@
 #ifndef WIFIOPERATIONS_H
 #define WIFIOPERATIONS_H
-#include "wifi.h"
+#include "fileoperations.h"
 #include <list>
 #include <iostream>
+#include <fstream>
 using namespace std;
+
 
 class WifiOperations
 {
 public:
     WifiOperations();
     ~WifiOperations();
-
-    list<Wifi *> readData();
-    void writeData();
     void display();
     void sortWiFiList();
     void wifiConnection();
 private:
     list<Wifi*>m_wifiList;
+    FileOperations *fileoperations;
 };
 
 #endif // WIFIOPERATIONS_H

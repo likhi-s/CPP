@@ -1,13 +1,11 @@
 #include "wifiOperations.h"
-#include <iostream>
-#include <fstream>
 
-using namespace std;
 
 WifiOperations::WifiOperations()
 {
     cout << "Wifi Operations Constructor Called" << endl;
-    m_wifiList = readData();
+    fileoperations = new FileOperations;
+    m_wifiList =fileoperations->readData();
     this->sortWiFiList();
 }
 
@@ -21,50 +19,7 @@ WifiOperations::~WifiOperations()
 
 }
 
-list<Wifi*> WifiOperations::readData()
-{
-    list<Wifi*> data;
-    ifstream file("WifiData.csv");
-    if (!file)
-    {
-        cout << "unable to open file for reading" << endl;
-        return data;
-    }
 
-    string name, status, password;
-    int strength;
-
-    while (getline(file, name, ',') && file >> strength && file.ignore() && getline(file, status, ',') && getline(file, password))
-    {
-        data.push_back(new Wifi(name, strength, status, password));
-        cout<<"Data read from FIle"<<endl;
-
-    }
-
-    file.close();
-    return data;
-
-
-}
-
-void WifiOperations::writeData()
-{
-    ofstream file("WifiData.csv");
-    if (!file)
-    {
-        cout << "unable to open CSV file for writing" << endl;
-        return;
-    }
-
-    for (auto i : m_wifiList)
-    {
-        file << i->getName() << "," << i->getStrength() << "," << i->getStatus() << "," << i->getPassword() << endl;
-
-    }
-
-    file.close();
-    cout << "Data written to CSV file" << endl;
-}
 void WifiOperations::sortWiFiList()
 {
 
@@ -74,18 +29,14 @@ void WifiOperations::sortWiFiList()
         {
             if (i->getStatus() == "connected" && j->getStatus() != "connected" )
             {
-
                 iter_swap(i, j);
-
             }
             if (i->getStatus() == "Saved" && j->getStatus() == "Available" )
             {
-
                 iter_swap(i, j);
             }
             if (i->getStatus() == j->getStatus() && i->getStrength() > j->getStrength())
             {
-
                 iter_swap(i, j);
             }
         }
@@ -106,15 +57,12 @@ void WifiOperations::wifiConnection()
         {
             found =1;
             cout<<endl<<"Wifi"<<wifiName<<" is already connected"<<endl;
-            sortWiFiList();
             break;
         }
         if (i->getStatus() == "connected")
         {
             cout <<endl<< "Disconnecting from " << i->getName() << " and saving it" << endl;
-            i->setStatus ("Saved");
-            sortWiFiList();
-
+            i->setStatus ("Saved");            
         }
 
         if (i->getName() == wifiName)
@@ -165,8 +113,6 @@ void WifiOperations::wifiConnection()
 
 void WifiOperations::display()
 {
-
-
     cout << endl<<"Sorted Wifi List" << endl;
 
     for (auto i : m_wifiList)
