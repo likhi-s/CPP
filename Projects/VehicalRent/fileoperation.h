@@ -16,9 +16,9 @@ public:
     list<Car *> readCarData();
     list<RentalDetails *>readRentalData();
 
-    void writeCarData();
-    void writeRentalData();
-    void writeBikeData();
+    void writeCarData(list<Car*> &car);
+    void writeRentalData(list<RentalDetails *> &rent);
+    void writeBikeData(list<Bike *> &bike);
 };
 
 #endif // FILEOPERATION_H
