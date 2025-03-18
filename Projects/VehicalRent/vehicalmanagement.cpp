@@ -1,7 +1,11 @@
 #include "vehicalmanagement.h"
 #include <fstream>
+#include <iomanip>
+#include <string>
 
 
+enum option{AddVehical=1,BookVehical,ReturnVehical,DisplayVehical,UpdateVehicalRent,DisplayHistory,EXIT};
+enum select{BIKE =1,CAR};
 VehicalManagement::VehicalManagement()
 {
     cout<<"vehical Management Constructor Called"<<endl;
@@ -30,6 +34,140 @@ VehicalManagement::~VehicalManagement()
 
 }
 
+void VehicalManagement::operations()
+{
+    while(true)
+    {
+        cout<<endl<<"1.Add Vehical"<<endl<<"2.Book Vehical"<<endl<<"3.Return Vehical"<<endl<<"4.Display Vehical"<<endl<<"5.Update Vehical Rent"<<endl;
+        cout<<"6.Display Rental History"<<endl<<"7.Exit"<<endl;
+
+        cout<<endl<<"Enter Choice"<<endl;
+        int option;
+        cin>>option;
+        switch(option)
+        {
+        case AddVehical:
+        {
+            cout<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<"Select:"<<endl;
+            int select;
+            cin>>select;
+            switch(select)
+            {
+            case BIKE:
+                addBike();
+                break;
+            case CAR:
+                addCar();
+                break;
+            default:
+                cout<<"Invalid Choice"<<endl;
+                break;
+            }
+            break;
+        }
+        case BookVehical:
+        {
+            cout<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<"Select:"<<endl;
+            int select;
+            cin>>select;
+            switch(select)
+            {
+            case BIKE:
+                bookBike();
+                break;
+            case CAR:
+                bookCar();
+                break;
+            default:
+                cout<<"Invalid Choice"<<endl;
+                break;
+            }
+            break;
+        }
+        case ReturnVehical:
+        {
+            cout<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<"Select:"<<endl;
+            int select;
+            cin>>select;
+            switch(select)
+            {
+            case BIKE:
+                returnBike();
+                break;
+            case CAR:
+                returnCar();
+                break;
+            default:
+                cout<<"Invalid Choice"<<endl;
+                break;
+            }
+            break;
+        }
+        case DisplayVehical:
+        {
+
+            cout<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<"Select:"<<endl;
+            int select;
+            cin>>select;
+            switch(select)
+            {
+            case BIKE:
+                displayBike();
+                break;
+            case CAR:
+                displayCar();
+                break;
+            default:
+                cout<<"Invalid Choice"<<endl;
+                break;
+            }
+            break;
+
+        }
+        case UpdateVehicalRent:
+        {
+            cout<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<"Select:"<<endl;
+            int select;
+            cin>>select;
+            switch(select)
+            {
+            case BIKE:
+                updateBikeRent();
+                break;
+            case CAR:
+                updateCarRent();
+                break;
+            default:
+                cout<<"Invalid Choice"<<endl;
+                break;
+            }
+            break;
+        }
+        case DisplayHistory:
+            rentalHistory();
+            break;
+        case EXIT:
+            fileoperations->writeBikeData(m_bikeList);
+            fileoperations->writeCarData(m_carList);
+            fileoperations->writeRentalData(m_rentalList);
+            cout<<" saved to file and Exiting "<<endl;
+            return;
+        default:
+            cout<<"Invalid Choice"<<endl;
+            break;
+
+        }
+
+    }
+}
+
+
+
 void VehicalManagement::bookBike()
 {
     cout<<endl<<"Booking Bike"<<endl;
@@ -39,7 +177,7 @@ void VehicalManagement::bookBike()
     int found =0;
     for(auto i : m_bikeList)
     {
-        if(i->getBikeId() == bikeId && i->getStatus() == "Available")
+        if(i->getId() == bikeId && i->getStatus() == "Available")
         {
             found =1;
             cout<<"Entered Bike Id: "<<bikeId<<" is Available for rent"<<endl;
@@ -59,34 +197,74 @@ void VehicalManagement::bookBike()
             {
                 string name,mobile,vehicalType,paymentStatus;
                 int age,bookingid;
-                cout<<"Enter Name : ";
-                cin>>name;
-                cout<<"Enter Mobile : ";
-                cin>>mobile;
-                cout<<"Enter Age : ";
-                cin>>age;
+                while(true)
+                {
+                    cout<<"Enter Name : ";
+                    cin>>name;
+                    break;
+                    // if(name >= 'A' || name >= 'a' && name <= 'Z' || name <= 'z')
+                    // {
+                    //     break;
+                    // }
+                    // else
+                    // {
+                    //     cout<<"Invalid Name,try again"<<endl;
+
+                    // }
+                }
+
+
+                while(true)
+                {
+                    cout<<"Enter Mobile Number(10 digits) : ";
+                    cin>>mobile;
+                    if(mobile.length()==10)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        cout<<"Invalid number,try again"<<endl;
+                    }
+                }
+
+                while(true)
+                {
+                    cout<<"Enter Age : ";
+                    cin>>age;
+                    if(age >=18 && age < 90)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        cout<<"Invalid Age,age must be positive and in between 17-90,try again"<<endl;
+                    }
+                }
+
                 cout<<"Enter Booking Id : ";
                 cin>>bookingid;
-                cout<<"Enter Vehical Type : ";
-                cin>>vehicalType;
+                vehicalType = "Bike";
+                cout<<"vehical Type :"<<vehicalType<<endl;
+
+
                 cout<<"Enter Payment Status : ";
                 cin>>paymentStatus;
+
                 cout<<endl<<"Your bike is booked"<<endl;
                 i->setStatus("Booked");
 
                 string model,status;
                 int id,duration;
                 float cost;
-                id = i->getBikeId();
+                id = i->getId();
                 model = i->getModel();
                 cost = i->getCost();
                 status = i->getStatus();
                 duration = i->getDuration();
 
                 m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentStatus,id, model,cost,status,duration));
-                fileoperations->writeRentalData(m_rentalList);
 
-                fileoperations->writeBikeData(m_bikeList);
 
                 break;
             }
@@ -98,15 +276,17 @@ void VehicalManagement::bookBike()
             default:
                 cout<<"Invalid Option"<<endl;
             }
-
         }
-
+        if(i->getId() == bikeId && i->getStatus() == "Booked")
+        {
+            found =1;
+            cout<<"Entered Bike ID : "<<bikeId<<" is already booked"<<endl;
+        }
     }
     if(found ==0 )
     {
         cout<<"Entered Bike ID :"<<bikeId<<" is not available"<<endl;
     }
-
 }
 
 void VehicalManagement::bookCar()
@@ -118,7 +298,7 @@ void VehicalManagement::bookCar()
     int found =0;
     for(auto i : m_carList)
     {
-        if(i->getCarId() == carId && i->getStatus() == "Available")
+        if(i->getId() == carId && i->getStatus() == "Available")
         {
             found = 1;
             cout<<"Entered car Id: "<<carId<<" is Available for rent"<<endl;
@@ -140,14 +320,40 @@ void VehicalManagement::bookCar()
                 int age,bookingid;
                 cout<<"Enter Name : ";
                 cin>>name;
-                cout<<"Enter Mobile : ";
-                cin>>mobile;
-                cout<<"Enter Age : ";
-                cin>>age;
+                while(true)
+                {
+                    cout<<"Enter Mobile number(10 digits): ";
+                    cin>>mobile;
+                    if(mobile.length()==10)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        cout<<"Invalid Number,try again"<<endl;
+                    }
+                }
+
+                while(true)
+                {
+                    cout<<"Enter Age : ";
+                    cin>>age;
+                    if(age>=18 && age<= 90)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        cout<<"Invalid Age,age must be positive and in between 17-90,try again"<<endl;
+                    }
+                }
+
                 cout<<"Enter Booking Id : ";
                 cin>>bookingid;
-                cout<<"Enter Vehical Type : ";
-                cin>>vehicalType;
+
+                vehicalType = "Car";
+                cout << "Vehical Type :"<<vehicalType<<endl;
+
                 cout<<"Enter Payment Status : ";
                 cin>>paymentStatus;
 
@@ -156,16 +362,14 @@ void VehicalManagement::bookCar()
                 string model,status;
                 int id,duration;
                 float cost;
-                id = i->getCarId();
+                id = i->getId();
                 model = i->getModel();
                 cost = i->getCost();
                 status = i->getStatus();
                 duration = i->getDuration();
 
                 m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentStatus,id, model,cost,status,duration));
-                fileoperations->writeRentalData(m_rentalList);
 
-                fileoperations->writeCarData(m_carList);
                 break;
             }
             case Exit:
@@ -176,6 +380,12 @@ void VehicalManagement::bookCar()
             default:
                 cout<<"Invalid Option"<<endl;
             }
+        }
+        if(i->getId() == carId && i->getStatus() == "Booked")
+        {
+            found = 1;
+            cout<<"Entered Car ID : "<<carId<<" is already booked"<<endl;
+
 
         }
 
@@ -194,7 +404,7 @@ void VehicalManagement::returnBike()
     int found =0;
     for(auto i : m_bikeList)
     {
-        if(i->getBikeId() == bikeId && i->getStatus() == "Booked")
+        if(i->getId() == bikeId && i->getStatus() == "Booked")
         {
             found =1;
             cout<<endl<<"Bike Details"<<endl;
@@ -223,12 +433,17 @@ void VehicalManagement::returnBike()
             default:
                 cout<<"Invalid Option"<<endl;
             }
-
         }
+        if(i->getId() == bikeId && i->getStatus() == "Available")
+        {
+            found =1;
+            cout<<"Entered Bike Id: "<<bikeId<<"  not yet Booked"<<endl;
+        }
+
     }
     if(found ==0)
     {
-        cout<<"Enter Bike Id: "<<bikeId<<" is not Booked"<<endl;
+        cout<<"Entered Bike Id: "<<bikeId<<" is not Available"<<endl;
     }
 }
 
@@ -240,7 +455,7 @@ void VehicalManagement::returnCar()
     int found = 0;
     for(auto i : m_carList)
     {
-        if(i->getCarId() == carId && i->getStatus() == "Booked")
+        if(i->getId() == carId && i->getStatus() == "Booked")
         {
             found =1;
             cout<<endl<<"Car Details"<<endl;
@@ -269,54 +484,71 @@ void VehicalManagement::returnCar()
             default:
                 cout<<"Invalid Option"<<endl;
             }
+        }
+        if(i->getId() == carId && i->getStatus() == "Available")
+        {
+            found =1;
+            cout<<"Entered Car Id: "<<carId<<"  not yet Booked"<<endl;
 
         }
+
     }
     if(found ==0)
     {
-        cout<<"Enter Car Id: "<<carId<<" is not Booked"<<endl;
+        cout<<"Entered Car Id: "<<carId<<" is not available"<<endl;
     }
 }
 
 void VehicalManagement::displayBike()
 {
+    cout<<endl<<"****************************************Displaying Bikes*************************************************"<<endl <<endl;
 
-    cout<<"Displaying Bikes"<<endl;
+    cout<< endl<<setw(15)<<"Bike Id "<<setw(15)<<"Bike Model "<<setw(15)<<"Bike Cost "<<setw(15)<<"Bike Status"<<setw(25)<<"Bike Duration"<<endl<<endl;
+
     for(auto i : m_bikeList)
     {
-        cout<<"Bike Id: "<<i->getBikeId()<<", Bike Model: "<<i->getModel()<<" ,Bike Cost: "<<i->getCost()<<" ,Bike Status: "<<i->getStatus()<<" ,Bike Duration :"<<i->getDuration()<< " day"<<endl;
+        cout<<setw(15)<<i->getId()<<setw(15)<<i->getModel()<<setw(15)<<i->getCost()<<setw(15)<<i->getStatus()<<setw(15)<<i->getDuration()<<" Day"<<endl;
+        //cout<<cout.width(15)<<i->getBikeId()<<cout.width(15)<<i->getModel()<<cout.width(15)<<i->getCost()<<cout.width(15)<<i->getStatus()<<cout.width(15)<<i->getDuration()<<cout.width(25)<<endl;
     }
 }
 
 void VehicalManagement::displayCar()
 {
-    cout<<"Displaying Cars"<<endl;
+    cout<<endl<<"****************************************Displaying Cars*************************************************"<<endl <<endl;
+
+    cout<< endl<<setw(15)<<"Car Id "<<setw(15)<<"Car Model "<<setw(15)<<"Car Cost "<<setw(15)<<"Car Status"<<setw(25)<<"Car Duration"<<endl<<endl;
+
     for(auto i : m_carList)
+
     {
-        cout<<"Car Id: "<<i->getCarId()<<", Car Model: "<<i->getModel()<<" ,Car Cost: "<<i->getCost()<<" ,Car Status: "<<i->getStatus()<<" ,Car Duration :"<<i->getDuration()<< " day"<<endl;
+        cout<<setw(15)<<i->getId()<<setw(15)<<i->getModel()<<setw(15)<<i->getCost()<<setw(15)<<i->getStatus()<<setw(15)<<i->getDuration()<< " Day"<<endl;
     }
 }
 
 void VehicalManagement::rentalHistory()
 {
-    cout<<endl<<"Displaying History "<<endl;
+    cout<<endl<<"****************************************Displaying History*************************************************"<<endl <<endl;
+
+    cout<< endl<<setw(20)<<"Customer_Name"<<setw(20)<<"Customer_Mobile "<<setw(20)<<"Customer_Age "<<setw(20)<<"Customer_Booking_Id"<<setw(20)<<"Vehical_Type"<<setw(20)<<"Payment_Status"<<setw(20)<<"Vehical_Id"<<setw(20)<<"Vehical_Model"<<setw(20)<<"Vehical_Cost"<<setw(20)<<"Vehical_Status"<<setw(20)<<"Vehical_Duration"<<endl<<endl;
 
     for(auto i : m_rentalList)
     {
         if(i->getVehicalType() == "Bike")
         {
-            cout<<"Customer Name: "<<i->getName() <<", Customer Mobile: "<<i->getMobile()<<", Customer age: "<<i->getAge()<<", Customer Booking Id: "<<i->getBookingId()<<", Vehical Type: "<<i->getVehicalType()<<", Payment Status :"<<i->getPaymentStatus()<<",Bike Id: "<<i->getRentalBikeId()<< ",bike Model: "<<i->getBikeModel() << ",Bike Cost :"<< i->getBikeCost()<<",Bike Status: "<< i->getBikeStatus()<<",Bike Duration :"<<i->getBikeDuration()<<"  day"<<endl;
+
+            cout<<setw(25)<<i->getName() <<setw(15)<<i->getMobile()<<setw(20)<<i->getAge()<<setw(20)<<i->getBookingId()<<setw(20)<<i->getVehicalType()<<setw(20)<<i->getPaymentStatus()<<setw(20)<<i->getId()<< setw(20)<<i->getModel() << setw(20)<< i->getCost()<<setw(20)<< i->getStatus()<<setw(15)<<i->getDuration()<<"  day"<<endl;
+
+            // cout<<setw(20)<<i->getName() <<setw(20)<<i->getMobile()<<setw(20)<<i->getAge()<<setw(20)<<i->getBookingId()<<setw(20)<<i->getVehicalType()<<setw(20)<<i->getPaymentStatus()<<setw(20)<<i->getRentalBikeId()<< setw(20)<<i->getBikeModel() << setw(20)<< i->getBikeCost()<<setw(20)<< i->getBikeStatus()<<setw(20)<<i->getBikeDuration()<<"  day"<<setw(20)<<endl;
 
         }
         if(i->getVehicalType() == "Car")
         {
-            cout<<"Customer Name: "<<i->getName() <<", Customer Mobile: "<<i->getMobile()<<", Customer age: "<<i->getAge()<<", Customer Booking Id: "<<i->getBookingId()<<", Vehical Type: "<<i->getVehicalType()<<", Payment Status :"<<i->getPaymentStatus()<<",Car Id: "<<i->getRentalCarId()<< ",Car Model: "<<i->getCarModel() << ",Car Cost :"<< i->getCarCost()<<",Car Status: "<< i->getCarStatus()<<",Car Duration :"<<i->getCarDuration()<<" day"<<endl;
+            cout<<setw(20)<<i->getName() <<setw(15)<<i->getMobile()<<setw(20)<<i->getAge()<<setw(20)<<i->getBookingId()<<setw(20)<<i->getVehicalType()<<setw(20)<<i->getPaymentStatus()<<setw(20)<<i->getId()<< setw(20)<<i->getModel() << setw(20)<< i->getCost()<<setw(20)<< i->getStatus()<<setw(15)<<i->getDuration()<<"  day"<<endl;
+
+            //cout<<"Customer Name: "<<i->getName() <<", Customer Mobile: "<<i->getMobile()<<", Customer age: "<<i->getAge()<<", Customer Booking Id: "<<i->getBookingId()<<", Vehical Type: "<<i->getVehicalType()<<", Payment Status :"<<i->getPaymentStatus()<<",Car Id: "<<i->getRentalCarId()<< ",Car Model: "<<i->getCarModel() << ",Car Cost :"<< i->getCarCost()<<",Car Status: "<< i->getCarStatus()<<",Car Duration :"<<i->getCarDuration()<<" day"<<endl;
 
         }
-
-
     }
-
 }
 
 
@@ -325,8 +557,31 @@ void VehicalManagement::addBike()
     int id,duration;
     string  model,status;
     float cost;
-    cout<<"Enter Bike Id :";
-    cin>>id;
+
+    while(true)
+    {
+        int count = 0;
+
+        cout<<"Enter Bike Id :";
+        cin>>id;
+        for(auto i : m_bikeList)
+        {
+            if(i->getId() == id)
+            {
+                count = 1;
+            }
+
+        }
+        if(count == 0)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"Entered Bike Id already Exists,try with different Id"<<endl;
+        }
+    }
+
     cout<<"Enter Bike Model :";
     cin>>model;
     cout<<"Enter Bike cost :";
@@ -336,7 +591,6 @@ void VehicalManagement::addBike()
     cout<<"Enter Bike Duration :";
     cin>>duration;
     m_bikeList.push_back(new Bike(id,model,cost,status,duration));
-    fileoperations->writeBikeData( m_bikeList);
 }
 
 void VehicalManagement::addCar()
@@ -344,8 +598,32 @@ void VehicalManagement::addCar()
     int id,duration;
     string  model,status;
     float cost;
-    cout<<"Enter Car Id :";
-    cin>>id;
+
+    while(true)
+    {
+        int count = 0;
+
+        cout<<"Enter Car Id :";
+        cin>>id;
+        for(auto i : m_carList)
+        {
+            if(i->getId() == id)
+            {
+                count = 1;
+            }
+
+        }
+        if(count == 0)
+        {
+            break;
+        }
+        else
+        {
+            cout<<"Entered Car Id already Exists,try with different Id"<<endl;
+        }
+    }
+
+
     cout<<"Enter Car Model :";
     cin>>model;
     cout<<"Enter Car cost :";
@@ -355,28 +633,6 @@ void VehicalManagement::addCar()
     cout<<"Enter Car Duration :";
     cin>>duration;
     m_carList.push_back(new Car(id,model,cost,status,duration));
-    fileoperations->writeCarData( m_carList);
-}
-
-void VehicalManagement::updateCarRent()
-{
-
-    this->displayCar();
-    int id;
-    cout<<"enter the Car Id to Update Rent"<<endl;
-    cin>>id;
-    for(auto i :m_carList)
-    {
-        if(i->getCarId() == id)
-        {
-            float cost;
-            cout<<"Enter New Car Rent :";
-            cin>>cost;
-            i->setCost(cost);
-        }
-    }
-    fileoperations->writeCarData( m_carList);
-
 }
 
 void VehicalManagement::updateBikeRent()
@@ -387,7 +643,7 @@ void VehicalManagement::updateBikeRent()
     cin>>id;
     for(auto i :m_bikeList)
     {
-        if(i->getBikeId() == id)
+        if(i->getId() == id)
         {
             float cost;
             cout<<"Enter New Bike Rent :";
@@ -395,7 +651,27 @@ void VehicalManagement::updateBikeRent()
             i->setCost(cost);
         }
     }
-
-    fileoperations->writeBikeData( m_bikeList);
 }
+void VehicalManagement::updateCarRent()
+{
+
+    this->displayCar();
+    int id;
+    cout<<"enter the Car Id to Update Rent"<<endl;
+    cin>>id;
+    for(auto i :m_carList)
+    {
+        if(i->getId() == id)
+        {
+            float cost;
+            cout<<"Enter New Car Rent :";
+            cin>>cost;
+            i->setCost(cost);
+        }
+    }
+
+}
+
+
+
 

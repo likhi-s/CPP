@@ -2,6 +2,7 @@
 #define VEHICAL_H
 #include <iostream>
 using namespace std;
+
 class Vehical
 {
 protected:
@@ -14,6 +15,15 @@ protected:
 public:
     Vehical();
     ~Vehical();
+    virtual int getId() = 0;
+    virtual string getModel() = 0;
+    virtual float getCost() = 0;
+    virtual string getStatus() = 0;
+    virtual int getDuration() =0;
+    virtual void setStatus(string status) = 0 ;
+    virtual void setCost(float cost) =0;
+
+
 };
 
 #endif // VEHICAL_H

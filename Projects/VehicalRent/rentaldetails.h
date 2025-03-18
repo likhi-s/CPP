@@ -1,9 +1,11 @@
 #ifndef RENTALDETAILS_H
 #define RENTALDETAILS_H
 #include <iostream>
-using namespace std;
 #include "car.h"
 #include "bike.h"
+
+using namespace std;
+
 class RentalDetails
 {
 private:
@@ -14,13 +16,16 @@ private:
     string m_vehicalType;
     string m_paymentStatus;
 
-    Bike bike;
-    Car car;
+    // Bike bike;
+    // Car car;
+     Vehical *m_rentedVehical;
+
 public:
 
     RentalDetails();
-    ~RentalDetails();
     RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType,string paymentStatus, int id,string model, float cost, string status, int duration);
+    ~RentalDetails();
+
     string getName();
     string getMobile();
     int getAge();
@@ -28,20 +33,22 @@ public:
     string getVehicalType();
     string getPaymentStatus();
 
-    int getRentalCarId();
-    string getCarModel();
-    float getCarCost();
-    string getCarStatus();
-    int getCarDuration();
+    int getId();
+    string getModel();
+    float getCost();
+    string getStatus();
+    int getDuration();
 
-    int getRentalBikeId();
-    string getBikeModel();
-    float getBikeCost();
-    string getBikeStatus();
-    int getBikeDuration();
+    // int getRentalBikeId();
+    // string getBikeModel();
+    // float getBikeCost();
+    // string getBikeStatus();
+    // int getBikeDuration();
 
 
 
+    void initBike();
+    void initCar();
 };
 
 #endif // RENTALDETAILS_H

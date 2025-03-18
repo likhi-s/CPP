@@ -14,7 +14,8 @@ public:
     float getCost();
     string getStatus();
     int getDuration();
-    int getBikeId();
+    //int getBikeId();
+    int getId();
     void setStatus(string status);
     void setCost(float cost);
 

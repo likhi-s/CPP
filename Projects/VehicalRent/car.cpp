@@ -1,5 +1,6 @@
 #include "car.h"
 
+
 Car::Car()
 {
     cout<<"Car Constructor Called"<<endl;
@@ -12,6 +13,8 @@ Car::~Car()
 
 Car::Car(int id, string model, float cost, string status, int duration)
 {
+    cout<<"Car Parameterized Constructor Called"<<endl;
+
     m_id =id;
     m_model = model;
     m_cost = cost;
@@ -29,7 +32,11 @@ float Car::getCost()
 {
     return m_cost;
 }
-int Car::getCarId()
+// int Car::getCarId()
+// {
+//     return m_id;
+// }
+int Car::getId()
 {
     return m_id;
 }

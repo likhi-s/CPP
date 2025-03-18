@@ -8,12 +8,10 @@ FileOperation::FileOperation()
 FileOperation::~FileOperation()
 {
     cout<<"File Operations Destructor Called"<<endl;
-
 }
 
 list<Bike*> FileOperation::readBikeData()
 {
-
     list<Bike*> bikeData;
     ifstream file("BikeData.csv");
     if (!file)
@@ -76,9 +74,7 @@ list<RentalDetails *> FileOperation::readRentalData()
     float cost;
     while(getline(file,name,',') && getline(file,mobile,',') && file >> age && file.ignore() && file>> bookingId && file.ignore() && getline(file,vehicalType,',') && getline(file,paymentStatus,',') && file>>id && file.ignore() && getline(file,model,',') && file>> cost && file.ignore() && getline(file,status,',') && file>>duration )
     {
-
-       rentData.push_back(new RentalDetails(name,mobile,age,bookingId,vehicalType,paymentStatus,id, model,cost,status,duration));
-
+        rentData.push_back(new RentalDetails(name,mobile,age,bookingId,vehicalType,paymentStatus,id, model,cost,status,duration));
     }
 
 
@@ -89,19 +85,19 @@ list<RentalDetails *> FileOperation::readRentalData()
 void FileOperation::writeBikeData(list<Bike*> &bike)
 {
     ofstream file("BikeData.csv");
-        if (!file)
-        {
-            cout << "unable to open CSV file for writing" << endl;
-            return;
-        }
-        for(auto i :bike)
-        {
-            file << i->getBikeId()<< "," << i->getModel() << "," << i->getCost() <<"," << i->getStatus() << ","<< i->getDuration()<<endl;
+    if (!file)
+    {
+        cout << "unable to open CSV file for writing" << endl;
+        return;
+    }
+    for(auto i :bike)
+    {
+        file << i->getId()<< "," << i->getModel() << "," << i->getCost() <<"," << i->getStatus() << ","<< i->getDuration()<<endl;
 
-        }
+    }
 
-        file.close();
-        cout << "Data written to CSV file" << endl;
+    file.close();
+    cout << "Data written to CSV file" << endl;
 }
 
 void FileOperation::writeCarData(list<Car*>&car)
@@ -114,7 +110,7 @@ void FileOperation::writeCarData(list<Car*>&car)
     }
     for(auto i :car)
     {
-        file << i->getCarId()<< "," << i->getModel() << "," << i->getCost() <<"," << i->getStatus() << ","<< i->getDuration()<<endl;
+        file << i->getId()<< "," << i->getModel() << "," << i->getCost() <<"," << i->getStatus() << ","<< i->getDuration()<<endl;
 
     }
 
@@ -132,7 +128,7 @@ void FileOperation::writeRentalData(list<RentalDetails*> &rent)
     }
     for(auto i :rent)
     {
-        file<< i->getName() <<"," <<i->getMobile()<<","<<i->getAge()<<","<<i->getBookingId()<<","<<i->getVehicalType()<<","<<i->getPaymentStatus()<<","<< i->getRentalBikeId()<<","<<i->getBikeModel()<<","<<i->getBikeCost()<<","<<i->getBikeStatus()<<","<<i->getBikeDuration()<<endl;
+        file<< i->getName() <<"," <<i->getMobile()<<","<<i->getAge()<<","<<i->getBookingId()<<","<<i->getVehicalType()<<","<<i->getPaymentStatus()<<","<< i->getId()<<","<<i->getModel()<<","<<i->getCost()<<","<<i->getStatus()<<","<<i->getDuration()<<endl;
     }
     file.close();
     cout << "Data written to CSV file" << endl;

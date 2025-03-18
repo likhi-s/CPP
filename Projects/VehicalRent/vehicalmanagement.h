@@ -17,6 +17,7 @@ private:
 public:
     VehicalManagement();
     ~VehicalManagement();
+    void operations();
     void bookBike();
     void bookCar();
     void returnBike();

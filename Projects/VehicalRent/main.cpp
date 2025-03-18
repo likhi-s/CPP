@@ -1,65 +1,33 @@
 #include <iostream>
-#include "fileoperation.h"
-#include "vehical.h"
 #include "vehicalmanagement.h"
 using namespace std;
 
-enum option{AddBike =1,AddCar,BookBike,BookCar,DisplayBike,DisplayCar,UpdateBikeRent,UpdateCarRent,DisplayHistory,EXIT};
 int main()
 {
     VehicalManagement vehicalManagement;
-    while(true)
-    {
-        cout<<endl<<"1.Add Bike"<<endl<<"2.Add Car"<<endl<<"3.Book Bike"<<endl<<"4.Book Car"<<endl<<"5.Display Bike"<<endl;
-        cout<<"6.Display Car"<<endl<<"7.Update Bike Rent"<<endl<<"8.Update Car Rent"<<endl<<"9.Display Rental History"<<endl<<"10.Exit"<<endl;
-
-        cout<<endl<<"Enter Choice"<<endl;
-        int option;
-        cin>>option;
-        switch(option)
-        {
-        case AddBike:
-            vehicalManagement.addBike();
-            break;
-        case AddCar:
-            vehicalManagement.addCar();
-            break;
-        case BookBike:
-            vehicalManagement.bookBike();
-            break;
-        case BookCar:
-            vehicalManagement.bookCar();
-            break;
-        case DisplayBike:
-            vehicalManagement.displayBike();
-            break;
-        case DisplayCar:
-            vehicalManagement.displayCar();
-            break;
-        case UpdateBikeRent:
-            vehicalManagement.updateBikeRent();
-            break;
-        case UpdateCarRent:
-            vehicalManagement.updateCarRent();
-            break;
-        case DisplayHistory:
-            vehicalManagement.rentalHistory();
-            break;
-        case EXIT:
-            cout<<"Exiting "<<endl;
-            return 0;
-        default:
-            cout<<"Invalid Choice"<<endl;
-            break;
-
-        }
-    }
-
-
-
+    vehicalManagement.operations();
     cout << "Hello World!" << endl;
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
