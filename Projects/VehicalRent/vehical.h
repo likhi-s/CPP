@@ -5,16 +5,11 @@ using namespace std;
 
 class Vehical
 {
-protected:
-    int m_id;
-    string m_model;
-    float m_cost;
-    string m_status;
-    int m_duration;
 
 public:
     Vehical();
     ~Vehical();
+
     virtual int getId() = 0;
     virtual string getModel() = 0;
     virtual float getCost() = 0;
@@ -23,6 +18,12 @@ public:
     virtual void setStatus(string status) = 0 ;
     virtual void setCost(float cost) =0;
 
+protected:
+    int m_id;
+    string m_model;
+    float m_cost;
+    string m_status;
+    int m_duration;
 
 };
 

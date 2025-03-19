@@ -6,21 +6,7 @@ RentalDetails::RentalDetails()
 
 }
 
-RentalDetails::~RentalDetails()
-{
-    cout<<"Rental Details Destructor called"<<endl;
-
-}
-void RentalDetails::initBike()
-{
-  m_rentedVehical = new Bike;
-}
-void RentalDetails::initCar()
-{
-    m_rentedVehical = new Car;
-}
-
-RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid,string vehicalType , string paymentStatus,int id,string model,float cost,string status,int duration)/*: bike(id, model, cost, status, duration),car(id, model, cost, status, duration)*/
+RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentMode, string UpiId, int transactionId, string paymentStatus, Vehical *rentedVehical)
 {
     cout<<"Rental Details Parameterized Constructor Called"<<endl;
     m_name = name;
@@ -28,9 +14,20 @@ RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid,
     m_age = age;
     m_bookingId = bookingid;
     m_vehicalType = vehicalType;
+    m_paymentMode = paymentMode;
+    m_UPI = UpiId;
+    m_transactionId = transactionId;
     m_paymentStatus = paymentStatus;
+    m_rentedVehical = rentedVehical;
+}
+
+RentalDetails::~RentalDetails()
+{
+    cout<<"Rental Details Destructor called"<<endl;
 
 }
+
+
 
 string RentalDetails::getName()
 {
@@ -57,6 +54,21 @@ string RentalDetails::getVehicalType()
     return m_vehicalType;
 }
 
+string RentalDetails::getPaymentMode()
+{
+    return m_paymentMode;
+}
+
+string RentalDetails::getUPIid()
+{
+    return m_UPI;
+}
+
+int RentalDetails::getTransactionId()
+{
+    return m_transactionId;
+}
+
 string RentalDetails::getPaymentStatus()
 {
     return m_paymentStatus;
@@ -65,7 +77,6 @@ string RentalDetails::getPaymentStatus()
 int RentalDetails::getId()
 {
     return m_rentedVehical->getId();
-    //return car.getCarId();
 }
 
 string RentalDetails::getModel()
@@ -90,27 +101,3 @@ int RentalDetails::getDuration()
     return m_rentedVehical-> getDuration();
 }
 
-// int RentalDetails::getRentalBikeId()
-// {
-//     return m_rentedVehical-> getId();
-// }
-
-// string RentalDetails::getBikeModel()
-// {
-//     return m_rentedVehical-> getModel();
-// }
-
-// float RentalDetails::getBikeCost()
-// {
-//     return m_rentedVehical-> getCost();
-// }
-
-// string RentalDetails::getBikeStatus()
-// {
-//     return m_rentedVehical -> getStatus();
-// }
-
-// int RentalDetails::getBikeDuration()
-// {
-//     return m_rentedVehical-> getDuration();
-// }

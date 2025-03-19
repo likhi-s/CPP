@@ -8,22 +8,11 @@ using namespace std;
 
 class RentalDetails
 {
-private:
-    string m_name;
-    string m_mobile;
-    int m_age;
-    int m_bookingId;
-    string m_vehicalType;
-    string m_paymentStatus;
-
-    // Bike bike;
-    // Car car;
-     Vehical *m_rentedVehical;
 
 public:
 
     RentalDetails();
-    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType,string paymentStatus, int id,string model, float cost, string status, int duration);
+    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentMode, string UpiId,int transactionId,string paymentStatus, Vehical *rentedVehical);
     ~RentalDetails();
 
     string getName();
@@ -31,6 +20,9 @@ public:
     int getAge();
     int getBookingId();
     string getVehicalType();
+    string getPaymentMode();
+    string getUPIid();
+    int getTransactionId();
     string getPaymentStatus();
 
     int getId();
@@ -39,16 +31,21 @@ public:
     string getStatus();
     int getDuration();
 
-    // int getRentalBikeId();
-    // string getBikeModel();
-    // float getBikeCost();
-    // string getBikeStatus();
-    // int getBikeDuration();
 
 
 
-    void initBike();
-    void initCar();
+private:
+    string m_name;
+    string m_mobile;
+    int m_age;
+    int m_bookingId;
+    string m_vehicalType;
+    string m_paymentMode;
+    string m_UPI;
+    int m_transactionId;
+    string m_paymentStatus;
+    Vehical *m_rentedVehical;
 };
+
 
 #endif // RENTALDETAILS_H

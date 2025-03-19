@@ -9,7 +9,7 @@ class FileOperation
 {
 public:
     FileOperation();
-    ~ FileOperation();
+    ~FileOperation();
 
 
     list<Bike *> readBikeData();

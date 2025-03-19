@@ -5,10 +5,32 @@ using namespace std;
 int main()
 {
     VehicalManagement vehicalManagement;
-    vehicalManagement.operations();
-    cout << "Hello World!" << endl;
+    vehicalManagement.menu();
+
+
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

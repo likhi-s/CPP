@@ -1,20 +1,21 @@
 #ifndef BIKE_H
 #define BIKE_H
+#include "vehical.h"
 #include <iostream>
 using namespace std;
-#include "vehical.h"
 
 class Bike:public Vehical
 {
 public:
     Bike();
-    ~Bike();
     Bike(int id,string model,float cost,string status,int duration);
+    ~Bike();
+
+
     string getModel();
     float getCost();
     string getStatus();
     int getDuration();
-    //int getBikeId();
     int getId();
     void setStatus(string status);
     void setCost(float cost);

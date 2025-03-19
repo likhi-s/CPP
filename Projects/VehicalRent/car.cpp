@@ -32,10 +32,7 @@ float Car::getCost()
 {
     return m_cost;
 }
-// int Car::getCarId()
-// {
-//     return m_id;
-// }
+
 int Car::getId()
 {
     return m_id;

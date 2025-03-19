@@ -1,20 +1,20 @@
 #ifndef CAR_H
 #define CAR_H
+#include "vehical.h"
 #include <iostream>
 using namespace std;
-#include "vehical.h"
 
 class Car:public Vehical
 {
 public:
     Car();
-    ~Car();
     Car(int id,string model,float cost,string status,int duration);
+    ~Car();
+
     string getModel();
     float getCost();
     string getStatus();
     int getDuration();
-    //int getCarId();
     int getId();
     void setStatus(string status);
     void setCost(float cost);

@@ -69,12 +69,26 @@ list<RentalDetails *> FileOperation::readRentalData()
         return rentData;
     }
 
-    string name,mobile,model,status,vehicalType,paymentStatus;
-    int age,bookingId,id,duration;
+    string name,mobile,model,status,vehicalType,paymentStatus,paymentMode,upiId;
+    int age,bookingId,id,duration,transactionId;
     float cost;
-    while(getline(file,name,',') && getline(file,mobile,',') && file >> age && file.ignore() && file>> bookingId && file.ignore() && getline(file,vehicalType,',') && getline(file,paymentStatus,',') && file>>id && file.ignore() && getline(file,model,',') && file>> cost && file.ignore() && getline(file,status,',') && file>>duration )
+    while(getline(file,name,',') && getline(file,mobile,',') && file >> age && file.ignore() && file>> bookingId && file.ignore() && getline(file,vehicalType,',') && getline(file,paymentMode,',')&& getline(file,upiId,',') && file >> transactionId && file.ignore() && getline(file,paymentStatus,',') && file>>id && file.ignore() && getline(file,model,',') && file>> cost && file.ignore() && getline(file,status,',') && file>>duration )
     {
-        rentData.push_back(new RentalDetails(name,mobile,age,bookingId,vehicalType,paymentStatus,id, model,cost,status,duration));
+        if (vehicalType == "Car")
+        {
+            Car *car = new Car(id, model, cost, status, duration);
+            rentData.push_back(new RentalDetails(name,mobile,age,bookingId,vehicalType,paymentMode,upiId,transactionId,paymentStatus,car));
+
+            //rentData.push_back(new RentalDetails(name, mobile, age, bookingId, vehicalType, paymentStatus, car));
+        }
+        else if (vehicalType == "Bike")
+        {
+            Bike *bike = new Bike(id, model, cost, status, duration);
+            rentData.push_back(new RentalDetails(name,mobile,age,bookingId,vehicalType,paymentMode,upiId,transactionId,paymentStatus,bike));
+
+           // rentData.push_back(new RentalDetails(name, mobile, age, bookingId, vehicalType, paymentStatus, bike));
+        }
+
     }
 
 
@@ -128,7 +142,7 @@ void FileOperation::writeRentalData(list<RentalDetails*> &rent)
     }
     for(auto i :rent)
     {
-        file<< i->getName() <<"," <<i->getMobile()<<","<<i->getAge()<<","<<i->getBookingId()<<","<<i->getVehicalType()<<","<<i->getPaymentStatus()<<","<< i->getId()<<","<<i->getModel()<<","<<i->getCost()<<","<<i->getStatus()<<","<<i->getDuration()<<endl;
+        file<< i->getName() <<"," <<i->getMobile()<<","<<i->getAge()<<","<<i->getBookingId()<<","<<i->getVehicalType()<<","<<i->getPaymentMode()<<","<<i->getUPIid()<<","<<i->getTransactionId()<<","<<i->getPaymentStatus()<<","<< i->getId()<<","<<i->getModel()<<","<<i->getCost()<<","<<i->getStatus()<<","<<i->getDuration()<<endl;
     }
     file.close();
     cout << "Data written to CSV file" << endl;

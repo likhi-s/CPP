@@ -45,10 +45,6 @@ int Bike::getId()
     return m_id;
 }
 
-// int Bike::getBikeId()
-// {
-//     return m_id;
-// }
 
 void Bike::setStatus(string status)
 {
