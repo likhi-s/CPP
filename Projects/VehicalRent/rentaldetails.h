@@ -3,6 +3,7 @@
 #include <iostream>
 #include "car.h"
 #include "bike.h"
+#include "paymentmode.h"
 
 using namespace std;
 
@@ -12,7 +13,7 @@ class RentalDetails
 public:
 
     RentalDetails();
-    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentMode, string UpiId,int transactionId,string paymentStatus, Vehical *rentedVehical);
+    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, Vehical *rentedVehical, PaymentMode *payment);
     ~RentalDetails();
 
     string getName();
@@ -20,10 +21,13 @@ public:
     int getAge();
     int getBookingId();
     string getVehicalType();
-    string getPaymentMode();
+    string getPaymentType();
     string getUPIid();
-    int getTransactionId();
+    float getAmount();
+    float getBalance();
     string getPaymentStatus();
+    int getTransactionId();
+
 
     int getId();
     string getModel();
@@ -40,11 +44,9 @@ private:
     int m_age;
     int m_bookingId;
     string m_vehicalType;
-    string m_paymentMode;
-    string m_UPI;
-    int m_transactionId;
-    string m_paymentStatus;
+    string m_paymentType;
     Vehical *m_rentedVehical;
+    PaymentMode *m_payment;
 };
 
 

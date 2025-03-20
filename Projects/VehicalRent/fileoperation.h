@@ -2,6 +2,8 @@
 #define FILEOPERATION_H
 #include "bike.h"
 #include "car.h"
+#include "online.h"
+#include "cash.h"
 #include "rentaldetails.h"
 #include <list>
 
@@ -12,13 +14,86 @@ public:
     ~FileOperation();
 
 
-    list<Bike *> readBikeData();
-    list<Car *> readCarData();
-    list<RentalDetails *>readRentalData();
+    list<Bike*> readBikeData();
+    list<Car*> readCarData();
+    list<RentalDetails*>readRentalData();
+
 
     void writeCarData(list<Car*> &car);
-    void writeRentalData(list<RentalDetails *> &rent);
-    void writeBikeData(list<Bike *> &bike);
+    void writeRentalData(list<RentalDetails*> &rent);
+    void writeBikeData(list<Bike*> &bike);
+
+
+
+
 };
 
 #endif // FILEOPERATION_H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

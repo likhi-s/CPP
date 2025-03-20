@@ -11,7 +11,11 @@ add_executable(VehicalRent main.cpp
     car.h car.cpp
     vehicalmanagement.h vehicalmanagement.cpp
     fileoperation.h fileoperation.cpp
-    rentaldetails.h rentaldetails.cpp)
+    rentaldetails.h rentaldetails.cpp
+    paymentmode.h paymentmode.cpp
+    online.h online.cpp
+    cash.h cash.cpp
+)
 
 include(GNUInstallDirs)
 install(TARGETS VehicalRent

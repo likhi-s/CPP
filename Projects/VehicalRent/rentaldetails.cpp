@@ -6,7 +6,7 @@ RentalDetails::RentalDetails()
 
 }
 
-RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentMode, string UpiId, int transactionId, string paymentStatus, Vehical *rentedVehical)
+RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, Vehical *rentedVehical, PaymentMode *payment)
 {
     cout<<"Rental Details Parameterized Constructor Called"<<endl;
     m_name = name;
@@ -14,11 +14,9 @@ RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid,
     m_age = age;
     m_bookingId = bookingid;
     m_vehicalType = vehicalType;
-    m_paymentMode = paymentMode;
-    m_UPI = UpiId;
-    m_transactionId = transactionId;
-    m_paymentStatus = paymentStatus;
+    m_paymentType = paymentType;
     m_rentedVehical = rentedVehical;
+    m_payment = payment;
 }
 
 RentalDetails::~RentalDetails()
@@ -54,24 +52,34 @@ string RentalDetails::getVehicalType()
     return m_vehicalType;
 }
 
-string RentalDetails::getPaymentMode()
+string RentalDetails::getPaymentType()
 {
-    return m_paymentMode;
+    return m_paymentType;
 }
 
 string RentalDetails::getUPIid()
 {
-    return m_UPI;
+    return m_payment->getUPIid();
 }
 
-int RentalDetails::getTransactionId()
+float RentalDetails::getAmount()
 {
-    return m_transactionId;
+    return m_payment->getAmount();
+}
+
+float RentalDetails::getBalance()
+{
+    return m_payment->getBalance();
 }
 
 string RentalDetails::getPaymentStatus()
 {
-    return m_paymentStatus;
+    return m_payment->getPaymentStatus();
+}
+
+int RentalDetails::getTransactionId()
+{
+    return m_payment->getTransactionId();
 }
 
 int RentalDetails::getId()

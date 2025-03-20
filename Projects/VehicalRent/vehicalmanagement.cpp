@@ -10,6 +10,7 @@ VehicalManagement::VehicalManagement()
     m_bikeList = m_fileoperations->readBikeData();
     m_carList = m_fileoperations->readCarData();
     m_rentalList = m_fileoperations->readRentalData();
+
 }
 
 VehicalManagement::~VehicalManagement()
@@ -154,6 +155,8 @@ void VehicalManagement::menu()
             break;
         }
         case DisplayHistory:
+            m_rentalList = m_fileoperations->readRentalData();
+
             this->rentalHistory();
             break;
         case DeleteVehical:
@@ -226,6 +229,7 @@ void VehicalManagement::menu()
             m_fileoperations->writeBikeData(m_bikeList);
             m_fileoperations->writeCarData(m_carList);
             m_fileoperations->writeRentalData(m_rentalList);
+
             cout<<" saved to file and Exiting "<<endl;
             return;
         }
@@ -326,14 +330,30 @@ void VehicalManagement::bookBike()
                 cin>>paymentmode;
                 switch(paymentmode)
                 {
-                case Online:
+                case ONLINE:
                 {
-                    string paymentMode = "online";
-                    cout<<endl<<"Payment Mode :" <<paymentMode<<endl;
+                    string paymentType = "Online";
+                    cout<<endl<<"Payment Type :" <<paymentType<<endl;
 
                     cout<<endl<<"Enter UPI id : ";
                     string upiId;
                     cin>>upiId;
+                    float rent = bikeList->getCost();
+                    float balance = rent;
+                    cout<<endl<<"Rent of the Bike: "<<rent<<endl;
+                    cout<<"Enter Amount:"<<endl;
+                    int amount;
+                    cin>>amount;
+                    if(amount <= 0)
+                    {
+                        paymentStatus = "Failure";
+                    }
+                    if(amount > 0)
+                    {
+                        paymentStatus = "SucessFull";
+                        balance = rent - amount;
+
+                    }
 
                     int transactionId;
                     int transactioncount = 1;
@@ -344,10 +364,7 @@ void VehicalManagement::bookBike()
                     transactionId = transactioncount + 10000;
                     cout<<"transaction Id : "<<transactionId <<endl;
 
-                    paymentStatus = "Paid";
-                    cout<<"Payment Status : "<<paymentStatus<<endl;
-
-                    cout<<endl<<"Your "<<bikeList->getModel()<<"bike is booked and Completed Payment throught Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
+                    cout<<endl<<"Your "<<bikeList->getModel()<<"bike is booked and Completed Payment through Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
                     bikeList->setStatus("Booked");
                     int id = bikeList->getId();
                     string model = bikeList->getModel();
@@ -355,26 +372,44 @@ void VehicalManagement::bookBike()
                     string status = bikeList->getStatus();
                     int duration  =bikeList->getDuration();
 
-                    Bike *bike = new Bike(id, model, cost, status, duration);
-                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentMode,upiId,transactionId,paymentStatus,bike));
 
+                    Bike *bike = new Bike(id, model, cost, status, duration);
+                    Online *online = new Online(upiId,amount,balance,paymentStatus,transactionId);
+                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,bike,online));
                     break;
                 }
 
-                case Cash:
+                case CASH:
                 {
-                    string paymentMode = "Cash";
-                    cout<<endl<<"Payment Mode :" <<paymentMode<<endl;
+                    string paymentType = "Cash";
+                    cout<<endl<<"Payment type :" <<paymentType<<endl;
                     cout<<" Cash Recived"<<endl;
                     string upiId = "Nill";
+                    float rent = bikeList->getCost();
+                    float balance = rent;
+                    cout<<endl<<"Rent of the Bike: "<<rent<<endl;
+                    cout<<"Enter Amount:"<<endl;
+                    int amount;
+                    cin>>amount;
+                    if(amount <=0)
+                    {
+                        paymentStatus = "Failure";
+                    }
+                    if(amount > 0)
+                    {
+
+                        balance = rent - amount;
+                        paymentStatus = "Sucessfull";
+
+                    }
+
                     int transactionId = 0;
 
                     paymentStatus = "Paid";
                     cout<<"Payment Status : "<<paymentStatus<<endl;
 
+                    cout<<endl<<"You booked " <<bikeList->getModel()<<" Bike and Completed Payment through Cash"<<endl;
 
-
-                    cout<<endl<<"You booked  "<<bikeList->getModel()<<"bike and Completed Payment throught Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
                     bikeList->setStatus("Booked");
 
 
@@ -385,7 +420,10 @@ void VehicalManagement::bookBike()
                     int duration  =bikeList->getDuration();
 
                     Bike *bike = new Bike(id, model, cost, status, duration);
-                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentMode,upiId,transactionId,paymentStatus,bike));
+                    Cash *cash = new Cash(upiId,amount,balance,paymentStatus,transactionId);
+
+                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,bike,cash));
+
 
                     break;
 
@@ -498,14 +536,32 @@ void VehicalManagement::bookCar()
                 cin>>paymentmode;
                 switch(paymentmode)
                 {
-                case Online:
+                case ONLINE:
                 {
-                    string paymentMode = "online";
-                    cout<<endl<<"Payment Mode :" <<paymentMode<<endl;
+                    string paymentType = "Online";
+                    cout<<endl<<"Payment Type :" <<paymentType<<endl;
 
                     cout<<endl<<"Enter UPI id : ";
                     string upiId;
                     cin>>upiId;
+                    float rent = carList->getCost();
+                    float balance = rent;
+                    cout<<endl<<"Rent of the Bike: "<<rent<<endl;
+                    cout<<"Enter Amount:"<<endl;
+                    int amount;
+                    cin>>amount;
+                    if(amount <=0)
+                    {
+                        paymentStatus = "Failure";
+                    }
+                    if(amount > 0)
+                    {
+
+                        balance = rent - amount;
+
+                        paymentStatus = "Successfull";
+
+                    }
 
                     int transactionId;
                     int transactioncount = 1;
@@ -519,9 +575,9 @@ void VehicalManagement::bookCar()
                     paymentStatus = "Paid";
                     cout<<"Payment Status : "<<paymentStatus<<endl;
 
-                    cout<<endl<<"You booked " <<carList->getModel()<<" Car and Completed Payment throught Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
+                    cout<<endl<<"You booked " <<carList->getModel()<<" Car and Completed Payment through Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
                     carList->setStatus("Booked");
-                    int id = carList->getCost();
+                    int id = carList->getId();
                     string model = carList->getModel();
                     float cost = carList->getCost();
                     string status = carList->getStatus();
@@ -529,25 +585,43 @@ void VehicalManagement::bookCar()
 
 
                     Car *car = new Car(id, model, cost, status, duration);
-                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentMode,upiId,transactionId,paymentStatus,car));
+                    Online *online = new Online(upiId,amount,balance,paymentStatus,transactionId);
+                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,car,online));
 
 
 
                     break;
                 }
-                case Cash:
+                case CASH:
                 {
-                    string paymentMode = "Cash";
-                    cout<<endl<<"Payment Mode :" <<paymentMode<<endl;
+                    string paymentType = "Cash";
+                    cout<<endl<<"Payment Type :" <<paymentType<<endl;
                     cout<<" Cash Recived"<<endl;
                     string upiId = "Nill";
+                    float rent = carList->getCost();
+                    float balance = rent;
+                    cout<<endl<<"Rent of the Bike: "<<rent<<endl;
+                    cout<<"Enter Amount:"<<endl;
+                    int amount;
+                    cin>>amount;
+                    if(amount <=0)
+                    {
+                        paymentStatus = "Failure";
+                    }
+                    if(amount > 0)
+                    {
+
+                        balance = rent - amount;
+                        paymentStatus = "Successfull";
+                    }
+
                     int transactionId = 0;
 
                     paymentStatus = "Paid";
                     cout<<"Payment Status : "<<paymentStatus<<endl;
-                    cout<<endl<<"You booked " <<carList->getModel()<<" Car and Completed Payment throught Upi : "<<upiId<<" and your transaction Number is : "<<transactionId<<endl;
+                    cout<<endl<<"You booked " <<carList->getModel()<<" Car and Completed Payment through Cash"<<endl;
                     carList->setStatus("Booked");
-                    int id = carList->getCost();
+                    int id = carList->getId();
                     string model = carList->getModel();
                     float cost = carList->getCost();
                     string status = carList->getStatus();
@@ -555,7 +629,8 @@ void VehicalManagement::bookCar()
 
 
                     Car *car = new Car(id, model, cost, status, duration);
-                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentMode,upiId,transactionId,paymentStatus,car));
+                    Cash *cash = new Cash(upiId,amount,balance,paymentStatus,transactionId);
+                    m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,car,cash));
 
                     break;
                 }
@@ -723,13 +798,16 @@ void VehicalManagement::rentalHistory()
 {
     cout<<endl<<"****************************************Displaying History*************************************************"<<endl <<endl;
 
-    cout<< endl<<setw(20)<<"Customer_Name"<<setw(20)<<"Customer_Mobile "<<setw(20)<<"Customer_Age "<<setw(20)<<"Customer_Booking_Id"<<setw(20)<<"Vehical_Type"<<setw(20)<<"Payment_Mode"<<setw(20)<<"UPI_Id"<<setw(20)<<"Transaction_ID"<<setw(20)<<"Payment_Status"<<setw(20)<<"Vehical_Id"<<setw(20)<<"Vehical_Model"<<setw(20)<<"Vehical_Cost"<<setw(20)<<"Vehical_Status"<<setw(20)<<"Vehical_Duration"<<endl<<endl;
+    cout<< endl<<setw(20)<<"Customer_Name"<<setw(20)<<"Customer_Mobile "<<setw(20)<<"Customer_Age "<<setw(20)<<"Customer_Booking_Id"<<setw(20)<<"Vehical_Type"<<setw(20)<<"Payment_Type"<<setw(20)<<"Vehical_Id"<<setw(20)<<"Vehical_Model"<<setw(20)<<"Vehical_Cost"<<setw(20)<<"Vehical_Status"<<setw(20)<<"Vehical Duration"<<setw(20)<<"UPI_Id"<<setw(20)<<"Amount_Paid"<<setw(20)<<"Balance_Amount"<<setw(20)<<"Payment_Status"<<setw(20)<<"Transaction_ID"<<endl<<endl;
 
     for(auto rentalList : m_rentalList)
     {
-        cout<<setw(20)<<rentalList->getName() <<setw(15)<<rentalList->getMobile()<<setw(20)<<rentalList->getAge()<<setw(20)<<rentalList->getBookingId()<<setw(20)<<rentalList->getVehicalType()<<setw(20)<<rentalList->getPaymentMode()<<setw(25)<<rentalList->getUPIid()<<setw(20)<<rentalList->getTransactionId()<<setw(20)<<rentalList->getPaymentStatus()<<setw(20)<<rentalList->getId()<< setw(20)<<rentalList->getModel() << setw(20)<<rentalList->getCost()<<setw(20)<< rentalList->getStatus()<<setw(15)<<rentalList->getDuration()<<"  day"<<endl;
+
+        cout<<setw(20)<<rentalList->getName() <<setw(15)<<rentalList->getMobile()<<setw(20)<<rentalList->getAge()<<setw(20)<<rentalList->getBookingId()<<setw(20)<<rentalList->getVehicalType()<<setw(25)<<rentalList->getPaymentType()<<setw(20)<<rentalList->getId()<< setw(20)<<rentalList->getModel() << setw(20)<<rentalList->getCost()<<setw(20)<< rentalList->getStatus()<<setw(15)<<rentalList->getDuration()<<"  day"<<setw(20)<<rentalList->getUPIid()<<setw(20)<<rentalList->getAmount()<<setw(20)<<rentalList->getBalance()<<setw(20)<<rentalList->getPaymentStatus()<<setw(20)<<rentalList->getTransactionId()<<setw(20)<<endl<<endl;
 
     }
+
+
 }
 
 

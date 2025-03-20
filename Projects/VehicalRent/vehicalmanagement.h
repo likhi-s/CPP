@@ -5,7 +5,9 @@
 #include "bike.h"
 #include "car.h"
 #include <list>
-
+#include "online.h"
+#include "cash.h"
+#include "paymentmode.h"
 class VehicalManagement
 {
 private:
@@ -53,5 +55,5 @@ enum option{AddVehical=1,BookVehical,ReturnVehical,DisplayVehical,UpdateVehicalR
 enum select{BIKE =1,CAR};
 enum returnVehical{Return=1,exiT};
 enum sort{VehicalStatus =1,VehicalRent,VehicalName};
-enum paymentmode{Online =1,Cash };
+enum paymentmode{ONLINE =1,CASH };
 #endif // VEHICALMANAGEMENT_H
