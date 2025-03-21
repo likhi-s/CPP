@@ -1,8 +1,8 @@
 #ifndef RENTALDETAILS_H
 #define RENTALDETAILS_H
 #include <iostream>
-#include "car.h"
-#include "bike.h"
+#include "RentalCarDetails.h"
+#include "RentalBikeDetails.h"
 #include "paymentmode.h"
 
 using namespace std;
@@ -13,7 +13,7 @@ class RentalDetails
 public:
 
     RentalDetails();
-    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, Vehical *rentedVehical, PaymentMode *payment);
+    RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, RentalVehicalDetails *rentedVehical, PaymentMode *payment);
     ~RentalDetails();
 
     string getName();
@@ -30,14 +30,17 @@ public:
 
 
     int getId();
+    string getBrand();
     string getModel();
+    string getVehicalNumber();
     float getCost();
     string getStatus();
     int getDuration();
 
 
-
-
+    void setStatus(string status);
+    void setBalance(float balance);
+    void setAmount(float amount);
 private:
     string m_name;
     string m_mobile;
@@ -45,7 +48,7 @@ private:
     int m_bookingId;
     string m_vehicalType;
     string m_paymentType;
-    Vehical *m_rentedVehical;
+    RentalVehicalDetails *m_rentedVehical;
     PaymentMode *m_payment;
 };
 

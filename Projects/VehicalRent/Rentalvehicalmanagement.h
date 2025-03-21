@@ -1,25 +1,19 @@
-#ifndef VEHICALMANAGEMENT_H
-#define VEHICALMANAGEMENT_H
-#include "fileoperation.h"
-#include "vehical.h"
-#include "bike.h"
-#include "car.h"
+#ifndef RENTALVEHICALMANAGEMENT_H
+#define RENTALVEHICALMANAGEMENT_H
+#include "Rentalfileoperations.h"
+#include "RentalvehicalDetails.h"
+#include "RentalBikeDetails.h"
+#include "RentalCarDetails.h"
 #include <list>
-#include "online.h"
-#include "cash.h"
+#include "OnlinePayment.h"
+#include "CashPayment.h"
 #include "paymentmode.h"
-class VehicalManagement
+class RentalVehicalManagement
 {
-private:
-    FileOperation *m_fileoperations;
-    list<Bike*>m_bikeList;
-    list<Car*>m_carList;
-    list<RentalDetails*>m_rentalList;
-
 
 public:
-    VehicalManagement();
-    ~VehicalManagement();
+    RentalVehicalManagement();
+    ~RentalVehicalManagement();
 
     void menu();
     void bookBike();
@@ -41,11 +35,19 @@ public:
     void sortBike();
     void sortCar();
     void sortBikeByPrice();
-    void sortBikeByName();
+    void sortBikeByBrand();
     void sortBikeByStatus();
     void sortCarByPrice();
-    void sortCarByName();
+    void sortCarByBrand();
     void sortCarByStatus();
+
+private:
+    RentalFileOperation *m_fileoperations;
+    list<RentalBikeDetails*>m_bikeList;
+    list<RentalCarDetails*>m_carList;
+    list<RentalDetails*>m_rentalList;
+
+
 
 
 };
@@ -54,6 +56,6 @@ enum choice{Book =1,Exit };
 enum option{AddVehical=1,BookVehical,ReturnVehical,DisplayVehical,UpdateVehicalRent,DisplayHistory,DeleteVehical,SearchVehical,SortVehical,EXIT};
 enum select{BIKE =1,CAR};
 enum returnVehical{Return=1,exiT};
-enum sort{VehicalStatus =1,VehicalRent,VehicalName};
+enum sort{VehicalStatus =1,VehicalRent,VehicalBrand};
 enum paymentmode{ONLINE =1,CASH };
-#endif // VEHICALMANAGEMENT_H
+#endif // RENTALVEHICALMANAGEMENT_H

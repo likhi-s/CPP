@@ -1,10 +1,10 @@
 #include <iostream>
-#include "vehicalmanagement.h"
+#include "Rentalvehicalmanagement.h"
 using namespace std;
 
 int main()
 {
-    VehicalManagement vehicalManagement;
+    RentalVehicalManagement vehicalManagement;
 
     vehicalManagement.menu();
 

@@ -1,17 +1,19 @@
-#ifndef VEHICAL_H
-#define VEHICAL_H
+#ifndef RENTALVEHICALDETAILS_H
+#define RENTALVEHICALDETAILS_H
 #include <iostream>
 using namespace std;
 
-class Vehical
+class RentalVehicalDetails
 {
 
 public:
-    Vehical();
-    ~Vehical();
+    RentalVehicalDetails();
+    ~RentalVehicalDetails();
 
     virtual int getId() = 0;
+    virtual string getBrand() = 0;
     virtual string getModel() = 0;
+    virtual string getVehicalNumber() = 0 ;
     virtual float getCost() = 0;
     virtual string getStatus() = 0;
     virtual int getDuration() =0;
@@ -20,11 +22,13 @@ public:
 
 protected:
     int m_id;
+    string m_brand;
     string m_model;
+    string m_vehicalNumber;
     float m_cost;
     string m_status;
     int m_duration;
 
 };
 
-#endif // VEHICAL_H
+#endif // RENTALVEHICALDETAILS_H

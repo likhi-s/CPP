@@ -1,7 +1,18 @@
-1,Activa,2500,Available,1
-2,FZ,1500,Available,1
-3,Royal,2000,Available,1
-4,Honda,1000,Available,1
-5,TVS,800,Available,1
-6,Likhitha,1000,Available,1
-7,Likhith,1000,Available,1
+1,KTM,RC200,KA51DD4321,2500,Booked,1
+2,Honda,CBR250R,KA01AB1234,1500,Available,1
+3,Yamaha,R15,KA02CD5678,2000,Available,1
+4,Bajaj,PulsarNS200,KA03EF9101,1000,Available,1
+5,RoyalEnfield,Classic 350,KA04GH1122,1000,Available,1
+6,TVS,ApacheRTR160,KA05IJ3344,2500,Available,1
+7,Suzuki,GixxerSF250,KA06KL5566,2500,Available,1
+8,Kawasaki,Ninja300,KA07MN7788,1800,Available,1
+9,Ducati,Monster797,KA51QR1122,2200,Available,1
+10,BMW,G310R,KA52ST3344,3000,Available,1
+11,Hero,Xtreme200S,KA53UV5566,1500,Available,1
+12,KTM,Duke390,KA04WX7788,2300,Available,1
+13,Yamaha,MT15,KA05YZ9900,3500,Available,1
+14,Bajaj,Dominar400,KA07AB1122,6000,Available,1
+15,RoyalEnfield,Himalayan,KA51CD3344,4000,Available,1
+16,TVS,ApacheRTR200,KA01EF5566,1700,Available,1
+17,Kawasaki,Ninja600,KA05IJ9900,3200,Available,1
+18,XYZ,XYZ\,KA000XYZ,15000,Deleted,1

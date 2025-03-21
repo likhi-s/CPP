@@ -1,4 +1,4 @@
-#include "rentaldetails.h"
+#include "RentalDetails.h"
 
 RentalDetails::RentalDetails()
 {
@@ -6,7 +6,7 @@ RentalDetails::RentalDetails()
 
 }
 
-RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, Vehical *rentedVehical, PaymentMode *payment)
+RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, RentalVehicalDetails *rentedVehical, PaymentMode *payment)
 {
     cout<<"Rental Details Parameterized Constructor Called"<<endl;
     m_name = name;
@@ -17,14 +17,13 @@ RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid,
     m_paymentType = paymentType;
     m_rentedVehical = rentedVehical;
     m_payment = payment;
+
 }
 
 RentalDetails::~RentalDetails()
 {
-    cout<<"Rental Details Destructor called"<<endl;
-
+    cout<<"Rental Details Destructor called"<<endl;    
 }
-
 
 
 string RentalDetails::getName()
@@ -87,16 +86,23 @@ int RentalDetails::getId()
     return m_rentedVehical->getId();
 }
 
+string RentalDetails::getBrand()
+{
+    return m_rentedVehical->getBrand();
+}
+
 string RentalDetails::getModel()
 {
     return m_rentedVehical->getModel();
 }
+string RentalDetails::getVehicalNumber()
+{
+    return m_rentedVehical->getVehicalNumber();
+}
 
 float RentalDetails::getCost()
-{
-
-    return m_rentedVehical-> getCost();
-
+{    
+    return m_rentedVehical-> getCost();   
 }
 
 string RentalDetails::getStatus()
@@ -109,3 +115,17 @@ int RentalDetails::getDuration()
     return m_rentedVehical-> getDuration();
 }
 
+void RentalDetails::setStatus(string status)
+{
+    m_rentedVehical->setStatus(status);
+}
+
+void RentalDetails::setBalance(float balance)
+{
+    m_payment->setBalance(balance);
+}
+
+void RentalDetails::setAmount(float amount)
+{
+    m_payment->setAmount(amount);
+}

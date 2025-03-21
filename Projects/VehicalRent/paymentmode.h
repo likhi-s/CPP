@@ -13,7 +13,8 @@ public:
     virtual float getAmount() = 0;
     virtual float getBalance() = 0 ;
     virtual string getPaymentStatus() = 0;
-
+    virtual void setBalance(float balance) = 0;
+    virtual void setAmount(float amount) = 0 ;
 
 protected:
     string m_UPIid;
