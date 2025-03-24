@@ -41,7 +41,7 @@ list<RentalCarDetails *> RentalFileOperation::readCarData()
     ifstream file("CarData.csv");
     if (!file)
     {
-        cout << "unable to open file  Car Data for reading" << endl;
+        cout << "unable to open file  Car Data file for reading" << endl;
         return carData;
     }
 
@@ -109,6 +109,47 @@ list<RentalDetails *> RentalFileOperation::readRentalData()
     return rentData;
 }
 
+list<AdminDetails *> RentalFileOperation::readAdminData()
+{
+    list<AdminDetails*>adminData;
+    ifstream file("AdminData.csv");
+    if (!file)
+    {
+        cout << "unable to open file  Admin Data file for reading" << endl;
+        return adminData;
+    }
+    string name;
+    int id,password;
+    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore())
+    {
+        adminData.push_back(new AdminDetails(name,id,password));
+    }
+    file.close();
+    return adminData;
+}
+
+list<UserDetails *> RentalFileOperation::readUserDetails()
+{
+    list<UserDetails*>userData;
+    ifstream file("UserData.csv");
+    if (!file)
+    {
+        cout << "unable to open file  User Data file for reading" << endl;
+        return userData;
+    }
+    string name;
+    int id,password;
+    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore())
+    {
+        userData.push_back(new UserDetails(name,id,password));
+    }
+    file.close();
+    return userData;
+}
+
+
+
+
 
 void RentalFileOperation::writeBikeData(list<RentalBikeDetails *> &bike)
 {
@@ -116,7 +157,7 @@ void RentalFileOperation::writeBikeData(list<RentalBikeDetails *> &bike)
 
     if (!file)
     {
-        cout << "unable to open CSV file for writing" << endl;
+        cout << "unable to open CSV file for writing Bike Data" << endl;
         return;
     }
     for(auto bikeList :bike)
@@ -126,8 +167,9 @@ void RentalFileOperation::writeBikeData(list<RentalBikeDetails *> &bike)
     }
 
     file.close();
-    cout << "Data written to CSV file" << endl;
+    cout << "Bike Data written to CSV file" << endl;
 }
+
 
 
 
@@ -138,7 +180,7 @@ void RentalFileOperation::writeCarData(list<RentalCarDetails *> &car)
 
     if (!file)
     {
-        cout << "unable to open CSV file for writing" << endl;
+        cout << "unable to open CSV file for writing Car Data" << endl;
         return;
     }
     for(auto carList :car)
@@ -148,7 +190,7 @@ void RentalFileOperation::writeCarData(list<RentalCarDetails *> &car)
     }
 
     file.close();
-    cout << "Data written to CSV file" << endl;
+    cout << "Car Data written to CSV file" << endl;
 }
 
 void RentalFileOperation::writeRentalData(list<RentalDetails*> &rent)
@@ -157,7 +199,7 @@ void RentalFileOperation::writeRentalData(list<RentalDetails*> &rent)
 
     if(!file)
     {
-        cout << "unable to open CSV file for writing" << endl;
+        cout << "unable to open CSV file for writing Rental Data" << endl;
         return;
     }
     for(auto rentList :rent)
@@ -166,13 +208,44 @@ void RentalFileOperation::writeRentalData(list<RentalDetails*> &rent)
     }
 
     file.close();
-    cout << "Data written to CSV file" << endl;
+    cout << "Rental Data written to CSV file" << endl;
 }
 
 
 
 
+void RentalFileOperation::writeAdminData(list<AdminDetails *> &admin)
+{
+    ofstream file("AdminData.csv");
+    if (!file)
+    {
+        cout << "unable to open CSV file for writing Admin Data" << endl;
+        return;
+    }
+    for(auto adminList : admin)
+    {
+        file<<adminList->getLoginId()<<","<<adminList->getLoginName()<<","<<adminList->getLoginPassword()<<endl;
+    }
+    file.close();
+    cout << "Admin Data written to CSV file" << endl;
 
+}
+
+void RentalFileOperation::writeUserData(list<UserDetails *> &user)
+{
+    ofstream file("UserData.csv");
+    if (!file)
+    {
+        cout << "unable to open CSV file for writing User Data" << endl;
+        return;
+    }
+    for(auto userList : user)
+    {
+        file<<userList->getLoginId()<<","<<userList->getLoginName()<<","<<userList->getLoginPassword()<<endl;
+    }
+    file.close();
+    cout << "User Data written to CSV file" << endl;
+}
 
 
 

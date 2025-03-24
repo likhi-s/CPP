@@ -41,6 +41,11 @@ public:
     void sortCarByBrand();
     void sortCarByStatus();
 
+    list<RentalBikeDetails*>getBikeList();
+    list<RentalCarDetails*>getCarList();
+    list<RentalDetails*>getRentalList();
+
+
 private:
     RentalFileOperation *m_fileoperations;
     list<RentalBikeDetails*>m_bikeList;

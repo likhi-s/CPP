@@ -11,6 +11,7 @@ RentalVehicalManagement::RentalVehicalManagement()
     m_carList = m_fileoperations->readCarData();
     m_rentalList = m_fileoperations->readRentalData();
 
+
 }
 
 RentalVehicalManagement::~RentalVehicalManagement()
@@ -229,8 +230,8 @@ void RentalVehicalManagement::menu()
             m_fileoperations->writeBikeData(m_bikeList);
             m_fileoperations->writeCarData(m_carList);
             m_fileoperations->writeRentalData(m_rentalList);
-
             cout<<" saved to file and Exiting "<<endl;
+
             return;
         }
         default:
@@ -241,7 +242,6 @@ void RentalVehicalManagement::menu()
 
     }
 }
-
 
 
 void RentalVehicalManagement::bookBike()
@@ -915,8 +915,10 @@ void RentalVehicalManagement::displayBike()
 
     cout<< endl<<setw(15)<<"Bike Id "<<setw(15)<<"Bike Brand "<<setw(15)<<"Bike Model "<<setw(15)<<"Bike Number"<<setw(15)<<"Bike Cost "<<setw(15)<<"Bike Status"<<setw(25)<<"Bike Duration"<<endl<<endl;
 
+
     for(auto bikeList : m_bikeList)
     {
+
         if(bikeList->getStatus() != "Deleted")
         {
             cout<<setw(15)<<bikeList->getId()<<setw(15)<<bikeList->getBrand()<<setw(15)<<bikeList->getModel()<<setw(15)<<bikeList->getVehicalNumber()<<setw(15)<<bikeList->getCost()<<setw(15)<<bikeList->getStatus()<<setw(15)<<bikeList->getDuration()<<" Day"<<endl;
@@ -960,6 +962,7 @@ void RentalVehicalManagement::rentalHistory()
 
 void RentalVehicalManagement::addBike()
 {
+    cout<<"Addddddd"<<endl;
     int id,duration;
     string  brand,model,bikeNumber,status;
     float cost;
@@ -967,6 +970,8 @@ void RentalVehicalManagement::addBike()
     for(auto bikeList :m_bikeList)
     {
         bikeCount++;
+        cout<<"Addddddd"<<endl;
+
 
     }
 
@@ -1337,6 +1342,26 @@ void RentalVehicalManagement::sortCarByStatus()
             }
         }
     }
+}
+
+list<RentalBikeDetails *> RentalVehicalManagement::getBikeList()
+{
+    cout<<"Bike list called"<<endl;
+    return m_bikeList;
+}
+
+list<RentalCarDetails *> RentalVehicalManagement::getCarList()
+{
+    cout<<"car list called"<<endl;
+
+    return m_carList;
+}
+
+list<RentalDetails *> RentalVehicalManagement::getRentalList()
+{
+    cout<<"rent list called"<<endl;
+
+    return m_rentalList;
 }
 
 

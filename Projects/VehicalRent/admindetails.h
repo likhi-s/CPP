@@ -8,12 +8,13 @@ class AdminDetails:public LoginDetails
 {
 public:
     AdminDetails();
+    AdminDetails( string name , int id,int password);
     ~AdminDetails();
 
 
     int getLoginId();
     string getLoginName();
-    string getLoginPassword();
+    int getLoginPassword();
 };
 
 #endif // ADMINDETAILS_H

@@ -5,6 +5,14 @@ AdminDetails::AdminDetails()
     cout<<"Admin Details Constructor Called"<<endl;
 }
 
+AdminDetails::AdminDetails(string name, int id, int password)
+{
+
+    m_loginName = name;
+    m_loginId = id;
+    m_loginPassword = password;
+}
+
 AdminDetails::~AdminDetails()
 {
     cout<<"Admin Details Destructor Called"<<endl;
@@ -21,7 +29,7 @@ string AdminDetails::getLoginName()
     return m_loginName;
 }
 
-string AdminDetails::getLoginPassword()
+int AdminDetails::getLoginPassword()
 {
     return m_loginPassword;
 }
