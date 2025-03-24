@@ -6,7 +6,7 @@
 RentalVehicalManagement::RentalVehicalManagement()
 {
     cout<<"vehical Management Constructor Called"<<endl;
-    RentalFileOperation *m_fileoperations = new RentalFileOperation;
+   m_fileoperations = new RentalFileOperation;
     m_bikeList = m_fileoperations->readBikeData();
     m_carList = m_fileoperations->readCarData();
     m_rentalList = m_fileoperations->readRentalData();
@@ -47,7 +47,7 @@ void RentalVehicalManagement::menu()
         {
         case AddVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice :";
             int select;
             cin>>select;
@@ -60,7 +60,8 @@ void RentalVehicalManagement::menu()
             case CAR:
                 this->addCar();
                 break;
-
+            case ExitVehical:
+                break;
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -69,7 +70,7 @@ void RentalVehicalManagement::menu()
         }
         case BookVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice: ";
             int select;
             cin>>select;
@@ -82,6 +83,8 @@ void RentalVehicalManagement::menu()
             case CAR:
                 this->bookCar();
                 break;
+            case ExitVehical:
+                break;
 
             default:
                 cout<<"Invalid Choice"<<endl;
@@ -91,7 +94,7 @@ void RentalVehicalManagement::menu()
         }
         case ReturnVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your choice: ";
             int select;
             cin>>select;
@@ -105,6 +108,9 @@ void RentalVehicalManagement::menu()
                 this->returnCar();
                 break;
 
+            case ExitVehical:
+                break;
+
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -114,7 +120,7 @@ void RentalVehicalManagement::menu()
         case DisplayVehical:
         {
 
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice:";
             int select;
             cin>>select;
@@ -126,6 +132,8 @@ void RentalVehicalManagement::menu()
             case CAR:
                 this->displayCar();
                 break;
+            case ExitVehical:
+                break;
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -135,7 +143,7 @@ void RentalVehicalManagement::menu()
         }
         case UpdateVehicalRent:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice: ";
             int select;
             cin>>select;
@@ -149,20 +157,25 @@ void RentalVehicalManagement::menu()
                 this->updateCarRent();
                 break;
 
+            case ExitVehical:
+                break;
+
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
             }
             break;
         }
+
+
         case DisplayHistory:
-
-
             this->rentalHistory();
             break;
+
+
         case DeleteVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice:";
             int select;
             cin>>select;
@@ -176,6 +189,9 @@ void RentalVehicalManagement::menu()
                 this->deleteCar();
                 break;
 
+            case ExitVehical:
+                break;
+
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -184,7 +200,7 @@ void RentalVehicalManagement::menu()
         }
         case SearchVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice: ";
             int select;
             cin>>select;
@@ -198,6 +214,8 @@ void RentalVehicalManagement::menu()
                 this->searchCar();
                 break;
 
+            case ExitVehical:
+                break;
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -206,7 +224,7 @@ void RentalVehicalManagement::menu()
         }
         case SortVehical:
         {
-            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl;
+            cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
             cout<<endl<<"Select your Choice: ";
             int select;
             cin>>select;
@@ -218,6 +236,8 @@ void RentalVehicalManagement::menu()
             case CAR:
                 this->sortCar();
                 break;
+            case ExitVehical:
+                break;
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -227,22 +247,24 @@ void RentalVehicalManagement::menu()
 
         case EXIT:
         {
-            m_fileoperations->writeBikeData(m_bikeList);
-            m_fileoperations->writeCarData(m_carList);
-            m_fileoperations->writeRentalData(m_rentalList);
+            this->saveData();
             cout<<" saved to file and Exiting "<<endl;
-
             return;
         }
         default:
             cout<<"Invalid Choice"<<endl;
             break;
-
         }
-
     }
 }
 
+
+void RentalVehicalManagement::saveData()
+{
+    m_fileoperations->writeBikeData(m_bikeList);
+    m_fileoperations->writeCarData(m_carList);
+    m_fileoperations->writeRentalData(m_rentalList);
+}
 
 void RentalVehicalManagement::bookBike()
 {
@@ -401,10 +423,8 @@ void RentalVehicalManagement::bookBike()
                     }
                     if(amount > 0)
                     {
-
                         balance = rent - amount;
                         paymentStatus = "Sucessfull";
-
                     }
 
                     int transactionId = 0;
@@ -429,13 +449,10 @@ void RentalVehicalManagement::bookBike()
 
                     m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,bike,cash));
                     break;
-
                 }
 
                 }
                 break;
-
-
             }
             case Exit:
             {
@@ -446,7 +463,6 @@ void RentalVehicalManagement::bookBike()
                 cout<<"Invalid Option"<<endl;
             }
         }
-
     }
     if(bikeFound ==0 )
     {
@@ -467,8 +483,6 @@ void RentalVehicalManagement::bookCar()
         {
             carFound = 1;
             cout<<"Entered Car ID : "<<carId<<" is already booked"<<endl;
-
-
         }
         if(carList->getId() == carId && carList->getStatus() == "Available")
         {
@@ -536,7 +550,7 @@ void RentalVehicalManagement::bookCar()
                 cout << "Vehical Type :"<<vehicalType<<endl;
 
                 cout<<endl<<"Available Payment Modes"<<endl;
-                cout<<endl<<"1.online"<<endl<<"2.Cash"<<endl;
+                cout<<endl<<"1.online"<<endl<<"2.Cash"<<endl<<"3.Exit"<<endl;
 
                 cout<<endl<<"Select PaymentMode : " ;
                 int paymentmode;
@@ -563,11 +577,9 @@ void RentalVehicalManagement::bookCar()
                     }
                     if(amount > 0)
                     {
-
                         balance = rent - amount;
 
                         paymentStatus = "Successfull";
-
                     }
 
                     int transactionId;
@@ -618,7 +630,6 @@ void RentalVehicalManagement::bookCar()
                     }
                     if(amount > 0)
                     {
-
                         balance = rent - amount;
                         paymentStatus = "Successfull";
                     }
@@ -643,6 +654,8 @@ void RentalVehicalManagement::bookCar()
 
                     break;
                 }
+                case ExitPayment:
+                    return;
                 }
                 break;
             }
@@ -655,8 +668,6 @@ void RentalVehicalManagement::bookCar()
                 cout<<"Invalid Option"<<endl;
             }
         }
-
-
     }
     if(carFound == 0)
     {
@@ -726,10 +737,8 @@ void RentalVehicalManagement::returnBike()
                                     rentalList->setAmount(rent);
                                     rentalList->setStatus("Returned");
                                     cout<<"Amount Paid"<<endl;
-
                                 }
                                 break;
-
                             }
 
                             case CASH:
@@ -743,25 +752,20 @@ void RentalVehicalManagement::returnBike()
                                     rentalList->setAmount(rent);
                                     rentalList->setStatus("Returned");
                                     cout<<"Amount Paid"<<endl;
-
-
                                 }
                                 break;
-
                             }
                             }
 
                             cout<<endl<<"Your "<<bikeList->getModel()<<" bike is Returned"<<endl;
                             bikeList->setStatus("Available");
                             rentalList->setStatus("Returned");
-
                         }
                         else
                         {
                             cout<<endl<<"Your "<<bikeList->getModel()<<" bike is Returned"<<endl;
                             bikeList->setStatus("Available");
                             rentalList->setStatus("Returned");
-
                         }
                     }
                 }
@@ -776,13 +780,11 @@ void RentalVehicalManagement::returnBike()
                 cout<<"Invalid Option"<<endl;
             }
         }
-
     }
     if(bikeFound ==0)
     {
         cout<<"Entered Bike Id: "<<bikeId<<" is not Available"<<endl;
     }
-
 }
 
 void RentalVehicalManagement::returnCar()
@@ -797,7 +799,6 @@ void RentalVehicalManagement::returnCar()
         {
             carFound =1;
             cout<<"Entered Car Id: "<<carId<<"  not yet Booked"<<endl;
-
         }
         if(carList->getId() == carId && carList->getStatus() == "Booked")
         {
@@ -847,10 +848,8 @@ void RentalVehicalManagement::returnCar()
                                     rentalList->setAmount(rent);
                                     rentalList->setStatus("Returned");
                                     cout<<"Amount Paid"<<endl;
-
                                 }
                                 break;
-
                             }
 
                             case CASH:
@@ -864,26 +863,20 @@ void RentalVehicalManagement::returnCar()
                                     rentalList->setAmount(rent);
                                     rentalList->setStatus("Returned");
                                     cout<<"Amount Paid"<<endl;
-
-
                                 }
                                 break;
-
                             }
                             }
 
                             cout<<endl<<"Your "<<carList->getModel()<<" bike is Returned"<<endl;
                             carList->setStatus("Available");
                             rentalList->setStatus("Returned");
-
                         }
                         else
                         {
-
                             cout<<endl<<"Your "<<carList->getModel()<<" bike is Returned"<<endl;
                             carList->setStatus("Available");
                             rentalList->setStatus("Returned");
-
                         }
 
                         rentalList->setStatus("Returned");
@@ -900,8 +893,6 @@ void RentalVehicalManagement::returnCar()
                 cout<<"Invalid Option"<<endl;
             }
         }
-
-
     }
     if(carFound ==0)
     {
@@ -915,14 +906,11 @@ void RentalVehicalManagement::displayBike()
 
     cout<< endl<<setw(15)<<"Bike Id "<<setw(15)<<"Bike Brand "<<setw(15)<<"Bike Model "<<setw(15)<<"Bike Number"<<setw(15)<<"Bike Cost "<<setw(15)<<"Bike Status"<<setw(25)<<"Bike Duration"<<endl<<endl;
 
-
     for(auto bikeList : m_bikeList)
     {
-
         if(bikeList->getStatus() != "Deleted")
         {
             cout<<setw(15)<<bikeList->getId()<<setw(15)<<bikeList->getBrand()<<setw(15)<<bikeList->getModel()<<setw(15)<<bikeList->getVehicalNumber()<<setw(15)<<bikeList->getCost()<<setw(15)<<bikeList->getStatus()<<setw(15)<<bikeList->getDuration()<<" Day"<<endl;
-
         }
     }
 }
@@ -940,7 +928,6 @@ void RentalVehicalManagement::displayCar()
         {
             cout<<setw(15)<<carList->getId()<<setw(15)<<carList->getBrand()<<setw(15)<<carList->getModel()<<setw(15)<<carList->getVehicalNumber()<<setw(15)<<carList->getCost()<<setw(15)<<carList->getStatus()<<setw(15)<<carList->getDuration()<< " Day"<<endl;
         }
-
     }
 }
 
@@ -953,11 +940,9 @@ void RentalVehicalManagement::rentalHistory()
     for(auto rentalList : m_rentalList)
     {
         cout<<setw(20)<<rentalList->getName() <<setw(15)<<rentalList->getMobile()<<setw(20)<<rentalList->getAge()<<setw(20)<<rentalList->getBookingId()<<setw(20)<<rentalList->getVehicalType()<<setw(25)<<rentalList->getPaymentType()<<setw(20)<<rentalList->getId()<<setw(20)<<rentalList->getBrand()<< setw(20)<<rentalList->getModel()<<setw(15)<<rentalList->getVehicalNumber() << setw(20)<<rentalList->getCost()<<setw(20)<< rentalList->getStatus()<<setw(15)<<rentalList->getDuration()<<"  day"<<setw(20)<<rentalList->getUPIid()<<setw(20)<<rentalList->getAmount()<<setw(20)<<rentalList->getBalance()<<setw(20)<<rentalList->getPaymentStatus()<<setw(20)<<rentalList->getTransactionId()<<setw(20)<<endl<<endl;
-
     }
-
-
 }
+
 
 
 void RentalVehicalManagement::addBike()
@@ -970,13 +955,8 @@ void RentalVehicalManagement::addBike()
     for(auto bikeList :m_bikeList)
     {
         bikeCount++;
-        cout<<"Addddddd"<<endl;
-
 
     }
-
-
-
     id = bikeCount;
     cout<<"Bike Id: "<<id<<endl;
     cout<<"Enter Bike Brand : ";
@@ -1004,7 +984,6 @@ void RentalVehicalManagement::addCar()
     for(auto carList : m_carList)
     {
         carCount++;
-
     }
 
     id = carCount;
@@ -1029,7 +1008,7 @@ void RentalVehicalManagement::updateBikeRent()
 {
     this->displayBike();
     int id;
-    cout<<"enter the Bike Id to Update Rent"<<endl;
+    cout<<"Enter the Bike Id to Update Rent : ";
     cin>>id;
     int bikeFound =0;
     for(auto bikeList :m_bikeList)
@@ -1055,7 +1034,7 @@ void RentalVehicalManagement::updateCarRent()
 
     this->displayCar();
     int id;
-    cout<<"enter the Car Id to Update Rent"<<endl;
+    cout<<"Enter  Car Id to Update Rent : ";
     cin>>id;
     int carFound = 0;
     for(auto carList :m_carList)
@@ -1074,7 +1053,6 @@ void RentalVehicalManagement::updateCarRent()
         cout<<endl<<"Entered Car ID "<< id <<" not found"<<endl;
 
     }
-
 }
 
 
@@ -1117,7 +1095,6 @@ void RentalVehicalManagement::deleteCar()
             carFound =1;
             carList->setStatus("Deleted");
             cout<<"Entered Car ID: "<<id <<" Deleted"<<endl;
-
         }
     }
     if(carFound == 0)
@@ -1148,7 +1125,6 @@ void RentalVehicalManagement::searchBike()
             cout<<"Bike Rent :"<<bikeList->getCost()<<endl;
             cout<<"Bike Status :"<<bikeList->getStatus()<<endl;
             cout<<"Bike Duration :"<<bikeList->getDuration()<<" Day"<<endl;
-
         }
     }
     if(bikeFound == 0)
@@ -1344,25 +1320,12 @@ void RentalVehicalManagement::sortCarByStatus()
     }
 }
 
-list<RentalBikeDetails *> RentalVehicalManagement::getBikeList()
-{
-    cout<<"Bike list called"<<endl;
-    return m_bikeList;
-}
-
-list<RentalCarDetails *> RentalVehicalManagement::getCarList()
-{
-    cout<<"car list called"<<endl;
-
-    return m_carList;
-}
-
 list<RentalDetails *> RentalVehicalManagement::getRentalList()
 {
-    cout<<"rent list called"<<endl;
-
     return m_rentalList;
 }
+
+
 
 
 

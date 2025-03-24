@@ -3,7 +3,6 @@
 RentalDetails::RentalDetails()
 {
     cout<<"Rental Details constructor called"<<endl;
-
 }
 
 RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid, string vehicalType, string paymentType, RentalVehicalDetails *rentedVehical, PaymentMode *payment)
@@ -17,7 +16,6 @@ RentalDetails::RentalDetails(string name, string mobile, int age, int bookingid,
     m_paymentType = paymentType;
     m_rentedVehical = rentedVehical;
     m_payment = payment;
-
 }
 
 RentalDetails::~RentalDetails()

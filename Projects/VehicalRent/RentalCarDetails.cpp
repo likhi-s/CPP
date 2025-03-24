@@ -17,7 +17,6 @@ RentalCarDetails::RentalCarDetails(int id, string brand, string model, string ve
     m_cost = cost;
     m_status = status;
     m_duration = duration;
-
 }
 
 

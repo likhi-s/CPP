@@ -1,6 +1,7 @@
 #ifndef LOGINMANAGEMENTUSER_H
 #define LOGINMANAGEMENTUSER_H
 #include <list>
+#include <iomanip>
 #include "userdetails.h"
 #include "admindetails.h"
 #include "logindetails.h"
@@ -18,7 +19,8 @@ public:
     void userRegistration();
     void userLogin();
     void adminLogin();
-    void menu();
+    void loginMenu();
+    void deleteAdmin();
 
 private:
     RentalFileOperation *m_fileOperations;
@@ -30,9 +32,11 @@ private:
 
 
 
-enum userChoice{display =1,book,Sort,search};
-enum vehical{Bike =1,Car};
-enum login{ Admin = 1,User,SaveAndExit};
-enum usecase{AddAdmin =1,AdminLogin};
-enum user{UserRegistration =1, UserLogin};
+enum userChoice{display =1,book,Sort,search,History,ExitChoice};
+enum vehical{Bike =1,Car,exitVehical};
+enum login{ Admin = 1,User,ExitLogin};
+enum usecase{AdminLogin =1, AddAdmin,DeleteAdmin,AdminExit};
+enum user{UserRegistration =1, UserLogin,UserExit};
+
+
 #endif // LOGINMANAGEMENTUSER_H

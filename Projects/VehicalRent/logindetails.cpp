@@ -8,5 +8,4 @@ LoginDetails::LoginDetails()
 LoginDetails::~LoginDetails()
 {
     cout<<"Login Details Destructor Called"<<endl;
-
 }

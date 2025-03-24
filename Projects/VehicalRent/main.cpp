@@ -1,5 +1,4 @@
 #include <iostream>
-#include "Rentalvehicalmanagement.h"
 #include "loginmanagementuser.h"
 using namespace std;
 
@@ -7,9 +6,7 @@ int main()
 {
 
     LoginManagementUser loginManagementUser;
-    loginManagementUser.menu();
-
-
+    loginManagementUser.loginMenu();
 
     return 0;
 }

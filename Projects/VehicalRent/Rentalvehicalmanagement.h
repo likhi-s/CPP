@@ -41,11 +41,12 @@ public:
     void sortCarByBrand();
     void sortCarByStatus();
 
-    list<RentalBikeDetails*>getBikeList();
-    list<RentalCarDetails*>getCarList();
-    list<RentalDetails*>getRentalList();
 
 
+    list<RentalDetails*> getRentalList();
+
+
+    void saveData();
 private:
     RentalFileOperation *m_fileoperations;
     list<RentalBikeDetails*>m_bikeList;
@@ -59,8 +60,8 @@ private:
 
 enum choice{Book =1,Exit };
 enum option{AddVehical=1,BookVehical,ReturnVehical,DisplayVehical,UpdateVehicalRent,DisplayHistory,DeleteVehical,SearchVehical,SortVehical,EXIT};
-enum select{BIKE =1,CAR};
+enum select{BIKE =1,CAR,ExitVehical};
 enum returnVehical{Return=1,exiT};
 enum sort{VehicalStatus =1,VehicalRent,VehicalBrand};
-enum paymentmode{ONLINE =1,CASH };
+enum paymentmode{ONLINE =1,CASH ,ExitPayment};
 #endif // RENTALVEHICALMANAGEMENT_H

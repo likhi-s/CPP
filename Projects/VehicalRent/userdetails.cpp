@@ -5,17 +5,17 @@ UserDetails::UserDetails()
     cout<<"User Details Constructor Called"<<endl;
 }
 
-UserDetails::UserDetails( string name, int id, int password)
+UserDetails::UserDetails(string name, int id, int password, int status)
 {
     m_loginName = name;
     m_loginId = id;
     m_loginPassword = password;
+    m_status = status;
 }
 
 UserDetails::~UserDetails()
 {
     cout<<"User Details Destructor Called"<<endl;
-
 }
 
 int UserDetails::getLoginId()
@@ -31,4 +31,14 @@ string UserDetails::getLoginName()
 int UserDetails::getLoginPassword()
 {
     return m_loginPassword;
+}
+
+int UserDetails::getStatus()
+{
+    return m_status;
+}
+
+void UserDetails::setStatus(int status)
+{
+    m_status = status;
 }

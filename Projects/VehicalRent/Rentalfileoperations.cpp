@@ -56,7 +56,6 @@ list<RentalCarDetails *> RentalFileOperation::readCarData()
 
     file.close();
     return carData;
-
 }
 
 
@@ -78,7 +77,6 @@ list<RentalDetails *> RentalFileOperation::readRentalData()
     float cost,amount,balance;
     while((getline(file,name,',') && getline(file,mobile,',') && file >> age && file.ignore() && file>> bookingId && file.ignore()  && getline(file,vehicalType,',') && getline(file,paymentType,',') && file>>id && file.ignore() && getline(file,brand,',') && getline(file,model,',') && getline(file,number,',')&& file>> cost && file.ignore() && getline(file,status,',') && file>>duration && file.ignore() && getline(file,upiId,',') && file>> amount  && file.ignore() && file >> balance && file.ignore() && getline(file,paymentStatus,',')&& file >> transactionId && file.ignore()))
     {
-
         if (vehicalType == "Car" && paymentType == "Online")
         {
             RentalCarDetails *car = new RentalCarDetails(id,brand,model,number,cost,status,duration);
@@ -119,10 +117,10 @@ list<AdminDetails *> RentalFileOperation::readAdminData()
         return adminData;
     }
     string name;
-    int id,password;
-    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore())
+    int id,password,status;
+    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore() && file>>status && file.ignore())
     {
-        adminData.push_back(new AdminDetails(name,id,password));
+        adminData.push_back(new AdminDetails(name,id,password,status));
     }
     file.close();
     return adminData;
@@ -138,10 +136,10 @@ list<UserDetails *> RentalFileOperation::readUserDetails()
         return userData;
     }
     string name;
-    int id,password;
-    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore())
+    int id,password,status;
+    while( getline(file,name,',') && file>>id && file.ignore() && file>>password && file.ignore()&& file>>status && file.ignore())
     {
-        userData.push_back(new UserDetails(name,id,password));
+        userData.push_back(new UserDetails(name,id,password,status));
     }
     file.close();
     return userData;
@@ -163,7 +161,6 @@ void RentalFileOperation::writeBikeData(list<RentalBikeDetails *> &bike)
     for(auto bikeList :bike)
     {
         file << bikeList->getId()<< "," <<bikeList->getBrand()<<","<< bikeList->getModel() <<","<<bikeList->getVehicalNumber()<< "," << bikeList->getCost() <<"," << bikeList->getStatus() << ","<< bikeList->getDuration()<<endl;
-
     }
 
     file.close();
@@ -186,7 +183,6 @@ void RentalFileOperation::writeCarData(list<RentalCarDetails *> &car)
     for(auto carList :car)
     {
         file << carList->getId()<< "," <<carList->getBrand()<< "," << carList->getModel() << "," <<carList->getVehicalNumber()<< "," << carList->getCost() <<"," << carList->getStatus() << ","<< carList->getDuration()<<endl;
-
     }
 
     file.close();
@@ -224,11 +220,10 @@ void RentalFileOperation::writeAdminData(list<AdminDetails *> &admin)
     }
     for(auto adminList : admin)
     {
-        file<<adminList->getLoginId()<<","<<adminList->getLoginName()<<","<<adminList->getLoginPassword()<<endl;
+        file<<adminList->getLoginName()<<","<<adminList->getLoginId()<<","<<adminList->getLoginPassword()<<","<<adminList->getStatus()<<endl;
     }
     file.close();
     cout << "Admin Data written to CSV file" << endl;
-
 }
 
 void RentalFileOperation::writeUserData(list<UserDetails *> &user)
@@ -241,7 +236,7 @@ void RentalFileOperation::writeUserData(list<UserDetails *> &user)
     }
     for(auto userList : user)
     {
-        file<<userList->getLoginId()<<","<<userList->getLoginName()<<","<<userList->getLoginPassword()<<endl;
+        file<<userList->getLoginName()<<","<<userList->getLoginId()<<","<<userList->getLoginPassword()<<","<<userList->getStatus()<<endl;
     }
     file.close();
     cout << "User Data written to CSV file" << endl;

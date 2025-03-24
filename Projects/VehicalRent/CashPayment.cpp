@@ -13,7 +13,6 @@ CashPayment::CashPayment(string UpiId,  float amount, float balance, string paym
     m_balance = balance;
     m_paymentStatus = paymentStatus;
     m_transactionId = transactionId;
-
 }
 
 string CashPayment::getUPIid()

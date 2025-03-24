@@ -8,5 +8,4 @@ PaymentMode::PaymentMode()
 PaymentMode::~PaymentMode()
 {
     cout<<"Payment Mode Destructor Called"<<endl;
-
 }

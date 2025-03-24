@@ -8,12 +8,14 @@ class UserDetails:public LoginDetails
 {
 public:
     UserDetails();
-    UserDetails(string name, int id, int password);
+    UserDetails(string name, int id, int password, int  status);
     ~UserDetails();
 
     int getLoginId();
     string getLoginName();
     int getLoginPassword();
+    int getStatus();
+    void setStatus(int status);
 };
 
 #endif // USERDETAILS_H

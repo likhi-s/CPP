@@ -3,17 +3,9 @@
 LoginManagementUser::LoginManagementUser()
 {
     cout<<"Login Management User Constructor Called"<<endl;
-    RentalFileOperation *m_fileOperations = new RentalFileOperation;
-    RentalVehicalManagement *m_rentalVehicalManagement = new RentalVehicalManagement;
-
+    m_fileOperations = new RentalFileOperation;
     m_adminList = m_fileOperations->readAdminData();
     m_userList = m_fileOperations->readUserDetails();
-    // m_rentalVehicalManagement->getBikeList();
-    // m_rentalVehicalManagement->getCarList();
-    // m_rentalVehicalManagement->getRentalList();
-    m_rentalVehicalManagement->displayBike();
-    m_rentalVehicalManagement->displayCar();
-
 }
 
 LoginManagementUser::~LoginManagementUser()
@@ -34,37 +26,54 @@ LoginManagementUser::~LoginManagementUser()
 
 void LoginManagementUser::addAdmin()
 {
-    int loginId = 12345;
-    int loginPassword = 12345;
-    cout<<"Enter Management loginId"<<endl;
-    int id;
-    cin>>id;
-    cout<<"Enter Management Login Password"<<endl;
-    int password;
-    cin>>password;
-
-    if(loginId == id && loginPassword == password)
+    while(true)
     {
-        string adminName;
-        int adminId,adminPassword;
-        cout<<endl<<"Adding New Admin"<<endl;
-        cout<<"Enter Admin Id : "<<endl;
-        cin>>adminId;
-        cout<<"Enter Admin Name : ";
-        cin>>adminName;
-        cout<<"Enter Admin Password : ";
-        cin>>adminPassword;
+        int loginId = 12345;
+        int loginPassword = 12345;
+        cout<<endl<<"Enter Management login Id: ";
+        int id;
+        cin>>id;
+        cout<<"Enter Management Login Password: ";
+        int password;
+        cin>>password;
+        int exit = 0;
+        if(loginId == id && loginPassword == password)
+        {
+            string adminName;
+            int adminCount = 1;
+            int adminId,adminPassword;
+            cout<<endl<<"Adding New Admin"<<endl;
+            for(auto adminList  : m_adminList)
+            {
+                adminCount++;
+            }
+            adminId = adminCount;
 
-        cout<<"Added New Admin :"<<adminName;
+            cout<<" Admin Id : "<<adminId<<endl;
 
-        m_adminList.push_back((new AdminDetails(adminName,adminId,adminPassword)));
+            cout<<"Enter Admin Name : ";
+            cin>>adminName;
+            cout<<"Enter Admin Password : ";
+            cin>>adminPassword;
+
+            int  status = 1;
+            cout<<"Status : " <<status<<endl;
+            cout<<"Added New Admin :"<<adminName<<endl;
+
+            m_adminList.push_back((new AdminDetails(adminName,adminId,adminPassword,status)));
+            break;
+        }
+        else
+        {
+            cout<<endl<<"InCorrect Login Details"<<endl;
+            cout<<"Enter 1 to try again and 0 to exit : ";
+            cin>>exit;
+        }
+        if(exit == 0)
+        {
+            return;
+        }
     }
-    else
-    {
-        cout<<"Enter Correct Login Details"<<endl;
-    }
-
-
 }
 
 void LoginManagementUser::userRegistration()
@@ -78,147 +87,184 @@ void LoginManagementUser::userRegistration()
     cout<<"Enter User Password : ";
     cin>>userPassword;
 
-    cout<<"Registration Successfully Done "<<userName<<" now you can Login";
-    m_userList.push_back(new UserDetails(userName,userId,userPassword));
+    int status = 1;
+    cout<<"Status : " <<status<<endl;
+
+    cout<<"Registration Successfully Done "<<userName<<" ,now you can Login";
+    m_userList.push_back(new UserDetails(userName,userId,userPassword,status));
 }
 
 void LoginManagementUser::userLogin()
 {
 
     int userId,userPassword;
+    int exit =0;
 
     while(true)
     {
-
-        cout<<"Enter User ID: ";
+        cout<<endl<<"___________User Login Page___________"<<endl;
+        cout<<endl<<"Enter User ID: ";
         cin>>userId;
-
         cout<<"Enter User Password : ";
         cin>>userPassword;
-
         int userFound = 0;
-
         for(auto userList : m_userList)
         {
-            if(userList->getLoginId() == userId && userList->getLoginPassword() == userPassword)
+            if(userList->getLoginId() == userId && userList->getLoginPassword() == userPassword && userList->getStatus() == 1)
             {
-                userFound = 1;
-                cout<<endl<<"Login Successfull"<<endl;
+                m_rentalVehicalManagement = new RentalVehicalManagement;
+                cout<<endl<<"******Login Successfull******"<<endl<<endl;
 
-                cout<<endl<<"1.Display Vehicals"<<endl<<"2.Book Vehical"<<"3.Sort Vehical"<<endl<<"4.Search Vehical"<<endl;
-                cout<<"Enter your choice : ";
-                int userChoice;
-                cin>>userChoice;
-                switch(userChoice)
+                while(true)
                 {
-                case display:
-                {
-                    cout<<"1.Display Bike"<<endl<<"2.Display Car"<<endl;
-                    cout<<"Enter your choice : ";
-                    int vehical;
-                    cin>>vehical;
-                    switch(vehical)
-                    {
-                    case Bike:
-                    {
-                        m_rentalVehicalManagement->displayBike();
-                        break;
-                    }
-                    case Car:
-                    {
-                        m_rentalVehicalManagement->displayCar();
-                        break;
-                    }
-                    }
-                    break;
-                }
-                case book:
-                {
-                    cout<<"1.Book Bike"<<endl<<"2. Book Car"<<endl;
-                    cout<<"Enter your choice : ";
-                    int vehical;
-                    cin>>vehical;
-                    switch(vehical)
-                    {
-                    case Bike:
-                    {
-                        m_rentalVehicalManagement->bookBike();
-                        break;
-                    }
-                    case Car:
-                    {
-                        m_rentalVehicalManagement->bookCar();
-                        break;
-                    }
-                    }
-                    break;
+                    userFound = 1;
+                    cout<<endl<<"1.Display Vehicals"<<endl<<"2.Book Vehical"<<endl<<"3.Sort Vehical"<<endl<<"4.Search Vehical"<<endl<<"5.Display History"<<endl<<"6.Exit"<<endl;
+                    cout<<endl<<"Enter your choice : ";
+                    int userChoice;
+                    cin>>userChoice;
 
-                }
-                case Sort:
-                {
-                    cout<<"1.Sort Bike"<<endl<<"2. Sort Car"<<endl;
-                    cout<<"Enter your choice : ";
-                    int vehical;
-                    cin>>vehical;
-                    switch(vehical)
+                    switch(userChoice)
                     {
-                    case Bike:
+                    case display:
                     {
-                        m_rentalVehicalManagement->sortBike();
-                        break;
-                    }
-                    case Car:
-                    {
-                        m_rentalVehicalManagement->sortCar();
-                        break;
-                    }
-                    }
-                    break;
-                }
-                case search:
-                {
-                    cout<<"1.Search Bike"<<endl<<"2. Search Car"<<endl;
-                    cout<<"Enter your choice : ";
-                    int vehical;
-                    cin>>vehical;
-                    switch(vehical)
-                    {
-                    case Bike:
-                    {
-                        m_rentalVehicalManagement->searchBike();
-                        break;
-                    }
-                    case Car:
-                    {
-                        m_rentalVehicalManagement->searchCar();
-                        break;
-                    }
-                    }
-                    break;
-                }
+                        cout<<endl<<"1.Display Bike"<<endl<<"2.Display Car"<<endl<<"3.Exit"<<endl;
+                        cout<<endl<<"Enter your choice : ";
+                        int vehical;
+                        cin>>vehical;
+                        switch(vehical)
+                        {
+                        case Bike:
+                        {
+                            m_rentalVehicalManagement->displayBike();
+                            break;
+                        }
+                        case Car:
+                        {
+                            m_rentalVehicalManagement->displayCar();
+                            break;
+                        }
+                        case exitVehical:
+                            break;
 
+                        }
+                        break;
+                    }
+
+                    case book:
+                    {
+                        cout<<endl<<"1.Book Bike"<<endl<<"2. Book Car"<<endl;
+                        cout<<endl<<"Enter your choice : ";
+                        int vehical;
+                        cin>>vehical;
+                        switch(vehical)
+                        {
+                        case Bike:
+                        {
+                            m_rentalVehicalManagement->bookBike();
+                            break;
+                        }
+                        case Car:
+                        {
+                            m_rentalVehicalManagement->bookCar();
+                            break;
+                        }
+                        }
+                        break;
+                    }
+                    case Sort:
+                    {
+                        cout<<endl<<"1.Sort Bike"<<endl<<"2. Sort Car"<<endl;
+                        cout<<endl<<"Enter your choice : ";
+                        int vehical;
+                        cin>>vehical;
+                        switch(vehical)
+                        {
+                        case Bike:
+                        {
+                            m_rentalVehicalManagement->sortBike();
+                            break;
+                        }
+                        case Car:
+                        {
+                            m_rentalVehicalManagement->sortCar();
+                            break;
+                        }
+                        }
+                        break;
+                    }
+                    case search:
+                    {
+                        cout<<endl<<"1.Search Bike"<<endl<<"2. Search Car"<<endl;
+                        cout<<endl<<"Enter your choice : ";
+                        int vehical;
+                        cin>>vehical;
+                        switch(vehical)
+                        {
+                        case Bike:
+                        {
+                            m_rentalVehicalManagement->searchBike();
+                            break;
+                        }
+                        case Car:
+                        {
+                            m_rentalVehicalManagement->searchCar();
+                            break;
+                        }
+                        }
+                        break;
+                    }
+                    case History:
+                    {
+                        for(auto userList: m_userList)
+                        {
+                            for(auto rentalList :  m_rentalVehicalManagement->getRentalList() )
+                            {
+                                if(userList->getLoginName() == rentalList->getName())
+                                {
+                                    cout<<endl<<"****************************************Displaying History*************************************************"<<endl <<endl;
+                                    cout<< endl<<setw(20)<<"Customer_Name"<<setw(20)<<"Customer_Mobile "<<setw(20)<<"Customer_Age "<<setw(20)<<"Customer_Booking_Id"<<setw(20)<<"Vehical_Type"<<setw(20)<<"Payment_Type"<<setw(20)<<"Vehical_Id"<<setw(20)<<"Vehical_Brand"<<setw(20)<<"Vehical_Model"<<setw(20)<<"vehical_Number"<<setw(20)<<"Vehical_Cost"<<setw(20)<<"Vehical_Status"<<setw(20)<<"Vehical Duration"<<setw(20)<<"UPI_Id"<<setw(20)<<"Amount_Paid"<<setw(20)<<"Balance_Amount"<<setw(20)<<"Payment_Status"<<setw(20)<<"Transaction_ID"<<endl<<endl;
+                                    cout<<setw(20)<<rentalList->getName() <<setw(15)<<rentalList->getMobile()<<setw(20)<<rentalList->getAge()<<setw(20)<<rentalList->getBookingId()<<setw(20)<<rentalList->getVehicalType()<<setw(25)<<rentalList->getPaymentType()<<setw(20)<<rentalList->getId()<<setw(20)<<rentalList->getBrand()<< setw(20)<<rentalList->getModel()<<setw(15)<<rentalList->getVehicalNumber() << setw(20)<<rentalList->getCost()<<setw(20)<< rentalList->getStatus()<<setw(15)<<rentalList->getDuration()<<"  day"<<setw(20)<<rentalList->getUPIid()<<setw(20)<<rentalList->getAmount()<<setw(20)<<rentalList->getBalance()<<setw(20)<<rentalList->getPaymentStatus()<<setw(20)<<rentalList->getTransactionId()<<setw(20)<<endl<<endl;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                    case ExitChoice:
+                    {
+                        m_rentalVehicalManagement->saveData();
+                        break;
+                    }
+
+                    }
+                    return;
                 }
-                break;
             }
-
-
         }
+
         if(userFound == 0)
         {
             cout<<"Incorrect User Login Credentials ,try again"<<endl;
+            cout<<endl<<"Enter 1 to exit and 0 to continue : ";
+            cin>>exit;
+        }
+        if(exit == 1)
+        {
+            return;
+        }
         }
     }
 
-}
-
 void LoginManagementUser::adminLogin()
 {
+
     int userId,userPassword;
     int adminFound = 0;
+    int exit = 0;
     while(true)
     {
+        cout<<endl<<"___________Admin Login Page___________"<<endl;
 
-        cout<<"Enter User ID :";
+        cout<<endl<<"Enter User ID :";
         cin>>userId;
         cin.ignore();
 
@@ -228,64 +274,78 @@ void LoginManagementUser::adminLogin()
 
         for (auto adminList : m_adminList)
         {
-            int id = adminList->getLoginId();
-           int password = adminList->getLoginPassword();
-            cout<<" id:"<<id<<endl<<"Pass :"<<password<<endl;
-            // if(adminList->getLoginId() == userId && adminList->getLoginPassword() == userPassword)
-            if(id == userId && password == userPassword)
+            if(adminList->getLoginId() == userId && adminList->getLoginPassword() == userPassword && adminList->getStatus() == 1)
             {
-                adminFound = 1;
-                cout<<endl<<"Login Successfull"<<endl;
-                m_rentalVehicalManagement->menu();
-                break;
-            }
+               m_rentalVehicalManagement = new RentalVehicalManagement;
+                cout<<endl<<"******Login Successfull******"<<endl;
 
+                adminFound = 1;
+                m_rentalVehicalManagement->menu();
+                return;
+            }
         }
         if (adminFound == 0)
         {
-            cout<<"Incorrect Admin Login Credentials,try again"<<endl;
+            cout<<"Incorrect Admin Login Credentials"<<endl;
+            cout<<"Enter 1 to try again and 0 to exit: ";
+            cin>>exit;
+        }
+        if(exit == 0)
+        {
+            return;
         }
     }
 }
 
-void LoginManagementUser::menu()
+void LoginManagementUser::loginMenu()
 {
 
 
     cout<<endl<<"___________________Login Page___________________"<<endl;
     while(true)
     {
-        cout<<endl<<"1.Admin"<<endl<<"2.User"<<endl;
-        cout<<"Select Choice"<<endl;
+
+        cout<<endl<<endl<<"1.Admin"<<endl<<"2.User"<<endl<<"3.Exit"<<endl;
+        cout<<endl<<"Select your Choice : ";
+
         int login;
         cin>>login;
         switch(login)
         {
         case Admin:
         {
-            cout<<"1. Add Admin"<<endl<<"2. Admin Login"<<endl;
+            cout<<endl<<"1. Admin Login"<<endl<<"2. Add Admin"<<endl<<"3. Delete Admin"<<endl<<"4. Exit"<<endl;
+            cout<<endl<<"Select your choice :";
+
             int usecase;
             cin>>usecase;
             switch(usecase)
-            {
-            case AddAdmin:
-            {
-                this->addAdmin();
-                break;
-            }
+            {          
             case AdminLogin:
             {
                 this->adminLogin();
                 break;
             }
+            case AddAdmin:
+            {
+                this->addAdmin();
+                break;
+            }
+            case DeleteAdmin:
+            {
+                this->deleteAdmin();
+                break;
+            }
+            case AdminExit:
+                break;
             }
 
             break;
         }
         case User:
         {
-            cout<<"1.User Registration"<<endl<<"2.User Login"<<endl;
-            cout<<"Select Choice"<<endl;
+            cout<<endl<<"1.User Registration"<<endl<<"2.User Login"<<endl<<"3.Exit"<<endl;
+            cout<<endl<<"Select Choice : ";
             int user;
             cin>>user;
             switch(user)
@@ -300,22 +360,83 @@ void LoginManagementUser::menu()
                 this->userLogin();
                 break;
             }
+            case UserExit:
+                break;
             }
 
             break;
         }
-        case SaveAndExit:
+        case ExitLogin:
         {
-            m_fileOperations->writeAdminData(m_adminList);
+
             m_fileOperations->writeUserData(m_userList);
-            cout<<" saved to file and Exiting "<<endl;
+            m_fileOperations->writeAdminData(m_adminList);
+            cout<<"Saved Admin And User Data ,Exiting....."<<endl;
 
             return;
         }
         }
     }
+}
 
+void LoginManagementUser::deleteAdmin()
+{
 
+    while(true)
+    {
+        int loginId = 12345;
+        int loginPassword = 12345;
+        cout<<endl<<"Enter Management login Id: ";
+        int id;
+        cin>>id;
+        cout<<"Enter Management Login Password: ";
+        int password;
+        cin>>password;
+        int adminIdFound = 0;
+        int exitLogin = 0;
+
+        if(loginId == id && loginPassword == password)
+        {
+            cout<<endl<<"_________Login Successful_________"<<endl;
+            while(true)
+            {
+                int exit = 0;
+                int id;
+                cout<<endl<<"Enter  Admin Id to delete :";
+                cin>>id;
+                for(auto adminList : m_adminList)
+                {
+                    if(adminList->getLoginId() == id && adminList->getStatus() == 1)
+                    {
+                        adminList->setStatus(0);
+                        adminIdFound = 1;
+                        return;
+                    }
+                }
+                if(adminIdFound == 0)
+                {
+                    cout<<"Entered Admin ID : "<<id<< " not found"<<endl;
+                    cout<<"Enter 1 to continue and 0 to exit"<<endl;
+                    cin>>exit;
+                }
+                if(exit == 0)
+                {
+                    return;
+                }
+            }
+        }
+        else
+        {
+            cout<<endl<<"InCorrect Login Details"<<endl;
+            cout<<"Enter 1 to continue and 0 to exit"<<endl;
+            cin>>exitLogin;
+            if(exitLogin == 0)
+            {
+                return;
+            }
+        }
+
+    }
 }
 
 

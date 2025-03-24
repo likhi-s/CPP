@@ -19,7 +19,6 @@ OnlinePayment::OnlinePayment(string UpiId,  float amount, float balance, string 
     m_balance = balance;
     m_paymentStatus = paymentStatus;
     m_transactionId =transactionId;
-
 }
 
 string OnlinePayment::getUPIid()
