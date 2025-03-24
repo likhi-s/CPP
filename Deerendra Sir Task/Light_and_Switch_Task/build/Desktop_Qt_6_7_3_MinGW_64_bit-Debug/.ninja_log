@@ -1,0 +1,9 @@
+# ninja log v6
+395	548	7645055057154055	Light_and_Switch_Task.exe	dc2ae2163f197356
+35	395	7645055053486157	CMakeFiles/Light_and_Switch_Task.dir/switch.cpp.obj	22d2bfa2747b84af
+41	391	7645055053642420	CMakeFiles/Light_and_Switch_Task.dir/light.cpp.obj	67f3410febf7c322
+6	576	7645048686315112	CMakeFiles/Light_and_Switch_Task.dir/main.cpp.obj	47404f3fb0eefbc
+31	382	7645054315012982	CMakeFiles/Light_and_Switch_Task.dir/wire.cpp.obj	2ee0c74b9fdc72c2
+41	1425	7645095924792876	CMakeFiles/Light_and_Switch_Task.dir/wire.cpp.obj	2ee0c74b9fdc72c2
+32	1428	7645095924792876	CMakeFiles/Light_and_Switch_Task.dir/switch.cpp.obj	22d2bfa2747b84af
+1428	1580	7645095938802332	Light_and_Switch_Task.exe	dc2ae2163f197356
