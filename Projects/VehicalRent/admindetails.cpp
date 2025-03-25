@@ -7,6 +7,8 @@ AdminDetails::AdminDetails()
 
 AdminDetails::AdminDetails(string name, int id, int password,int status)
 {
+    cout<<"Admin Details Parameterized Constructor Called"<<endl;
+
     m_loginName = name;
     m_loginId = id;
     m_loginPassword = password;

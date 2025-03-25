@@ -6,7 +6,7 @@
 RentalVehicalManagement::RentalVehicalManagement()
 {
     cout<<"vehical Management Constructor Called"<<endl;
-   m_fileoperations = new RentalFileOperation;
+    m_fileoperations = new RentalFileOperation;
     m_bikeList = m_fileoperations->readBikeData();
     m_carList = m_fileoperations->readCarData();
     m_rentalList = m_fileoperations->readRentalData();

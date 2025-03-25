@@ -372,7 +372,6 @@ void LoginManagementUser::loginMenu()
             m_fileOperations->writeUserData(m_userList);
             m_fileOperations->writeAdminData(m_adminList);
             cout<<"Saved Admin And User Data ,Exiting....."<<endl;
-
             return;
         }
         }

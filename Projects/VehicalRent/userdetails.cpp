@@ -7,6 +7,8 @@ UserDetails::UserDetails()
 
 UserDetails::UserDetails(string name, int id, int password, int status)
 {
+    cout<<"User Details  Parameterized Constructor Called"<<endl;
+
     m_loginName = name;
     m_loginId = id;
     m_loginPassword = password;
