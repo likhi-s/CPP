@@ -2,7 +2,7 @@
 
 RentalVehicalDetails::RentalVehicalDetails()
 {
-    cout<<"Vehical Constructor called"<<endl;
+   cout<<"Vehical Constructor called"<<endl;
 }
 
 RentalVehicalDetails::~RentalVehicalDetails()

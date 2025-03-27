@@ -2,6 +2,10 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include<algorithm>
+#include <chrono>
+
+using namespace std::chrono;
 
 RentalVehicalManagement::RentalVehicalManagement()
 {
@@ -10,7 +14,6 @@ RentalVehicalManagement::RentalVehicalManagement()
     m_bikeList = m_fileoperations->readBikeData();
     m_carList = m_fileoperations->readCarData();
     m_rentalList = m_fileoperations->readRentalData();
-
 
 }
 
@@ -37,6 +40,8 @@ void RentalVehicalManagement::menu()
 {
     while(true)
     {
+
+        cout<<endl;
         cout<<endl<<"1.Add Vehical"<<endl<<"2.Book Vehical"<<endl<<"3.Return Vehical"<<endl<<"4.Display Vehical"<<endl<<"5.Update Vehical Rent"<<endl;
         cout<<"6.Display Rental History"<<endl<<"7.Delete Vehical"<<endl<<"8.Search Vehical"<<endl<<"9.Sort Vehical"<<endl<<"10.Exit"<<endl;
 
@@ -244,7 +249,6 @@ void RentalVehicalManagement::menu()
             }
             break;
         }
-
         case EXIT:
         {
             this->saveData();
@@ -944,10 +948,8 @@ void RentalVehicalManagement::rentalHistory()
 }
 
 
-
 void RentalVehicalManagement::addBike()
 {
-    cout<<"Addddddd"<<endl;
     int id,duration;
     string  brand,model,bikeNumber,status;
     float cost;
@@ -1059,7 +1061,8 @@ void RentalVehicalManagement::updateCarRent()
 
 void RentalVehicalManagement::deleteBike()
 {
-    this->displayBike();
+     auto start = high_resolution_clock::now();
+    //this->displayBike();
     int id;
     cout<<"Enter Bike Id to Delete : ";
     cin>>id;
@@ -1078,6 +1081,9 @@ void RentalVehicalManagement::deleteBike()
     {
         cout<<endl<<"Entered Bike ID "<< id <<" not found"<<endl;
     }
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end-start);
+    cout<<"duration : "<<duration.count()<<endl;
 }
 
 void RentalVehicalManagement::deleteCar()
@@ -1105,7 +1111,7 @@ void RentalVehicalManagement::deleteCar()
 
 void RentalVehicalManagement::searchBike()
 {
-
+    auto start = high_resolution_clock::now();
     int id;
     cout<<"Enter Bike Id to Search : ";
     cin>>id;
@@ -1131,6 +1137,9 @@ void RentalVehicalManagement::searchBike()
     {
         cout<<endl<<"Entered Bike ID "<< id <<" not found"<<endl;
     }
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end-start);
+    cout<<"duration : "<<duration.count()<<endl;
 }
 
 void RentalVehicalManagement::searchCar()
@@ -1174,7 +1183,9 @@ void RentalVehicalManagement::sortBike()
     {
     case VehicalStatus:
     {
+
         this->sortBikeByStatus();
+
         break;
     }
     case VehicalRent:
@@ -1189,7 +1200,7 @@ void RentalVehicalManagement::sortBike()
         break;
     }
     }
-    this->displayBike();
+    //this->displayBike();
 
 }
 
@@ -1224,6 +1235,8 @@ void RentalVehicalManagement::sortCar()
 
 void RentalVehicalManagement::sortBikeByPrice()
 {
+    auto start = high_resolution_clock::now();
+
     for(auto i: m_bikeList)
     {
         for(auto j  : m_bikeList)
@@ -1234,10 +1247,15 @@ void RentalVehicalManagement::sortBikeByPrice()
             }
         }
     }
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end-start);
+    cout<<"duration sort by Price : "<<duration.count()<<endl;
+
 }
 
 void RentalVehicalManagement::sortBikeByBrand()
 {
+    auto start = high_resolution_clock::now();
 
     for(auto i : m_bikeList)
     {
@@ -1250,10 +1268,17 @@ void RentalVehicalManagement::sortBikeByBrand()
         }
 
     }
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end-start);
+    cout<<"duration sort by Brand : "<<duration.count()<<endl;
+
 }
 
 void RentalVehicalManagement::sortBikeByStatus()
 {
+    auto start = high_resolution_clock::now();
+
+
     for(auto i :  m_bikeList)
     {
         for(auto j :  m_bikeList)
@@ -1268,8 +1293,9 @@ void RentalVehicalManagement::sortBikeByStatus()
             }
         }
     }
-
-
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<seconds>(end-start);
+    cout<<"duration sort by status : "<<duration.count()<<endl;
 }
 
 void RentalVehicalManagement::sortCarByPrice()
@@ -1289,6 +1315,7 @@ void RentalVehicalManagement::sortCarByPrice()
 
 void RentalVehicalManagement::sortCarByBrand()
 {
+
     for(auto i : m_carList)
     {
         for(auto j : m_carList)
@@ -1300,6 +1327,7 @@ void RentalVehicalManagement::sortCarByBrand()
         }
 
     }
+
 }
 
 void RentalVehicalManagement::sortCarByStatus()

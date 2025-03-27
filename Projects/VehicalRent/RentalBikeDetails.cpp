@@ -7,7 +7,7 @@ RentalBikeDetails::RentalBikeDetails()
 
 RentalBikeDetails::RentalBikeDetails(int id, string brand, string model,string vehicalNumber, float cost, string status, int duration)
 {
-    cout<<"Bike Parameterized Constructor Called"<<endl;
+   cout<<"Bike Parameterized Constructor Called"<<endl;
     m_id =id;
     m_brand = brand;
     m_model = model;
