@@ -9,7 +9,7 @@ class Wire
 {
 public:
     Wire();
-    Wire(float thickness, float length, string colour, string brand, float price, vector<Light> light);
+    Wire(float thickness, float length, string colour, string brand, float price);
 
     Wire(const Wire &obj);
     void operator =(Wire obj);
@@ -18,6 +18,7 @@ public:
 
     void wireOn();
 
+    void initLight(Light &light);
 private:
     float m_thickness;
     float m_length;

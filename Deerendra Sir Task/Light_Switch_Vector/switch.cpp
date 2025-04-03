@@ -38,12 +38,6 @@ void Switch::initWire(Wire *wire)
 
 void Switch::switchOn()
 {
-    //  cout<<"Switch On -> "<<"colour : "<<m_colour<<"  "<<"Brand : "<<m_brand<<"  "<<"Price : "<<m_price<<endl;
     cout<<"Switch On"<<endl;
     m_wire->wireOn();
 }
-
-
-
-
-

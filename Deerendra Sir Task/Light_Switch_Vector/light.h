@@ -10,9 +10,7 @@ class Light
 public:
     Light();
     Light(string colour, float price, string brand);
-
     Light(const Light &obj);
-
     ~Light();
 
     void operator = (Light obj);
