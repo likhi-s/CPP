@@ -61,7 +61,6 @@ void RentalVehicalManagement::menu()
             case BIKE:   
                 this->addBike();
                 break;
-
             case CAR:
                 this->addCar();
                 break;
@@ -84,13 +83,11 @@ void RentalVehicalManagement::menu()
             case BIKE:
                 this->bookBike();
                 break;
-
             case CAR:
                 this->bookCar();
                 break;
             case ExitVehical:
                 break;
-
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -108,14 +105,11 @@ void RentalVehicalManagement::menu()
             case BIKE:
                 this->returnBike();
                 break;
-
             case CAR:
                 this->returnCar();
                 break;
-
             case ExitVehical:
                 break;
-
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -157,27 +151,20 @@ void RentalVehicalManagement::menu()
             case BIKE:
                 this->updateBikeRent();
                 break;
-
             case CAR:
                 this->updateCarRent();
                 break;
-
             case ExitVehical:
                 break;
-
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
             }
             break;
         }
-
-
         case DisplayHistory:
             this->rentalHistory();
             break;
-
-
         case DeleteVehical:
         {
             cout<<endl<<"1.Bike"<<endl<<"2.Car"<<endl<<"3.Exit"<<endl;
@@ -189,14 +176,11 @@ void RentalVehicalManagement::menu()
             case BIKE:
                 this->deleteBike();
                 break;
-
             case CAR:
                 this->deleteCar();
                 break;
-
             case ExitVehical:
                 break;
-
             default:
                 cout<<"Invalid Choice"<<endl;
                 break;
@@ -214,11 +198,9 @@ void RentalVehicalManagement::menu()
             case BIKE:
                 this->searchBike();
                 break;
-
             case CAR:
                 this->searchCar();
                 break;
-
             case ExitVehical:
                 break;
             default:
@@ -655,7 +637,6 @@ void RentalVehicalManagement::bookCar()
                     RentalCarDetails *car = new RentalCarDetails(id, brand, model, vehicalNumber,cost, status, duration);
                     CashPayment *cash = new CashPayment(upiId,amount,balance,paymentStatus,transactionId);
                     m_rentalList.push_back(new RentalDetails(name,mobile,age,bookingid,vehicalType,paymentType,car,cash));
-
                     break;
                 }
                 case ExitPayment:
@@ -711,7 +692,6 @@ void RentalVehicalManagement::returnBike()
             {
             case Return:
             {
-
                 for(auto rentalList:m_rentalList)
                 {
                     if(bikeList->getId() == rentalList->getId() && rentalList->getVehicalType() == "Bike")
@@ -1061,8 +1041,8 @@ void RentalVehicalManagement::updateCarRent()
 
 void RentalVehicalManagement::deleteBike()
 {
-     auto start = high_resolution_clock::now();
-    //this->displayBike();
+    auto start = high_resolution_clock::now();
+    this->displayBike();
     int id;
     cout<<"Enter Bike Id to Delete : ";
     cin>>id;
@@ -1083,8 +1063,10 @@ void RentalVehicalManagement::deleteBike()
     }
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<seconds>(end-start);
-    cout<<"duration : "<<duration.count()<<endl;
+    cout<<"duration : "<<duration.count()<<" seconds"<<endl;
 }
+
+
 
 void RentalVehicalManagement::deleteCar()
 {
@@ -1139,7 +1121,7 @@ void RentalVehicalManagement::searchBike()
     }
     auto end = high_resolution_clock::now();
     auto duration = duration_cast<seconds>(end-start);
-    cout<<"duration : "<<duration.count()<<endl;
+    cout<<"duration : "<<duration.count()<<" seconds"<<endl;
 }
 
 void RentalVehicalManagement::searchCar()
@@ -1200,7 +1182,7 @@ void RentalVehicalManagement::sortBike()
         break;
     }
     }
-    //this->displayBike();
+    this->displayBike();
 
 }
 
@@ -1237,19 +1219,15 @@ void RentalVehicalManagement::sortBikeByPrice()
 {
     auto start = high_resolution_clock::now();
 
-    for(auto i: m_bikeList)
-    {
-        for(auto j  : m_bikeList)
-        {
-            if (i->getCost() < j->getCost())
-            {
-                iter_swap(i,j);
-            }
-        }
-    }
+    m_bikeList.sort([]( RentalBikeDetails* a,  RentalBikeDetails* b)
+                    {
+                        return a->getCost() < b->getCost();
+                    });
+
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<seconds>(end-start);
+    auto duration = duration_cast<milliseconds>(end-start);
     cout<<"duration sort by Price : "<<duration.count()<<endl;
+
 
 }
 
@@ -1257,20 +1235,15 @@ void RentalVehicalManagement::sortBikeByBrand()
 {
     auto start = high_resolution_clock::now();
 
-    for(auto i : m_bikeList)
-    {
-        for(auto j : m_bikeList)
-        {
-            if(i->getBrand() < j->getBrand())
-            {
-                iter_swap(i,j);
-            }
-        }
+    m_bikeList.sort([]( RentalBikeDetails* a,  RentalBikeDetails* b)
+                    {
+                        return a->getBrand() < b->getBrand();
+                    });
 
-    }
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<seconds>(end-start);
+    auto duration = duration_cast<milliseconds>(end-start);
     cout<<"duration sort by Brand : "<<duration.count()<<endl;
+
 
 }
 
@@ -1278,24 +1251,17 @@ void RentalVehicalManagement::sortBikeByStatus()
 {
     auto start = high_resolution_clock::now();
 
+    m_bikeList.sort([]( RentalBikeDetails* a,  RentalBikeDetails* b)
+                    {
+                        return a->getStatus() < b->getStatus();
+                    });
 
-    for(auto i :  m_bikeList)
-    {
-        for(auto j :  m_bikeList)
-        {
-            if(i->getStatus() == "Available" && j->getStatus() != "Available")
-            {
-                iter_swap(i,j);
-            }
-            if(i->getStatus() == "Available" && j->getStatus() == "Booked")
-            {
-                iter_swap(i,j);
-            }
-        }
-    }
     auto end = high_resolution_clock::now();
-    auto duration = duration_cast<seconds>(end-start);
-    cout<<"duration sort by status : "<<duration.count()<<endl;
+    auto duration = duration_cast<milliseconds>(end - start);
+    cout << "Duration sort by status: " << duration.count() << " milliseconds" << endl;
+
+
+
 }
 
 void RentalVehicalManagement::sortCarByPrice()

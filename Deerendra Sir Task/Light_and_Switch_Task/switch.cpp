@@ -5,15 +5,14 @@ Switch::Switch()
     cout<<"Switch default Constructor Called"<<endl;
 }
 
-Switch::Switch(string colour, string brand, float price,Wire *wire1, Wire *wire2, Wire *wire3)
+Switch::Switch(string colour, string brand, float price, list<Wire*> wireList)
 {
     cout<<"Switch Parameterized Constructor Called"<<endl;
-    m_colour =colour;
+
+    m_colour = colour;
     m_brand = brand;
     m_price = price;
-    m_wire1= wire1;
-    m_wire2= wire2;
-    m_wire3= wire3;
+    m_wireList = wireList;
 }
 
 
@@ -23,11 +22,18 @@ Switch::~Switch()
 
 }
 
+
 void Switch::switchOn()
 {
-   // cout<<"Switch On -> "<<"colour : "<<m_colour<<"  "<<"Brand : "<<m_brand<<"  "<<"Price : "<<m_price<<endl;
+    // cout<<"Switch On -> "<<"colour : "<<m_colour<<"  "<<"Brand : "<<m_brand<<"  "<<"Price : "<<m_price<<endl;
+
     cout<<"Switch On"<<endl;
-    m_wire1->wireOn();
-    m_wire2->wireOn();
-    m_wire3->wireOn();
+    for(auto wire : m_wireList)
+    {
+        wire->wireOn();
+    }
 }
+
+
+
+

@@ -9,7 +9,6 @@ class Wire
 public:
     Wire();
     Wire(float thickness, float length, string colour, string brand, float price, Light *light);
-    Wire(Light *light);
     ~Wire();
 
     void wireOn();
