@@ -6,11 +6,11 @@
 class C :public B
 {
 private:
-    //void fun();
 public:
     C();
      ~C();
-     void cfun();
+    void fun();
+
 
 
 };

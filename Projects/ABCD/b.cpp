@@ -12,8 +12,7 @@ B::~B()
     cout<<"b des"<<endl;
 }
 
-void B::funb()
+void B::fun()
 {
-    this->fun();
     cout<<"func B"<<endl;
 }

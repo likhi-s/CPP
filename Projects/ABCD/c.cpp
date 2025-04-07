@@ -12,13 +12,9 @@ C::~C()
     cout<<"c des "<<endl;
 }
 
-void C::cfun()
-{
-    this->funb();
-    this->fun();
-}
 
-// void C::fun()
-// {
-//     cout<<"func C"<<endl;
-// }
+
+void C::fun()
+{
+    cout<<"func C"<<endl;
+}

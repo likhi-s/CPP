@@ -5,12 +5,10 @@
 
 class B :public A
 {
-private:
 public :
     B();
-    virtual ~B();
-    //void fun();
-    void funb();
+    ~B() ;
+    void fun() ;
 };
 
 #endif // B_H

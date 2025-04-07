@@ -5,8 +5,8 @@ class A
 {
 public:
     A();
-    ~A();
-    void fun();
+    virtual ~A();
+   virtual void fun();
 };
 
 #endif // A_H
