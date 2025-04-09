@@ -7,11 +7,12 @@ using namespace std;
 class MyButton : public QPushButton
 {
 protected:
-    void paintEvent(QPaintEvent *e) override;
+    // void paintEvent(QPaintEvent *e) override;
+    // bool event(QEvent *e) override;
+
 public:
     MyButton();
     ~MyButton();
-    bool event(QEvent *e) override;
 };
 
 #endif // MYBUTTON_H

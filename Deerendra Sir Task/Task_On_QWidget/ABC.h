@@ -10,7 +10,6 @@ class ABC : public QWidget
     Q_OBJECT
 
 public:
-
     ABC(QWidget *parent = nullptr);
     ~ABC();
     void paintEvent(QPaintEvent *event) override;

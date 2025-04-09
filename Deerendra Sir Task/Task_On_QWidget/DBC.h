@@ -14,6 +14,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 
 public:
+
     DBC(QWidget *parent = nullptr);
     ~DBC();
 

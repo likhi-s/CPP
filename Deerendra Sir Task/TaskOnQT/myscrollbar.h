@@ -7,11 +7,11 @@ using namespace std;
 class MyScrollBar : public QScrollBar
 {
 protected:
-    void paintEvent(QPaintEvent *e) override;
+    //void paintEvent(QPaintEvent *e) override;
 public:
     MyScrollBar();
     ~MyScrollBar();
-    bool event(QEvent *e) override;
+    //bool event(QEvent *e) override;
 
 
 };

@@ -7,12 +7,12 @@ using namespace std;
 class MySpinBox : public QSpinBox
 {
 protected:
-    void paintEvent(QPaintEvent *e) override;
+    //void paintEvent(QPaintEvent *e) override;
 
 public:
     MySpinBox();
     ~MySpinBox();
-    bool event(QEvent *e) override;
+    //bool event(QEvent *e) override;
 
 };
 

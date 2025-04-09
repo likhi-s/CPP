@@ -11,14 +11,14 @@ MySpinBox::~MySpinBox()
     cout<<"MySpinBox Destructor Called"<<endl;
 
 }
-void MySpinBox::paintEvent(QPaintEvent *e)
-{
-    cout<<" MySpinBox PaintEvent function Called"<<endl;
+// void MySpinBox::paintEvent(QPaintEvent *e)
+// {
+//     cout<<" MySpinBox PaintEvent function Called"<<endl;
 
-}
+// }
 
-bool MySpinBox::event(QEvent *e)
-{
-    cout<<" MySpinBox event function Called"<<endl;
-    return true;
-}
+// bool MySpinBox::event(QEvent *e)
+// {
+//     cout<<" MySpinBox event function Called"<<endl;
+//     return true;
+// }

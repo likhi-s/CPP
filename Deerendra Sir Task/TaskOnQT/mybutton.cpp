@@ -11,13 +11,15 @@ MyButton::~MyButton()
 
 }
 
-bool MyButton::event(QEvent *e)
-{
-    cout<<" MyButton event function Called"<<endl;
-    return true;
-}
+// bool MyButton::event(QEvent *e)
+// {
+//     cout<<" MyButton event function Called"<<endl;
+//   // QPushButton::event(e);
+//     return true;
+// }
 
-void MyButton::paintEvent(QPaintEvent *e)
-{
-    cout<<" MyButton PaintEvent function Called"<<endl;
-}
+// void MyButton::paintEvent(QPaintEvent *e)
+// {
+//     cout<<" MyButton PaintEvent function Called"<<endl;
+//     //QPushButton::paintEvent(e);
+// }

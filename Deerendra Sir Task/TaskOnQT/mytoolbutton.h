@@ -8,11 +8,11 @@ using namespace std;
 class MyToolButton : public QToolButton
 {
 protected:
-    void paintEvent(QPaintEvent *e) override;
+    //void paintEvent(QPaintEvent *e) override;
 public:
     MyToolButton();
     ~MyToolButton();
-    bool event(QEvent *e) override;
+    //bool event(QEvent *e) override;
 
 };
 

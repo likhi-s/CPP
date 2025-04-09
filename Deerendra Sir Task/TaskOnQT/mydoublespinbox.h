@@ -8,12 +8,12 @@ using namespace std;
 class MyDoubleSpinBox : public QDoubleSpinBox
 {
 protected:
-    void paintEvent(QPaintEvent *e) override;
+    //void paintEvent(QPaintEvent *e) override;
 
 public:
     MyDoubleSpinBox();
     ~MyDoubleSpinBox();
-    bool event(QEvent *e) override;
+   // bool event(QEvent *e) override;
 
 };
 

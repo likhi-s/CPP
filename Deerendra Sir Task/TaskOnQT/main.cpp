@@ -7,28 +7,27 @@
 #include "mydoublespinbox.h"
 #include "myspinbox.h"
 
-
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MyButton button;
-    button.show();
-    MyCheckBox checkbox;
-    checkbox.show();
-    MyRadioButton radioButton;
-    radioButton.show();
-    MyToolButton toolButton;
-    toolButton.show();
-    MySlider silder;
-    silder.show();
-    MyScrollBar scrollBar;
-    scrollBar.show();
-    MyDoubleSpinBox doubleSpinBox;
-    doubleSpinBox.show();
-    MySpinBox spinbox;
-    spinbox.show();
+    //button.show();
+    // MyCheckBox checkbox;
+    // checkbox.show();
+    // MyRadioButton radioButton;
+    // radioButton.show();
+    // MyToolButton toolButton;
+    // toolButton.show();
+    // MySlider silder;
+    // silder.show();
+    // MyScrollBar scrollBar;
+    // scrollBar.show();
+    // MyDoubleSpinBox doubleSpinBox;
+    // doubleSpinBox.show();
+    // MySpinBox spinbox;
+    // spinbox.show();
 
 
     return a.exec();

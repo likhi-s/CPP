@@ -11,6 +11,7 @@ ABC::~ABC()
 {
     cout<<"ABC Destructor Called"<<endl;
 
+
 }
 void ABC::paintEvent(QPaintEvent *event)
 {
