@@ -38,83 +38,15 @@ void Calendar::displayCalendar()
             }
         }
     }
+    this->displayCurrentDate();
 }
 
 void Calendar::displayCurrentDate()
 {
-
+    time_t now = time(0);
+    tm *ltm =localtime(&now);
+    cout<<endl<<endl<<"Current Date: "<<ltm->tm_mday<<"/0"<<(1+ltm->tm_mon)<<"/"<<(1900+ltm->tm_year)<<" "<<endl<<endl;
 
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// time_t now = time(0);
-// tm *ltm =localtime(&now);
-// int day = ltm->tm_mday;
-// int month = 1+ltm->tm_mon;
-// int year = 1900+ltm->tm_year;
-// cout<<day<<"/"<<month<<"/"<<year<<" "<<endl;

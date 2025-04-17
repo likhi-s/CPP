@@ -2,11 +2,12 @@
 #define BOOKINGMANAGER_H
 #include <iostream>
 #include "movietheater.h"
-#include <list>
 #include <vector>
-
 #include<map>
+#include "date.h"
 using namespace std;
+//using date = int ;
+//typedef int date;
 class BookingManager
 {
 public:
@@ -15,11 +16,14 @@ public:
 
     void addMovieTheater();
     void displayTheaterlist();
-    void displayAvailableTheaters(int date);
-    void bookTheater(int date, int &theaterNumber);
+    void displayAvailableTheaters(Date date);
+    void bookTheater(Date date, int &theaterNumber);
+
+
 private:
-    list<MovieTheater*>m_movietheater;
-    map<int, vector<int>>bookings;
+    vector<MovieTheater*>m_movietheaterList;
+    map<Date, vector<int>>m_bookingList;
+    map<vector<int>,MovieTheater>m_movietheaters;
 
 };
 

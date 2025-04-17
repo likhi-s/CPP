@@ -3,34 +3,49 @@
 #include "movietheater.h"
 #include "bookingmanager.h"
 using namespace std;
+enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
+
 
 int main()
 {
     cout << "Hello World!" << endl;
     Calendar c;
-    //c.displayCalendar();
+    c.displayCalendar();
     MovieTheater m;
     BookingManager b;
-    int date;
-    cout<<"enter date :";
-    cin>>date;
-    b.displayAvailableTheaters(date);
-    int number;
-    cout<<"enter Theater Number :";
-    cin>>number;
+    Date date;
+    while(true)
+    {
+        int choice;
+        cout<<endl<<"1.DisplayTheaterlist"<<endl<<"2.BookTheater"<<endl<<"3.Exit"<<endl;
+        cout<<endl<<"Enter Your Choice :";
+        cin>>choice;
+        switch(choice)
+        {
+        case DisplayTheaterlist:
+        {
+            b.displayTheaterlist();
+        }
+        break;
+        case BookTheater:
+        {
+            cout<<endl<<"Enter date :";
+            cin>>date;
+            cout<<"Selected Date: "<<date.getDay()<<"/"<<date.getMonth()<<"/"<<date.getYear()<<endl;
+            b.displayAvailableTheaters(date);
+            int number;
+            cout<<endl<<"Enter Theater Number :";
+            cin>>number;
+            b.bookTheater(date,number);
+            break;
+        }
+        case Exit:
+            return 0;
 
-    b.bookTheater(date,number);
+        }
+    }
 
 
-
-    cout<<"enter date :";
-    cin>>date;
-    b.displayAvailableTheaters(date);
-
-    cout<<"enter Theater Number :";
-    cin>>number;
-
-    b.bookTheater(date,number);
     return 0;
 }
 
