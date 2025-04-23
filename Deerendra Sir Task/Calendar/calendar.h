@@ -1,5 +1,7 @@
 #ifndef CALENDAR_H
 #define CALENDAR_H
+#include <vector>
+#include "year.h"
 #include <iostream>
 using namespace std;
 
@@ -9,14 +11,11 @@ class Calendar
 public:
     Calendar();
     ~Calendar();
-    void displayCalendar();
+    void displayCalendar(Month *month, Year *year);
     void displayCurrentDate();
-
-private:
-    int m_year = 2025;
-    string m_month = "APRIL";
-    string m_week[7]={"Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"};
-
+    int getStartDay(int month,int year);
+    void calendarNavigation();
+    int getCurrentDate();
 };
 
 #endif // CALENDAR_H

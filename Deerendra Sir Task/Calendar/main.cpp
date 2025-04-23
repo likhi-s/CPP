@@ -2,6 +2,8 @@
 #include "calendar.h"
 #include "movietheater.h"
 #include "bookingmanager.h"
+#include "calendar.h"
+#include <conio.h>
 using namespace std;
 enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
 
@@ -9,7 +11,7 @@ enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
 int main()
 {
     Calendar c;
-    c.displayCalendar();
+    c.calendarNavigation();
     MovieTheater movieTheater;
     BookingManager bookingManager;
     Date date;
@@ -23,14 +25,13 @@ int main()
         {
         case DisplayTheaterlist:
         {
-            bookingManager.displayTheaterlist();
+           bookingManager.displayTheaterlist();
         }
         break;
         case BookTheater:
         {
-            cout<<endl<<"Enter date :";
+            cout<<endl<<"Enter date"<<endl;
             cin>>date;
-            cout<<"Selected Date: "<<date.getDay()<<"/"<<date.getMonth()<<"/"<<date.getYear()<<endl;
             bookingManager.displayAvailableTheaters(date);
             int number;
             cout<<endl<<"Enter Theater Number :";

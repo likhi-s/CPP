@@ -7,11 +7,17 @@ SOURCES += \
         bookingmanager.cpp \
         calendar.cpp \
         date.cpp \
+        day.cpp \
         main.cpp \
-        movietheater.cpp
+        month.cpp \
+        movietheater.cpp \
+        year.cpp
 
 HEADERS += \
     bookingmanager.h \
     calendar.h \
     date.h \
-    movietheater.h
+    day.h \
+    month.h \
+    movietheater.h \
+    year.h

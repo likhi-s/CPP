@@ -1,4 +1,5 @@
 #include "bookingmanager.h"
+#include <algorithm>
 
 BookingManager::BookingManager()
 {
@@ -13,30 +14,23 @@ BookingManager::~BookingManager()
 
 void BookingManager::addMovieTheater()
 {
-
     for(int i =1;i<=10;i++)
     {
-        //m_movietheaterList.push_back(new MovieTheater (i,i+5,"Available"));
-       m_movietheaterList[i] = MovieTheater(i,i+5,"Available");
-        //m_movietheaterList.insert(i,MovieTheater(i,i+5,"Available") );
+        m_movietheaterList[i] = new MovieTheater(i,i+5,"Available");
 
     }
-
 
 }
 
 void BookingManager::displayTheaterlist()
 {
-    // for(auto theater: m_movietheaterList)
-    // {
-    //     if(theater->getStatus() == "Available")
-    //     {
-    //         cout<<"theater number : "<<theater->getNumber()<<" ,number of seats: "<<theater->getseats()<<",Status: "<<theater->getStatus()<<endl;
-    //     }
-    // }
-    for(auto i = m_movietheaterList; i != m_movietheaterList; ++i)
+    for(auto theater: m_movietheaterList)
     {
+        int id = theater.first;
+        int seats = theater.second->getseats();
+        string status = theater.second->getStatus();
 
+        cout<<"theater number : "<<id<<" ,number of seats: "<<seats<<",Status: "<<status<<endl;
     }
 
 }
@@ -46,25 +40,19 @@ void BookingManager::displayAvailableTheaters(Date date)
 {
     cout <<endl<<"Available theaters on " << date << endl;
     vector<theaterId> theaterBooked = m_bookingList[date];
-    int found =0;
+
 
     for (auto theater : m_movietheaterList)
     {
-        found = 0;
-        for (auto booked : theaterBooked)
-        {
-            if (booked == theater->getNumber())
-            {
-                found = 1;
-                break;
-            }
-        }
-        if (found ==0)
-        {
-            cout << " Theater  " << theater->getNumber() <<" is available"<< endl;
+        int id = theater.first;
 
+        if(find(theaterBooked.begin(),theaterBooked.end(),id) == theaterBooked.end())
+        {
+            cout << " Theater  " << id <<" is available"<< endl;
         }
+
     }
+
 }
 
 
@@ -83,7 +71,7 @@ void BookingManager::bookTheater(Date date, int &theaterNumber)
     }
 
     theaterBooked.push_back(theaterNumber);
-    cout << "Booked Theater: " << theaterNumber << " on April " << date << " successfully"<<endl;
+    cout << "Booked Theater: " << theaterNumber << " on  " << date << " successfully"<<endl;
 
 }
 

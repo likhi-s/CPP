@@ -7,6 +7,8 @@ MovieTheater::MovieTheater()
 
 MovieTheater::MovieTheater(int theaterNumber, int seats, string status)
 {
+    cout<<"Movie Theater Parameterized Constructor Called"<<endl;
+
     m_theaterNumber = theaterNumber;
     m_seats = seats;
     m_status = status;

@@ -20,9 +20,8 @@ public:
     void bookTheater(Date date, int &theaterNumber);
 
 private:
-    //vector<MovieTheater*>m_movietheaterList;
     map<Date, vector<theaterId>>m_bookingList;
-    map<theaterId,MovieTheater>m_movietheaterList;
+    map<theaterId,MovieTheater*>m_movietheaterList;
 
 };
 
