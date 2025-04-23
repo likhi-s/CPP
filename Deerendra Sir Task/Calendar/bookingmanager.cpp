@@ -16,28 +16,36 @@ void BookingManager::addMovieTheater()
 
     for(int i =1;i<=10;i++)
     {
-        m_movietheaterList.push_back(new MovieTheater (i,i+5,"Available"));
+        //m_movietheaterList.push_back(new MovieTheater (i,i+5,"Available"));
+       m_movietheaterList[i] = MovieTheater(i,i+5,"Available");
+        //m_movietheaterList.insert(i,MovieTheater(i,i+5,"Available") );
+
     }
+
 
 }
 
 void BookingManager::displayTheaterlist()
 {
-    for(auto theater:m_movietheaterList)
+    // for(auto theater: m_movietheaterList)
+    // {
+    //     if(theater->getStatus() == "Available")
+    //     {
+    //         cout<<"theater number : "<<theater->getNumber()<<" ,number of seats: "<<theater->getseats()<<",Status: "<<theater->getStatus()<<endl;
+    //     }
+    // }
+    for(auto i = m_movietheaterList; i != m_movietheaterList; ++i)
     {
-        if(theater->getStatus() == "Available")
-        {
-            cout<<"theater number : "<<theater->getNumber()<<" ,number of seats: "<<theater->getseats()<<",Status: "<<theater->getStatus()<<endl;
 
-        }
     }
+
 }
 
 
 void BookingManager::displayAvailableTheaters(Date date)
 {
-    cout <<endl<<"Available theaters on April " << date << endl;
-    vector<int> theaterBooked = m_bookingList[date];
+    cout <<endl<<"Available theaters on " << date << endl;
+    vector<theaterId> theaterBooked = m_bookingList[date];
     int found =0;
 
     for (auto theater : m_movietheaterList)
@@ -63,7 +71,7 @@ void BookingManager::displayAvailableTheaters(Date date)
 
 void BookingManager::bookTheater(Date date, int &theaterNumber)
 {
-    vector<int>& theaterBooked = m_bookingList[date];
+    vector<theaterId>& theaterBooked = m_bookingList[date];
 
     for (auto booked : theaterBooked)
     {
@@ -76,7 +84,6 @@ void BookingManager::bookTheater(Date date, int &theaterNumber)
 
     theaterBooked.push_back(theaterNumber);
     cout << "Booked Theater: " << theaterNumber << " on April " << date << " successfully"<<endl;
-
 
 }
 

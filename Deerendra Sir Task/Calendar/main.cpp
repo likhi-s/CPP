@@ -8,11 +8,10 @@ enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
 
 int main()
 {
-    cout << "Hello World!" << endl;
     Calendar c;
     c.displayCalendar();
-    MovieTheater m;
-    BookingManager b;
+    MovieTheater movieTheater;
+    BookingManager bookingManager;
     Date date;
     while(true)
     {
@@ -24,7 +23,7 @@ int main()
         {
         case DisplayTheaterlist:
         {
-            b.displayTheaterlist();
+            bookingManager.displayTheaterlist();
         }
         break;
         case BookTheater:
@@ -32,11 +31,11 @@ int main()
             cout<<endl<<"Enter date :";
             cin>>date;
             cout<<"Selected Date: "<<date.getDay()<<"/"<<date.getMonth()<<"/"<<date.getYear()<<endl;
-            b.displayAvailableTheaters(date);
+            bookingManager.displayAvailableTheaters(date);
             int number;
             cout<<endl<<"Enter Theater Number :";
             cin>>number;
-            b.bookTheater(date,number);
+            bookingManager.bookTheater(date,number);
             break;
         }
         case Exit:

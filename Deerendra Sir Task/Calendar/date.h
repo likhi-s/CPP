@@ -21,13 +21,13 @@ public:
         in >> date.m_year;
         return in;
     }
-    friend ostream& operator<<(ostream& os,  Date& d)
+    friend ostream& operator<<(ostream& out,  Date& date)
     {
-        os << d.m_day << "/" << d.m_month << "/" << d.m_year;
-        return os;
+        out << date.m_day << "-" << date.m_month << "-" << date.m_year;
+        return out;
     }
 
-    bool operator<( const Date& date) const
+    bool operator<(const Date& date) const
     {
         if (m_year != date.m_year)
         {

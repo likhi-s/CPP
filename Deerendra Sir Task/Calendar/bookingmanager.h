@@ -3,11 +3,11 @@
 #include <iostream>
 #include "movietheater.h"
 #include <vector>
-#include<map>
+#include <map>
+#include <iterator>
 #include "date.h"
 using namespace std;
-//using date = int ;
-//typedef int date;
+using theaterId = int ;
 class BookingManager
 {
 public:
@@ -19,11 +19,10 @@ public:
     void displayAvailableTheaters(Date date);
     void bookTheater(Date date, int &theaterNumber);
 
-
 private:
-    vector<MovieTheater*>m_movietheaterList;
-    map<Date, vector<int>>m_bookingList;
-    map<vector<int>,MovieTheater>m_movietheaters;
+    //vector<MovieTheater*>m_movietheaterList;
+    map<Date, vector<theaterId>>m_bookingList;
+    map<theaterId,MovieTheater>m_movietheaterList;
 
 };
 
