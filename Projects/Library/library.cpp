@@ -2,26 +2,46 @@
 
 Library::Library()
 {
+    cout<<"Library Constructor Called"<<endl;
     m_librarian = new Librarian;
     this->addBook();
 }
 
 Library::~Library()
 {
+    cout<<"Library Destructor Called"<<endl;
 
 }
 
 void Library::addBook()
 {
-    for(int i =0;i<5;i++)
+
+    m_bookList.push_back(new Book ("c","Author1","Available",1));
+    m_bookList.push_back(new Book ("c++","Author2","Available",2));
+    m_bookList.push_back(new Book ("python","Author3","Available",3));
+    m_bookList.push_back(new Book ("java","Author4","Available",4));
+    this->displayBook();
+
+}
+void Library::displayBook()
+{
+    for(auto book:m_bookList)
     {
-        m_bookList.push_back(new Book ("c","Author","Available",1));
+        cout<<book->getBookName()<<" "<<book->getBookNumber()<<" "<<book->getAuthorName()<<endl;
     }
 }
 
-void Library :: bookBorrowingProcess()
+
+
+void Library :: bookBorrowingProcess(Student *student)
 {
-   string m_bookName = m_student->requestBook();
-    cout<<"Student Requested for Book "<<m_bookName<<endl;
-    m_librarian->searchAndIssueBook(m_studentList,m_bookList);
+
+    string m_bookName = student->requestBook();
+    m_librarian->searchAndIssueBook(student,m_bookName,m_bookList);
+}
+
+void Library::bookreturningProcess(Student *student)
+{
+    Book *book = student->returnBook();
+    m_librarian->collectBook(student,book,m_bookList);
 }

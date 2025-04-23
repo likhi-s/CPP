@@ -1,6 +1,9 @@
 #include "book.h"
 
-Book::Book() {}
+Book::Book()
+{
+    cout<<"Book Constructor Called"<<endl;
+}
 
 Book::Book(string name, string author, string status,int number)
 {

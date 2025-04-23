@@ -14,10 +14,13 @@ private:
 
 public:
     Student();
-    Student(string studentName,string department,Book *book );
+    Student(string studentName, string department);
     string getStudentName();
     string getDepartment();
+    void setBook(Book *book);
     string requestBook();
+    Book *getBook() ;
+    Book *returnBook();
 };
 
 #endif // STUDENT_H

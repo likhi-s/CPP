@@ -11,7 +11,6 @@ class Library
 {
 private:
     Librarian *m_librarian;
-    Student *m_student;
     list<Book*>m_bookList;
     list<Student*>m_studentList;
 
@@ -19,7 +18,9 @@ public:
     Library();
     ~Library();
     void addBook();
-    void bookBorrowingProcess();
+    void bookBorrowingProcess(Student *student);
+    void bookreturningProcess(Student *student);
+    void displayBook();
 };
 
 #endif // LIBRARY_H

@@ -1,57 +1,73 @@
 #include "librarian.h"
+#include "library.h"
 
 
 
 Librarian::Librarian()
 {
-
+    cout<<"Librarian Constructor Called"<<endl;
 }
 
 
 
 Librarian::~Librarian()
 {
+    cout<<"Librarian Destructor Called"<<endl;
 
 }
 
-
-
-
-
-void Librarian::searchAndIssueBook(list<Student*>&studentList,list<Book*>&bookList)
+void Librarian::searchAndIssueBook(Student *student, string bookname, list<Book *> bookList)
 {
-
-    list<Book*>booklist;
-    booklist = bookList;
     int bookFound = 0;
-    int bookNumber;
+    cout<<student->getStudentName()<<" is Requesting for "<<bookname<<" book"<<endl;
 
-    cout<<"Enter Book Number to search:"<<endl;
-    cin>>bookNumber;
+    // for(auto book = bookList.begin(); book != bookList.end();book++)
+    // {
+    //     if(bookname == (*book)->getBookName() && (*book)->getBookStatus() == "Available")
+    //     {
+    //         bookFound =1;
+    //         cout<<"Entered Book is Available"<<endl;
+    //         cout<<"Issuing Book "<<(*book)->getBookName()<<" to "<<student->getStudentName()<<endl;
+    //         student->setBook(*book);
+    //         bookList.erase(book);
+    //         //*book = nullptr;
 
+    //         break;
+    //     }
+    // }
     for(auto book : bookList)
     {
-        if(book->getBookNumber() == bookNumber && book->getBookStatus() == "Available")
+
+        if( bookname ==  book->getBookName() && book->getBookStatus() == "Available")
         {
             bookFound =1;
-            cout<<"Entered Book Available"<<endl;
-            string name,department;
-            cout<<"Enter Student Name "<<endl;
-            cin>>name;
-            cout<<"Enter Student Department"<<endl;
-            cin>>department;
-            studentList.push_back(new Student (name,department,book));
-            cout<<"Issuing Book "<<book->getBookName()<<" to "<<name<<endl;
-            book->setBookStatus("Not Available");
+            cout<<"Entered Book is Available"<<endl;
+            cout<<"Issuing Book "<<book->getBookName()<<" to "<<student->getStudentName()<<endl;
+            student->setBook(book);
+            book = nullptr;
+
             break;
         }
-
     }
+
     if(bookFound == 0)
     {
         cout<<"Entered Book Not Found"<<endl;
     }
+}
+
+void Librarian::collectBook(Student *student, Book *book, list<Book *> bookList)
+{
+    cout<<"Before Returning "<<bookList.size()<<endl;
+    cout<<student->getStudentName()<<" is Returning "<<book->getBookName()<<" book"<<endl;
+    bookList.push_back(book);
+    cout<<"After Returning "<<bookList.size()<<endl;
+    for(auto a:bookList)
+    {
+        cout<<a->getBookName()<<endl;
+    }
 
 }
+
 
 

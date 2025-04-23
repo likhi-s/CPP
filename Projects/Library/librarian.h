@@ -2,7 +2,7 @@
 #define LIBRARIAN_H
 #include <iostream>
 using namespace std;
-#include <list>
+#include <vector>
 #include "book.h"
 #include "student.h"
 class Librarian
@@ -11,9 +11,8 @@ class Librarian
 public:
     Librarian();
     ~Librarian();
-
-
-    void searchAndIssueBook(list<Student *> &studentList, list<Book *> &bookList);
+    void searchAndIssueBook(Student *student, string bookname , list<Book*> bookList);
+    void collectBook(Student *student, Book *book, list<Book*> bookList);
 };
 
 #endif // LIBRARIAN_H
