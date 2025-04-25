@@ -7,16 +7,18 @@
 using namespace std;
 enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
 
+//Qwidget,QpushButton,SetGeometry,grayout(booked theaters)
 
 int main()
 {
     Calendar c;
-    c.calendarNavigation();
-    MovieTheater movieTheater;
     BookingManager bookingManager;
+    c.calendarNavigation(bookingManager);
+
     Date date;
     while(true)
     {
+
         int choice;
         cout<<endl<<"1.DisplayTheaterlist"<<endl<<"2.BookTheater"<<endl<<"3.Exit"<<endl;
         cout<<endl<<"Enter Your Choice :";
@@ -25,18 +27,27 @@ int main()
         {
         case DisplayTheaterlist:
         {
-           bookingManager.displayTheaterlist();
+            bookingManager.displayTheaterlist();
         }
         break;
         case BookTheater:
         {
-            cout<<endl<<"Enter date"<<endl;
             cin>>date;
             bookingManager.displayAvailableTheaters(date);
-            int number;
-            cout<<endl<<"Enter Theater Number :";
-            cin>>number;
-            bookingManager.bookTheater(date,number);
+            int availableCount =bookingManager.getAvailableTheatersCount(date);
+            if(availableCount !=0)
+            {
+                int number;
+                cout<<endl<<"Enter Theater Number :";
+                cin>>number;
+                bookingManager.bookTheater(date,number);
+            }
+            else
+            {
+                cout <<endl<<"No Theaters Available  on " << date << endl;
+            }
+
+            c.calendarNavigation(bookingManager);
             break;
         }
         case Exit:

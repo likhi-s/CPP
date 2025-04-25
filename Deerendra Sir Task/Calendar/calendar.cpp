@@ -1,52 +1,70 @@
 #include "calendar.h"
 #include <iomanip>
 #include <conio.h>
+#define LeftArrow 75
+#define RightArrow 77
+#define Enter 13
 
 Calendar::Calendar()
 {
     cout<<"Calendar Constructor Called"<<endl;
-
 }
 
 Calendar::~Calendar()
 {
     cout<<"Calendar Destructor Called"<<endl;
-
-
 }
 
-void Calendar::displayCalendar(Month *month, Year *year)
+
+void Calendar::displayCalendar(Month *month, Year *year, BookingManager& bookingManager)
 {
     system("cls");
     int startDay = getStartDay(month->getMonth(), year->getYear());
     int totalDays = month->getDaysInMonth(year->getYear());
     cout<<endl<<setw(30)<< "  " << month->getMonthName() << " " << year->getYear() << endl<<endl;
 
-    cout <<setw(10)<< "Sunday"<<setw(10)<< "Monday" <<setw(10)<<"Tuesday"<<setw(10)<< "Wednesday" <<setw(10)<<"Thursday" <<setw(10)<<"Friday" <<setw(10)<<"Saturday" <<setw(10)<< endl<<endl;
+    cout <<setw(15)<< "Sunday"<<setw(15)<< "Monday" <<setw(15)<<"Tuesday"<<setw(15)<< "Wednesday" <<setw(15)<<"Thursday" <<setw(15)<<"Friday" <<setw(15)<<"Saturday" <<setw(15)<< endl<<endl;
 
     for (int i = 0; i < startDay; ++i)
     {
-        cout <<setw(10)<< "    ";
+        cout << setw(15) << "          ";
     }
 
     for (int d = 1; d <= totalDays; ++d)
     {
-        cout << setw(10) << d ;
+        Date date(d, month->getMonth(), year->getYear());
+        int available = bookingManager.getAvailableTheatersCount(date);
+        int booked = bookingManager.getBookedCount(date);
+
+        if(available == 0)
+        {
+            cout << setw(15) << "          ";
+            continue;
+        }
+        if (booked > 0)
+        {
+            cout << setw(14) << d << "/" << booked;
+        }
+        else
+        {
+            cout<<setw(15)<<d;
+        }
         if ((d + startDay) % 7 == 0)
         {
             cout << endl;
         }
     }
+    cout << endl;
 }
+
 
 void Calendar::displayCurrentDate()
 {
     time_t now = time(0);
     tm *ltm =localtime(&now);
-    string months[] = {"January", "February", "March", "April", "May", "June ","July", "August", "September", "October", "November", "December"};
+    string months[] = {" ","January", "February", "March", "April", "May", "June ","July", "August", "September", "October", "November", "December"};
 
     cout<<endl<<endl<<"Current Date: "<<ltm->tm_mday<<" "<<months[1+ltm->tm_mon]<<" "<<(1900+ltm->tm_year)<<" "<<endl<<endl;
-
 }
 
 int Calendar::getStartDay(int month, int year)
@@ -64,7 +82,7 @@ int Calendar::getStartDay(int month, int year)
 }
 
 
-void Calendar::calendarNavigation()
+void Calendar::calendarNavigation(BookingManager& bookingManager)
 {
     time_t now = time(0);
     tm *ltm =localtime(&now);
@@ -74,16 +92,16 @@ void Calendar::calendarNavigation()
     {
         Month m(month);
         Year y(year);
-        this->displayCalendar(&m, &y);
+        this->displayCalendar(&m, &y, bookingManager);
         this->displayCurrentDate();
-        cout <<endl<<endl<< "Press < for previous month, > for next month, esc to exit." <<endl<< endl;
+        cout <<endl<<endl<< "Press < for previous month, > for next month, Enter for Booking Menu." <<endl<< endl;
 
         char ch = _getch();
-        if (ch == 27)
+        if (ch == Enter)
         {
-            break;
+            return;
         }
-        else if (ch == 75)
+        else if (ch == LeftArrow)
         {
             month--;
             if (month < 1)
@@ -92,7 +110,7 @@ void Calendar::calendarNavigation()
                 year--;
             }
         }
-        else if (ch == 77)
+        else if (ch == RightArrow)
         {
             month++;
             if (month > 12)
@@ -103,5 +121,6 @@ void Calendar::calendarNavigation()
         }
     }
 }
+
 
 

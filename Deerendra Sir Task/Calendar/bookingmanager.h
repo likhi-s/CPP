@@ -16,6 +16,9 @@ public:
 
     void addMovieTheater();
     void displayTheaterlist();
+    int getBookedCount( Date& date);
+
+    int getAvailableTheatersCount( Date &date);
     void displayAvailableTheaters(Date date);
     void bookTheater(Date date, int &theaterNumber);
 

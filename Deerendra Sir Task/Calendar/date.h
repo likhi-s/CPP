@@ -1,8 +1,8 @@
 #ifndef DATE_H
 #define DATE_H
 #include <iostream>
-#include <istream>
-#include <ostream>
+#include <sstream>
+
 
 using namespace std;
 class Date

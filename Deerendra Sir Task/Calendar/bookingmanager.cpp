@@ -12,14 +12,13 @@ BookingManager::~BookingManager()
     cout<<endl<<"Booking Manager Destructor called"<<endl;
 }
 
+
 void BookingManager::addMovieTheater()
 {
-    for(int i =1;i<=10;i++)
+    for(int i =1;i<=5;i++)
     {
         m_movietheaterList[i] = new MovieTheater(i,i+5,"Available");
-
-    }
-
+    }    
 }
 
 void BookingManager::displayTheaterlist()
@@ -31,31 +30,43 @@ void BookingManager::displayTheaterlist()
         string status = theater.second->getStatus();
 
         cout<<"theater number : "<<id<<" ,number of seats: "<<seats<<",Status: "<<status<<endl;
-    }
-
+    }    
 }
 
+int BookingManager::getBookedCount( Date& date)
+{
+    return m_bookingList[date].size();
+}
+
+int BookingManager::getAvailableTheatersCount(Date &date)
+{
+    vector<theaterId> booked = m_bookingList[date];
+    return m_movietheaterList.size() - booked.size();
+}
 
 void BookingManager::displayAvailableTheaters(Date date)
 {
-    cout <<endl<<"Available theaters on " << date << endl;
-    vector<theaterId> theaterBooked = m_bookingList[date];
-
-
-    for (auto theater : m_movietheaterList)
+    int availableCount =this->getAvailableTheatersCount(date);
+    if(availableCount ==0)
     {
-        int id = theater.first;
-
-        if(find(theaterBooked.begin(),theaterBooked.end(),id) == theaterBooked.end())
-        {
-            cout << " Theater  " << id <<" is available"<< endl;
-        }
+        cout <<endl<<"No Theaters Available  on " << date << endl;
 
     }
+    else
+    {    cout <<endl<<"Available theaters on " << date << endl;
+        vector<theaterId> theaterBooked = m_bookingList[date];
 
+        for (auto theater : m_movietheaterList)
+        {
+            int id = theater.first;
+
+            if(find(theaterBooked.begin(),theaterBooked.end(),id) == theaterBooked.end())
+            {
+                cout << " Theater  " << id <<" is available"<< endl;
+            }
+        }
+    }
 }
-
-
 
 void BookingManager::bookTheater(Date date, int &theaterNumber)
 {
@@ -71,7 +82,6 @@ void BookingManager::bookTheater(Date date, int &theaterNumber)
     }
 
     theaterBooked.push_back(theaterNumber);
-    cout << "Booked Theater: " << theaterNumber << " on  " << date << " successfully"<<endl;
-
+    cout << "Booked Theater: " << theaterNumber << " on  " << date << " successfully"<<endl;    
 }
 
