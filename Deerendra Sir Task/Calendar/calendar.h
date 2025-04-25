@@ -12,11 +12,14 @@ class Calendar
 public:
     Calendar();
     ~Calendar();
-    void displayCalendar(Month *month, Year *year, BookingManager& bookingManager);
+    void displayCalendar(Month *month, Year *year);
     void displayCurrentDate();
     int getStartDay(int month,int year);
     int getCurrentDate();
-    void calendarNavigation(BookingManager& bookingManager);
+    void calendarNavigation();
+    void setBookingManager(BookingManager *bookingManager);
+private:
+    BookingManager *m_bookingManager;
 };
 
 #endif // CALENDAR_H

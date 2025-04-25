@@ -15,7 +15,7 @@ BookingManager::~BookingManager()
 
 void BookingManager::addMovieTheater()
 {
-    for(int i =1;i<=5;i++)
+    for(int i =1;i<=2;i++)
     {
         m_movietheaterList[i] = new MovieTheater(i,i+5,"Available");
     }    

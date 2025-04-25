@@ -16,7 +16,7 @@ Calendar::~Calendar()
 }
 
 
-void Calendar::displayCalendar(Month *month, Year *year, BookingManager& bookingManager)
+void Calendar::displayCalendar(Month *month, Year *year)
 {
     system("cls");
     int startDay = getStartDay(month->getMonth(), year->getYear());
@@ -33,12 +33,16 @@ void Calendar::displayCalendar(Month *month, Year *year, BookingManager& booking
     for (int d = 1; d <= totalDays; ++d)
     {
         Date date(d, month->getMonth(), year->getYear());
-        int available = bookingManager.getAvailableTheatersCount(date);
-        int booked = bookingManager.getBookedCount(date);
+        int available = m_bookingManager->getAvailableTheatersCount(date);
+        int booked = m_bookingManager->getBookedCount(date);
 
         if(available == 0)
         {
             cout << setw(15) << "          ";
+            if ((d + startDay) % 7 == 0)
+            {
+                cout << endl;
+            }
             continue;
         }
         if (booked > 0)
@@ -82,7 +86,7 @@ int Calendar::getStartDay(int month, int year)
 }
 
 
-void Calendar::calendarNavigation(BookingManager& bookingManager)
+void Calendar::calendarNavigation()
 {
     time_t now = time(0);
     tm *ltm =localtime(&now);
@@ -92,7 +96,7 @@ void Calendar::calendarNavigation(BookingManager& bookingManager)
     {
         Month m(month);
         Year y(year);
-        this->displayCalendar(&m, &y, bookingManager);
+        this->displayCalendar(&m, &y);
         this->displayCurrentDate();
         cout <<endl<<endl<< "Press < for previous month, > for next month, Enter for Booking Menu." <<endl<< endl;
 
@@ -120,6 +124,11 @@ void Calendar::calendarNavigation(BookingManager& bookingManager)
             }
         }
     }
+}
+
+void Calendar::setBookingManager(BookingManager *bookingManager)
+{
+    m_bookingManager = bookingManager;
 }
 
 

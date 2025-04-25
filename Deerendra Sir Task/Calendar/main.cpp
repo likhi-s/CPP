@@ -11,9 +11,10 @@ enum choice{DisplayTheaterlist = 1,BookTheater,Exit};
 
 int main()
 {
-    Calendar c;
+    Calendar calendar;
     BookingManager bookingManager;
-    c.calendarNavigation(bookingManager);
+    calendar.setBookingManager(&bookingManager);
+    calendar.calendarNavigation();
 
     Date date;
     while(true)
@@ -47,7 +48,7 @@ int main()
                 cout <<endl<<"No Theaters Available  on " << date << endl;
             }
 
-            c.calendarNavigation(bookingManager);
+            calendar.calendarNavigation();
             break;
         }
         case Exit:
