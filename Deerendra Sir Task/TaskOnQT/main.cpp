@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MyButton button;
-    //button.show();
+    button.show();
     // MyCheckBox checkbox;
     // checkbox.show();
     // MyRadioButton radioButton;
